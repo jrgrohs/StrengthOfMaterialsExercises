@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: docs
 
+filters:
+  - shinylive
+
 book:
   title: "Strength of Materials Problem Exercises"
   author: "Curated by James Lord, Jake Grohs, ..."
@@ -13,6 +16,7 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - testing.qmd
     - summary.qmd
     - references.qmd
 
