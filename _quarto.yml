@@ -3,9 +3,13 @@ project:
   output-dir: docs
 
 book:
-  title: "Mybook"
-  author: "Norah Jones"
+  title: "Strength of Materials Problem Exercises"
+  author: "Curated by James Lord, Jake Grohs, ..."
   date: "1/5/2024"
+  page-navigation: true
+  search: true
+  sidebar:
+    style: docked
   chapters:
     - index.qmd
     - intro.qmd
@@ -16,9 +20,17 @@ bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: 
+      - flatly
+      - include/light.scss
+      dark: 
+      - darkly
+      - include/dark.scss
   pdf:
     documentclass: scrreprt
+  epub: 
+    cover-image: cover.png
 
 
 
