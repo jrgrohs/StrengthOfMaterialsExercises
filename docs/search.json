@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Strength of Materials Problem Exercises",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+    "text": "Welcome to Demo Site\nWelcome to this demonstration site of the Strength of Materials Open Problem Exercises companion to the Strength of Materials Open Textbook.\nAt this time, we are simply using this site as a demonstration and shell for our ongoing work. The intent is to demonstrate a more traditional static style problem exercise pack along with dynamic versions which allow students to quickly check answers and receive basic feedback, and/or to input their math in an interactive interface which will provide them with targeted feedback based on their atempted solution.\nThis work is still very much in progress and you may find bugs. We would welcome any input or feedback you have about this. Thanks!"
   },
   {
     "objectID": "intro.html",
@@ -33,5 +33,33 @@
     "title": "References",
     "section": "",
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "problem1static.html",
+    "href": "problem1static.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "problem1static.html#problem-statement",
+    "href": "problem1static.html#problem-statement",
+    "title": "Static Problem Statement",
+    "section": "Problem Statement",
+    "text": "Problem Statement\nA city planner is installing a new traffic light. Light A weighs 65 lb, while lights B and C weigh 50 lb each. The post at O has a hollow circular cross-section with an outer diameter of 5 inches and a wall thickness of 0.2 inches. Please calculate the magnitude of the maximum combined stress in the post. You may ignore the weight of the post.\n\n\n\nFigure 1: Three traffic light installation with loads"
+  },
+  {
+    "objectID": "problem1dynamicsubmit.html#problem-image",
+    "href": "problem1dynamicsubmit.html#problem-image",
+    "title": "Dynamic Problem Statement",
+    "section": "Problem Image",
+    "text": "Problem Image\n\n\n\nFigure 1: Three traffic light installation with loads"
+  },
+  {
+    "objectID": "problem1dynamicsubmit.html#problem-statement",
+    "href": "problem1dynamicsubmit.html#problem-statement",
+    "title": "Dynamic Problem Statement",
+    "section": "Problem Statement",
+    "text": "Problem Statement\nA city planner is installing a new traffic light. Light A weighs 65 lb, while lights B and C weigh 50 lb each. The post at O has a hollow circular cross-section with an outer diameter of 5 inches and a wall thickness of 0.2 inches. Please calculate the magnitude of the maximum combined stress in the post. You may ignore the weight of the post.\n#| standalone: true\n#| viewerHeight: 600\n#| components: [viewer]\n\nfrom shiny import App, render, ui, reactive\nimport random\nimport asyncio\nimport io\nfrom datetime import date\nfrom pathlib import Path\n\napp_ui = ui.page_fluid(\n    ui.input_slider(\"n\", \"N\", 0, 100, 20),\n    ui.input_text(\"name\",\"User Name\", value=\"test\"),\n    ui.output_text_verbatim(\"txt\"),\n    ui.output_text_verbatim(\"txt2\"),\n    ui.input_action_button(\"btn\", \"Set Seed\"),\n    ui.download_button(\"download3\", \"Download CSV\"),\n)\n\n\ndef server(input, output, session):\n    @output\n    @render.text\n    def txt():\n        return input.name()\n\n    @output\n    @render.text\n    @reactive.event(input.btn)\n    def txt2():\n        random.seed(hash(input.name()))\n        bleh=random.random()\n        return random.random()\n\n    @session.download(\n        filename=lambda: f\"data-{input.name()}.csv\"\n    )\n    async def download3():\n        # This version uses a function to generate the filename. It also yields data\n        # multiple times.\n        await asyncio.sleep(0.25)\n        yield \"one,two,three\\n\"\n        yield \"新,1,2\\n\"\n        yield \"型,4,5\\n\"\n        yield f\"{input.name()},{random.random()}\"\n        \n\napp = App(app_ui, server)"
   }
 ]

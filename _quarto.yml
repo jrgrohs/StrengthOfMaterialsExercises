@@ -5,6 +5,10 @@ project:
 filters:
   - shinylive
 
+toc: true
+
+number-depth: 2
+
 book:
   title: "Strength of Materials Problem Exercises"
   author: "Curated by James Lord, Jake Grohs, ..."
@@ -13,10 +17,15 @@ book:
   search: true
   sidebar:
     style: docked
+    collapse-level: 0
+  
   chapters:
     - index.qmd
-    - intro.qmd
-    - testing.qmd
+    - part: "Problem 1"
+      chapters:
+        - problem1static.qmd
+        - problem1dynamicsubmit.qmd
+        - testing.qmd
     - summary.qmd
     - references.qmd
 
@@ -24,6 +33,7 @@ bibliography: references.bib
 
 format:
   html:
+    fontsize: "10pt"
     theme: 
       light: 
       - flatly

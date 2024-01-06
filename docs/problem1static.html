@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Strength of Materials Problem Exercises - 2&nbsp; Shinylive in Quarto example</title>
+<title>Strength of Materials Problem Exercises - Static Problem Statement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
-<link href="./intro.html" rel="prev">
+<link href="./problem1dynamicsubmit.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -43,11 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<meta name="shinylive:serviceworker_dir" content=".">
-<script src="site_libs/quarto-contrib/shinylive-0.2.4/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="site_libs/quarto-contrib/shinylive-0.2.4/shinylive/run-python-blocks.js" type="module"></script>
-<link href="site_libs/quarto-contrib/shinylive-0.2.4/shinylive/shinylive.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -81,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Problem 1</a></li><li class="breadcrumb-item"><a href="./testing.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shinylive in Quarto example</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./problem1static.html">Problem 1</a></li><li class="breadcrumb-item"><a href="./problem1static.html">Static Problem Statement</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -126,14 +121,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  <a href="./problem1static.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Static Problem Statement</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./testing.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shinylive in Quarto example</span></span></a>
+  <a href="./problem1dynamicsubmit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Static Problem Statement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Shinylive in Quarto example</span></span></a>
   </div>
 </li>
       </ul>
@@ -141,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -156,14 +157,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#problem-statement" id="toc-problem-statement" class="nav-link active" data-scroll-target="#problem-statement">Problem Statement</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Shinylive in Quarto example</span></h1>
+<h1 class="title">Static Problem Statement</h1>
 </div>
 
 
@@ -178,26 +185,19 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This is a Shinylive application embedded in a Quarto doc.</p>
-<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
-
-from shiny import *
-
-app_ui = ui.page_fluid(
-    ui.input_slider("n", "N", 0, 100, 40),
-    ui.output_text_verbatim("txt"),
-)
-
-def server(input, output, session):
-    @output
-    @render.text
-    def txt():
-        return f"The value of n*2 is {input.n() * 2}"
-
-app = App(app_ui, server)
-</code></pre>
+<p>This is a static rendering of the problem with fixed variables that correspond to the variables used in the problem solution provided.</p>
+<section id="problem-statement" class="level2">
+<h2 class="anchored" data-anchor-id="problem-statement">Problem Statement</h2>
+<p>A city planner is installing a new traffic light. Light A weighs 65 lb, while lights B and C weigh 50 lb each. The post at O has a hollow circular cross-section with an outer diameter of 5 inches and a wall thickness of 0.2 inches. Please calculate the magnitude of the maximum combined stress in the post. You may ignore the weight of the post.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/stoplights.png" class="img-fluid figure-img" alt="Picture with three distinct traffic lights oriented along the same horizontal beam. Moving from left to right of the image, the first light A is at the end of the beam, the second light B is 4 ft from A, the third light C is 4 ft from light B, and light C is 7 ft from where the horizontal beam meets the vertical post (called post O). The free body diagram includes a downforce force acting on light A with a value of 65 pounds, a downward force acting on light B with a value of 50 points, a downward force acting on light C with a value of 50 pounds, and a reaction Moment M and Force N at the post at O."></p>
+<figcaption class="figure-caption">Figure 1: Three traffic light installation with loads</figcaption>
+</figure>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -550,13 +550,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome to Demo Site</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./problem1dynamicsubmit.html" class="pagination-link">
+        <span class="nav-page-text">Static Problem Statement</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

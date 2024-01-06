@@ -1,5 +1,7 @@
-# Preface {.unnumbered}
+# Welcome to Demo Site {.unnumbered}
 
-This is a Quarto book.
+Welcome to this demonstration site of the Strength of Materials Open Problem Exercises companion to the Strength of Materials Open Textbook.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+At this time, we are simply using this site as a demonstration and shell for our ongoing work.  The intent is to demonstrate a more traditional static style problem exercise pack along with dynamic versions which allow students to quickly check answers and receive basic feedback, and/or to input their math in an interactive interface which will provide them with targeted feedback based on their atempted solution.
+
+This work is still very much in progress and you may find bugs. We would welcome any input or feedback you have about this. Thanks!
