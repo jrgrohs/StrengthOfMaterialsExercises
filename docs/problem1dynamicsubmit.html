@@ -167,7 +167,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#problem-image" id="toc-problem-image" class="nav-link active" data-scroll-target="#problem-image">Problem Image</a></li>
-  <li><a href="#problem-statement" id="toc-problem-statement" class="nav-link" data-scroll-target="#problem-statement">Problem Statement</a></li>
   </ul>
 </nav>
     </div>
@@ -200,10 +199,6 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption">Figure 1: Three traffic light installation with loads</figcaption>
 </figure>
 </div>
-</section>
-<section id="problem-statement" class="level2">
-<h2 class="anchored" data-anchor-id="problem-statement">Problem Statement</h2>
-<p>A city planner is installing a new traffic light. Light A weighs 65 lb, while lights B and C weigh 50 lb each. The post at O has a hollow circular cross-section with an outer diameter of 5 inches and a wall thickness of 0.2 inches. Please calculate the magnitude of the maximum combined stress in the post. You may ignore the weight of the post.</p>
 <pre class="shinylive-python" data-engine="python"><code>#| standalone: true
 #| viewerHeight: 600
 #| components: [viewer]
@@ -212,45 +207,74 @@ from shiny import App, render, ui, reactive
 import random
 import asyncio
 import io
-from datetime import date
+import math
+from datetime import datetime
 from pathlib import Path
 
+problem_ID="1"
+light_a=reactive.Value("__")
+lights_bc=reactive.Value("__")
+attempts=["Timestamp,Attempt,Answer,Feedback\n"]
+
 app_ui = ui.page_fluid(
-    ui.input_slider("n", "N", 0, 100, 20),
-    ui.input_text("name","User Name", value="test"),
-    ui.output_text_verbatim("txt"),
-    ui.output_text_verbatim("txt2"),
-    ui.input_action_button("btn", "Set Seed"),
-    ui.download_button("download3", "Download CSV"),
+    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    ui.markdown("**Problem Statement**"),
+    ui.output_ui("ui_problem_statement"),
+    ui.input_text("answer","Your Answer in units of psi", placeholder="Please enter your answer"),
+    ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
+    ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
 
 def server(input, output, session):
     @output
-    @render.text
-    def txt():
-        return input.name()
+    @render.ui
+    def ui_problem_statement():
+        return[ui.markdown(f"A city planner is installing a new traffic light. Light A weighs {light_a()} lb, while lights B and C weigh {lights_bc()} lb each. The post at O has a hollow circular cross-section with an outer diameter of 5 inches and a wall thickness of 0.2 inches. Please calculate the magnitude of the maximum combined stress in the post. You may ignore the weight of the post.")]
+    
+    @reactive.Effect
+    @reactive.event(input.generate_problem)
+    def randomize_vars():
+        random.seed(input.ID())
+        light_a.set(round(65+65*(.5-random.random())*.2))
+        lights_bc.set(round(50+50*(.5-random.random())*.2))
 
-    @output
-    @render.text
-    @reactive.event(input.btn)
-    def txt2():
-        random.seed(hash(input.name()))
-        bleh=random.random()
-        return random.random()
-
+    @reactive.Effect
+    @reactive.event(input.submit)
+    def _():
+        instr= (light_a()+2*lights_bc()/math.pi*(2.5**2 - 2.3**2))+ ((-1*lights_bc()*7- lights_bc()*11 - light_a()*15)*12*2.5)/ ((math.pi/4)*(2.5**4 - 2.3**4))
+        #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
+        if math.isclose(float(input.answer()),instr,rel_tol=0.001):
+           check="*Correct*"
+        else:
+           check="*Not Correct.*"
+        
+        if check=="*Not Correct.*" and math.isclose(abs(float(input.answer())),abs(instr),rel_tol=0.001):
+           extra_check="An extra check says you may have a sign error."
+        else:
+           extra_check=""
+        #extra_check = "An extra check says you may have a sign error." if math.isclose(abs(input.answer()),abs(instr,rel_tol=0.001)) else ""
+        feedback=ui.markdown(f"Your answer of {input.answer()} is {check} {extra_check} For reference in debugging this, the calculated instructor answer is {instr}")
+        attempts.append(f"{datetime.now()}, {input.submit()},{input.answer()},{check}\n")
+        m=ui.modal(
+          feedback,
+          title="Feedback",
+          easy_close=True
+        )
+        ui.modal_show(m)
+        
     @session.download(
-        filename=lambda: f"data-{input.name()}.csv"
+        filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv"
     )
-    async def download3():
+    async def download():
         # This version uses a function to generate the filename. It also yields data
         # multiple times.
         await asyncio.sleep(0.25)
-        yield "one,two,three\n"
-        yield "新,1,2\n"
-        yield "型,4,5\n"
-        yield f"{input.name()},{random.random()}"
-        
+        yield f"{problem_ID}_{input.submit()}_{input.ID()}\n"
+        yield ''.join(attempts)
+           
 
 app = App(app_ui, server)
 </code></pre>
