@@ -12,7 +12,7 @@ A city planner is installing a new traffic light. Light A weighs 65 lb, while li
 
 This demonstrates a worked out solution to the problem. The best way to begin is by drawing a free body diagram.
 
-![Figure 3: Three traffic light installation with loads](images/FBD%20sample%20problem.png){fig-alt="Picture with three distinct traffic lights oriented along the same horizontal beam. Moving from left to right of the image, the first light A is at the end of the beam, the second light B is 4 ft from A, the third light C is 4 ft from light B, and light C is 7 ft from where the horizontal beam meets the vertical post (called post O). The free body diagram includes a downforce force acting on light A with a value of 65 pounds, a downward force acting on light B with a value of 50 points, a downward force acting on light C with a value of 50 pounds, and a reaction Moment M and Force N at the post at O."}
+![Figure 3: Three traffic light installation with loads](images/stoplights.png){fig-alt="Picture with three distinct traffic lights oriented along the same horizontal beam. Moving from left to right of the image, the first light A is at the end of the beam, the second light B is 4 ft from A, the third light C is 4 ft from light B, and light C is 7 ft from where the horizontal beam meets the vertical post (called post O). The free body diagram includes a downforce force acting on light A with a value of 65 pounds, a downward force acting on light B with a value of 50 points, a downward force acting on light C with a value of 50 pounds, and a reaction Moment M and Force N at the post at O."}
 
 Use equilibrium equations to find the internal loads:
 
