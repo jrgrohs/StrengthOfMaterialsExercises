@@ -18,14 +18,12 @@ Use equilibrium equations to find the internal loads:
 
 $$
 \Sigma F_y=0: N-65-50-50=0
-$$
-$$N=165~lbs
+$$ $$N=165~lbs
 $$
 
 $$
 \Sigma M_O=0: -M+(50\times7)+(50\times11)+(65\times15)=0
-$$
-$$
+$$ $$
 M=1875~lb\cdot ft=22500~lb\cdot in
 $$
 
@@ -33,8 +31,7 @@ Now, determine the cross-sectional properties:
 
 $$
 A=\pi(r_0^2-r_i^2)=\pi(2.5^2-2.3^2)=3.02~in^2
-$$
-$$
+$$ $$
 I=
 \frac{\pi}{4}
 (r_0^4-r_i^4)=\frac{\pi}{4}(2.5^4-2.3^4)=8.70~in^4

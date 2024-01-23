@@ -1,4 +1,4 @@
-#  Demo of Interactive Math Interface for Solving Problems {.unnumbered}
+# Interactive Problem Interface {.unnumbered}
 
 To scaffold your learning in this example, we have provided a free body diagram for you and a repeat of the problem statement.
 
