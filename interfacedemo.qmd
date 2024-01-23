@@ -1,9 +1,4 @@
----
-title: Demo of Interactive Math Interface for Solving Problems
-format: html
-filters:
-  - shinylive
----
+#  Demo of Interactive Math Interface for Solving Problems {.unnumbered}
 
 To scaffold your learning in this example, we have provided a free body diagram for you and a repeat of the problem statement.
 
