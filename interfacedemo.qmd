@@ -1,5 +1,5 @@
 ---
-title: Shinylive in Quarto example
+title: Demo of Interactive Math Interface for Solving Problems
 format: html
 filters:
   - shinylive

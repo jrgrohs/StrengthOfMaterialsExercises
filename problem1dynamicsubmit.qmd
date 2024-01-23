@@ -2,9 +2,6 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. Please note at this time that the figure displays incorrect values. This will be corrected when drawn by the graphic artist.
 
-$$
-x=\frac{5}{723}
-$$
 
 ## Problem Image
 
