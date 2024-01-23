@@ -2,6 +2,8 @@
 
 This is a static rendering of the problem with fixed variables that correspond to the variables used in the problem solution provided.
 
+Can i change this?
+
 ## Problem Statement
 
 A city planner is installing a new traffic light. Light A weighs 65 lb, while lights B and C weigh 50 lb each. The post at O has a hollow circular cross-section with an outer diameter of 5 inches and a wall thickness of 0.2 inches. Please calculate the magnitude of the maximum combined stress in the post. You may ignore the weight of the post.
