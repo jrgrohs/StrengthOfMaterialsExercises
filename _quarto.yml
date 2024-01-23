@@ -25,7 +25,7 @@ book:
       chapters:
         - problem1static.qmd
         - problem1dynamicsubmit.qmd
-        - testing.qmd
+        - interfacedemo.qmd
     - summary.qmd
     - references.qmd
 

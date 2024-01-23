@@ -64,6 +64,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -133,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./testing.html" class="sidebar-item-text sidebar-link">
+  <a href="./interfacedemo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Shinylive in Quarto example</span></span></a>
   </div>
 </li>
@@ -162,6 +164,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#problem-statement" id="toc-problem-statement" class="nav-link active" data-scroll-target="#problem-statement">Problem Statement</a></li>
+  <li><a href="#worked-out-solution" id="toc-worked-out-solution" class="nav-link" data-scroll-target="#worked-out-solution">Worked Out Solution</a></li>
   </ul>
 </nav>
     </div>
@@ -195,6 +198,44 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption">Figure 1: Three traffic light installation with loads</figcaption>
 </figure>
 </div>
+</section>
+<section id="worked-out-solution" class="level2">
+<h2 class="anchored" data-anchor-id="worked-out-solution">Worked Out Solution</h2>
+<p>This demonstrates a worked out solution to the problem. The best way to begin is by drawing a free body diagram.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/stoplights.png" class="img-fluid figure-img" alt="Picture with three distinct traffic lights oriented along the same horizontal beam. Moving from left to right of the image, the first light A is at the end of the beam, the second light B is 4 ft from A, the third light C is 4 ft from light B, and light C is 7 ft from where the horizontal beam meets the vertical post (called post O). The free body diagram includes a downforce force acting on light A with a value of 65 pounds, a downward force acting on light B with a value of 50 points, a downward force acting on light C with a value of 50 pounds, and a reaction Moment M and Force N at the post at O."></p>
+<figcaption class="figure-caption">Figure 3: Three traffic light installation with loads</figcaption>
+</figure>
+</div>
+<p>Use equilibrium equations to find the internal loads:</p>
+<p><span class="math display">\[
+\Sigma F_y=0: N-65-50-50=0\\
+\]</span> <span class="math display">\[N=165~lbs
+\]</span></p>
+<p><span class="math display">\[
+\Sigma M_O=0: -M+(50\times7)+(50\times11)+(65\times15)=0
+\\\]</span> <span class="math display">\[
+M=1875~lb\cdot ft=22500~lb\cdot in
+\]</span></p>
+<p>Now, determine the cross-sectional properties:</p>
+<p><span class="math display">\[
+A=\pi(r_0^2-r_i^2)=\pi(2.5^2-2.3^2)=3.02~in^2
+\\
+I=
+\frac{\pi}{4}
+(r_0^4-r_i^4)=\frac{\pi}{4}(2.5^4-2.3^4)=8.70~in^4
+\]</span></p>
+<p>Calculate stress due to normal force:</p>
+<p><span class="math display">\[
+\sigma_n=\frac{F}{A}=\frac{-165~lbs}{3.02~in^2}=-54.7~psi
+\]</span></p>
+<p>Calculate maximum stress due to bending moment (will have same magnitude in both tension and compression):</p>
+<p><span class="math display">\[
+\sigma_m=\pm\frac{M_c}{I}=\pm\frac{22500\times2.5}{8.70}=\pm6460~psi
+\]</span></p>
+<p>Determine combined tensile stress: <span class="math inline">\(\sigma_T=-54.7+6460=6410~psi\)</span></p>
+<p>Determine combined compressive stress: <span class="math inline">\(\sigma_T=-54.7-6460=-6520~psi\)</span></p>
 
 
 </section>
