@@ -14,13 +14,12 @@ Please work through the problem step by step showing your math in the interactiv
 #| components: [viewer]
 
 
-#| standalone: true
-#| viewerHeight: 600
-#| components: [viewer]
-
 
 import io
 import numpy as np
+import asyncio
+from datetime import datetime
+from pathlib import Path
 import matplotlib.pyplot as plt
 from shiny import App, render, ui, reactive, req
 from sympy import solve, Eq, Symbol
@@ -1133,6 +1132,7 @@ def server(input, output, session):
         return [ui.markdown(f"Your solution is {mystring_answers}"),
                 ui.input_text("answer","Answer:",placeholder="Please type in your answer"),
                 ui.input_action_button("feedback", "Check answer and show feedback"),
+                ui.download_button("download", "Download File to Submit", class_="btn-success"),
                 ui.tags.script(
                 "if (window.MathJax) MathJax.Hub.Queue(['Typeset', MathJax.Hub]);"
                 )]
@@ -1310,9 +1310,18 @@ def server(input, output, session):
         )
         ui.modal_show(m)
         
+        
+    @session.download(
+    filename=lambda: f"Problem_Log.csv"
+    )
+    async def download():
+        # This version uses a function to generate the filename. It also yields data
+        # multiple times.
+          await asyncio.sleep(0.25)
+          yield f"{working_equations_solver()}\n"
+          yield f"{working_equations_latex_render()}\n"
 
 app = App(app_ui, server)
-
 
 
 

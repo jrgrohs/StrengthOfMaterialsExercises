@@ -1,0 +1,91 @@
+# Dynamic Problem Statement {.unnumbered}
+
+This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
+
+
+## Problem Image
+
+![Figure 1: Cantilever beam of length L with distributed load w and point load P](images/391.png){fig-alt="Picture with a cantilever beam of length L with distributed load w acting downward along the length of the beam and point load P acting at the free end of the beam."}
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
+
+from shiny import App, render, ui, reactive
+import random
+import asyncio
+import io
+import math
+from datetime import datetime
+from pathlib import Path
+
+problem_ID="391"
+L=reactive.Value("__")
+w=reactive.Value("__")
+P=reactive.Value("__")
+x=reactive.Value("__")
+E=1950000
+I=21.33 
+attempts=["Timestamp,Attempt,Answer,Feedback\n"]
+
+app_ui = ui.page_fluid(
+    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    ui.markdown("**Problem Statement**"),
+    ui.output_ui("ui_problem_statement"),
+    ui.input_text("answer","Your Answer in units of inches", placeholder="Please enter your answer"),
+    ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
+    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+)
+
+
+def server(input, output, session):
+    @output
+    @render.ui
+    def ui_problem_statement():
+        return[ui.markdown(f"A cantilever beam of length {L()} ft is loaded with a distributed load {w()} pounds per foot and a point load {P()} pounds. What is the deflection in inches at point x = {x()}. Assume E=1950000 psi and I = 21.33 in^4.")]
+    
+    @reactive.Effect
+    @reactive.event(input.generate_problem)
+    def randomize_vars():
+        random.seed(input.ID())
+        L.set(round(8+8*.5*(.5-random.random())))
+        w.set(round(2+2*.5*(.5-random.random())))
+        P.set(round(10+10*.5*(.5-random.random())))
+        x.set(.9*L())
+
+    @reactive.Effect
+    @reactive.event(input.submit)
+    def _():
+        instr= -w()/12*x()*12*x()*12*(6*L()*12*L()*12-4*L()*12*x()*12+x()*12*x()*12)/24/E/I-P()*x()*12*x()*12*(3*L()*12-x())*12/6/E/I
+        #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
+        if math.isclose(float(input.answer()),instr,rel_tol=0.001):
+           check="*Correct*"
+        else:
+           check="*Not Correct.*"
+        
+        feedback=ui.markdown(f"Your answer of {input.answer()} is {check}.  For reference in debugging this, the calculated instructor answer is {instr}")
+        attempts.append(f"{datetime.now()}, {input.submit()},{input.answer()},{check}\n")
+        m=ui.modal(
+          feedback,
+          title="Feedback",
+          easy_close=True
+        )
+        ui.modal_show(m)
+        
+    @session.download(
+        filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv"
+    )
+    async def download():
+        # This version uses a function to generate the filename. It also yields data
+        # multiple times.
+        await asyncio.sleep(0.25)
+        yield f"{problem_ID}_{input.submit()}_{input.ID()}\n"
+        yield ''.join(attempts)
+           
+
+app = App(app_ui, server)
+
+```

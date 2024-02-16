@@ -26,6 +26,9 @@ book:
         - problem1static.qmd
         - problem1dynamicsubmit.qmd
         - interfacedemo.qmd
+    - part: "Problem 391"
+      chapters:
+        - problem391dynamicsubmit.qmd
     - summary.qmd
     - references.qmd
 
