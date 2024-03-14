@@ -345,7 +345,7 @@ def server(input, output, session):
         else:
            check="*Not Correct.*"
         
-        correct_indicator = "JL" if check == "*Correct*" else "JG"
+        #correct_indicator = "JL" if check == "*Correct*" else "JG"
         
         feedback=ui.markdown(f"Your answer of {input.answer()} is {check}.  For reference in debugging this, the calculated instructor answer is {instr}")
         attempts.append(f"{datetime.now()}, {input.submit()},{input.answer()},{check}\n")
@@ -357,13 +357,13 @@ def server(input, output, session):
         ui.modal_show(m)
     
 
-def generate_random_letters(length):
-    # Generate a random string of letters of specified length
-    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))   
-
-random_start = generate_random_letters(4)
-random_middle = generate_random_letters(4)
-random_end = generate_random_letters(4)    
+    # def generate_random_letters(length):
+    #   # Generate a random string of letters of specified length
+    #   return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))   
+    # 
+    # random_start = generate_random_letters(4)
+    # random_middle = generate_random_letters(4)
+    # random_end = generate_random_letters(4)    
 
 #encoded_attempt = f"{random_start}{problem_ID}{random_middle}{len(attempts)+1}{correct_indicator}{random_end}{input.ID()}"
 
