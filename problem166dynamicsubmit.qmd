@@ -22,10 +22,10 @@ from datetime import datetime
 from pathlib import Path
 
 problem_ID="166"
-W=reactive.Value("__")
-d1=reactive.Value("__")
-d2=reactive.Value("__")
-t=reactive.Value("__")
+W=reactive.Value(1)
+d1=reactive.Value(1)
+d2=reactive.Value(1)
+t=reactive.Value(1)
 
 
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
