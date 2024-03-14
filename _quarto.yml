@@ -28,7 +28,17 @@ book:
         - interfacedemo.qmd
     - part: "Problem 391"
       chapters:
-        - problem391dynamicsubmit.qmd
+        - problem138dynamicsubmit.qmd
+        - problem139dynamicsubmit.qmd
+        - problem144dynamicsubmit.qmd
+        - problem146dynamicsubmit.qmd
+        - problem153dynamicsubmit.qmd
+        - problem156dynamicsubmit.qmd
+        - problem157dynamicsubmit.qmd
+        - problem164dynamicsubmit.qmd
+        - problem165dynamicsubmit.qmd
+        - problem166dynamicsubmit.qmd
+        - problem169dynamicsubmit.qmd
     - summary.qmd
     - references.qmd
 
