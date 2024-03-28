@@ -1,0 +1,115 @@
+# Dynamic Problem Statement {.unnumbered}
+
+This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
+
+
+## Problem Image
+
+![Figure 1: A crate is attached to a cable made from steel and aluminum.](images/187.png){fig-alt="Picture with a create attached to cable. The steel part of the cable is L[1] in and the aluminum part of the cable is L[2]. "}
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
+
+from shiny import App, render, ui, reactive
+import random
+import asyncio
+import io
+import math
+from datetime import datetime
+from pathlib import Path
+
+problem_ID="187"
+W=reactive.Value("__")
+L1=reactive.Value("__")
+L2=reactive.Value("__")
+A1=reactive.Value("__")
+A2=reactive.Value("__")
+Esteel = 29000
+Ealuminum = 10000
+
+
+attempts=["Timestamp,Attempt,Answer,Feedback\n"]
+
+app_ui = ui.page_fluid(
+    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    ui.markdown("**Problem Statement**"),
+    ui.output_ui("ui_problem_statement"),
+    ui.input_text("answer","Your Answer in units of inches", placeholder="Please enter your answer"),
+    ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
+    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+)
+
+
+def server(input, output, session):
+    @output
+    @render.ui
+    def ui_problem_statement():
+        return[ui.markdown(f"A crate weight W = {W()} lb is attached to a cable constructed from steel of length L[1] = {L1()} in. and Area A[1] = {A1()} in.^2 and aluminum of length L[2] = {L2()} in. and area A[2] = {A2()} in.^2. What is the total deflection of the crate after it is attached to the wire? Assume E[steel] = {Esteel()} ksi and E[aluminum] = {Ealuminum()} ksi. Neglect the weight of the wires.")]
+    
+    @reactive.Effect
+    @reactive.event(input.generate_problem)
+    def randomize_vars():
+        random.seed(input.ID())
+        W.set(random.randrange(50, 250, 1))
+        L1.set(random.randrange(10, 30, 1))
+        L2.set(L1()*2)
+        A1.set(random.randrange(.01, .05, .01))
+        A2.set(random.randrange(.01, .05, .01))
+        
+        
+    @reactive.Effect
+    @reactive.event(input.submit)
+    def _():
+        
+        instr=(W()*L1())/(A1()*Esteel) + (W()*L2()/A2()*Ealuminum)
+        #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
+        if math.isclose(float(input.answer()),instr,rel_tol=0.001):
+           check="*Correct*"
+        else:
+           check="*Not Correct.*"
+        
+        correct_indicator = "JL" if check == "*Correct*" else "JG"
+        
+        feedback=ui.markdown(f"Your answer of {input.answer()} is {check}.  For reference in debugging this, the calculated instructor answer is {instr}")
+        attempts.append(f"{datetime.now()}, {input.submit()},{input.answer()},{check}\n")
+        m=ui.modal(
+          feedback,
+          title="Feedback",
+          easy_close=True
+        )
+        ui.modal_show(m)
+    import random
+    import string
+
+def generate_random_letters(length):
+    # Generate a random string of letters of specified length
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))   
+
+random_start = generate_random_letters(4)  
+random_middle = generate_random_letters(4)
+random_end = generate_random_letters(4)    
+
+encoded_attempt = f"{random_start}{problem_ID}{random_middle}{len(attempts)+1}{correct_indicator}{random_end}{input.ID()}"
+
+
+attempts.append(f"{datetime.now()}, {encoded_attempt}\n")
+
+    @session.download(
+        filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv"
+    )
+    async def download():
+        # This version uses a function to generate the filename. It also yields data
+        # multiple times.
+        yield "Timestamp,Encoded Attempt\n"
+   
+        for attempt in attempts:
+          await asyncio.sleep(0.25) 
+          yield attempt
+
+app = App(app_ui, server)
+
+```

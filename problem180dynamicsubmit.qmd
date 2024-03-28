@@ -1,0 +1,113 @@
+# Dynamic Problem Statement {.unnumbered}
+
+This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
+
+
+## Problem Image
+
+![Figure 1: A link mechanism is connected with diameter pins.](images/180.png){fig-alt="Picture with a link mechanism connected with diameter pins. One end of the bar, A, is attached to the ground by a pin. The mechanism is at point B. Member BC is attached with the ground with a pin at point C. The force is being applied at the other end, D."}
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
+
+from shiny import App, render, ui, reactive
+import random
+import asyncio
+import io
+import math
+from datetime import datetime
+from pathlib import Path
+
+problem_ID="180"
+F=reactive.Value("__")
+d=reactive.Value("__")
+t=reactive.Value("__")
+w=reactive.Value("__")
+
+
+
+attempts=["Timestamp,Attempt,Answer,Feedback\n"]
+
+app_ui = ui.page_fluid(
+    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    ui.markdown("**Problem Statement**"),
+    ui.output_ui("ui_problem_statement"),
+    ui.input_text("answer","Your Answer in units of inches", placeholder="Please enter your answer"),
+    ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
+    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+)
+
+
+def server(input, output, session):
+    @output
+    @render.ui
+    def ui_problem_statement():
+        return[ui.markdown(f"A link mechanism is connected with pins of diameter d = {d()} in. A force F = {F()} lb is applied to the mechanism as shown. The mechanism has thickness width w = {w()} in. and thickness t = {t()} in. What is the bearing stress in member BC at joint B due to the pin at B? ")]
+    
+    @reactive.Effect
+    @reactive.event(input.generate_problem)
+    def randomize_vars():
+        random.seed(input.ID())
+        F.set(random.randrange(200, 900, 10))
+        d.set(random.randrange(0.2, 1.5, 0.1))
+        t.set(random.randrange(0.1, 1, 0.1))
+        w.set(d()*2)
+        
+
+    @reactive.Effect
+    @reactive.event(input.submit)
+    def _():
+        
+        Fb=((18+8)*F())/18
+        instr= Fb/((w()/2)*(d()/2))
+        #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
+        if math.isclose(float(input.answer()),instr,rel_tol=0.001):
+           check="*Correct*"
+        else:
+           check="*Not Correct.*"
+        
+        correct_indicator = "JL" if check == "*Correct*" else "JG"
+        
+        feedback=ui.markdown(f"Your answer of {input.answer()} is {check}.  For reference in debugging this, the calculated instructor answer is {instr}")
+        attempts.append(f"{datetime.now()}, {input.submit()},{input.answer()},{check}\n")
+        m=ui.modal(
+          feedback,
+          title="Feedback",
+          easy_close=True
+        )
+        ui.modal_show(m)
+    import random
+    import string
+
+def generate_random_letters(length):
+    # Generate a random string of letters of specified length
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))   
+
+random_start = generate_random_letters(4)  
+random_middle = generate_random_letters(4)
+random_end = generate_random_letters(4)    
+
+encoded_attempt = f"{random_start}{problem_ID}{random_middle}{len(attempts)+1}{correct_indicator}{random_end}{input.ID()}"
+
+
+attempts.append(f"{datetime.now()}, {encoded_attempt}\n")
+
+    @session.download(
+        filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv"
+    )
+    async def download():
+        # This version uses a function to generate the filename. It also yields data
+        # multiple times.
+        yield "Timestamp,Encoded Attempt\n"
+   
+        for attempt in attempts:
+          await asyncio.sleep(0.25) 
+          yield attempt
+
+app = App(app_ui, server)
+
+```

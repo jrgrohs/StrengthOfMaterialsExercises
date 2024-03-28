@@ -1,0 +1,116 @@
+# Dynamic Problem Statement {.unnumbered}
+
+This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
+
+
+## Problem Image
+
+![Figure 1: Two forces are applied to the system of cylinders.](images/184.png){fig-alt="Picture with two aluminum cylinders connected by a steel cylinder. The aluminum cylinder on the left is attached to the wall. The radius of the left cylinder is 0.5 m and has a length L[1]. The force F[1] is applied between the first and second cylinders. The middle cylinder has a radius of 0.3 m and a length L[2]. The force F[2] is applied between the second and third cylinder. The third cylinder has a radius 0.4 m and a length of L[3]."}
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
+
+from shiny import App, render, ui, reactive
+import random
+import asyncio
+import io
+import math
+from datetime import datetime
+from pathlib import Path
+
+problem_ID="184"
+F1=reactive.Value("__")
+F2=reactive.Value("__")
+L1=reactive.Value("__")
+L2=reactive.Value("__")
+L3=reactive.Value("__")
+Esteel = 210
+Ealuminum = 70
+
+
+
+attempts=["Timestamp,Attempt,Answer,Feedback\n"]
+
+app_ui = ui.page_fluid(
+    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    ui.markdown("**Problem Statement**"),
+    ui.output_ui("ui_problem_statement"),
+    ui.input_text("answer","Your Answer in units of inches", placeholder="Please enter your answer"),
+    ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
+    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+)
+
+
+def server(input, output, session):
+    @output
+    @render.ui
+    def ui_problem_statement():
+        return[ui.markdown(f"Two forces, F[1] = {F1()} kN and F[2] = {F2()} kN, are applied to the system of cylinders as shown. If L[1] = {L1()} m, L[2] = {L2()} m, and L[3] = {L3()} m, what is the total change in length of the system? Assume E[steel] = {Esteel()} GPa and E[aluminum] = {Ealuminum()} GPa.")]
+    
+    @reactive.Effect
+    @reactive.event(input.generate_problem)
+    def randomize_vars():
+        random.seed(input.ID())
+        F1.set(random.randrange(10, 30, 0.1))
+        F2.set(F1()/1.5)
+        L1.set(random.randrange(2, 8, 0.1))
+        L2.set(L1()*0.6)
+        L3.set(L1()*0.8)
+        
+
+    @reactive.Effect
+    @reactive.event(input.submit)
+    def _():
+        
+        instr= (F2()*L2())/(pi*0.3**2*Esteel*10**9) + ((F2()-F1())*L1())/(pi*0.5**2*Ealuminum*10**9)
+        #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
+        if math.isclose(float(input.answer()),instr,rel_tol=0.001):
+           check="*Correct*"
+        else:
+           check="*Not Correct.*"
+        
+        correct_indicator = "JL" if check == "*Correct*" else "JG"
+        
+        feedback=ui.markdown(f"Your answer of {input.answer()} is {check}.  For reference in debugging this, the calculated instructor answer is {instr}")
+        attempts.append(f"{datetime.now()}, {input.submit()},{input.answer()},{check}\n")
+        m=ui.modal(
+          feedback,
+          title="Feedback",
+          easy_close=True
+        )
+        ui.modal_show(m)
+    import random
+    import string
+
+def generate_random_letters(length):
+    # Generate a random string of letters of specified length
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))   
+
+random_start = generate_random_letters(4)  
+random_middle = generate_random_letters(4)
+random_end = generate_random_letters(4)    
+
+encoded_attempt = f"{random_start}{problem_ID}{random_middle}{len(attempts)+1}{correct_indicator}{random_end}{input.ID()}"
+
+
+attempts.append(f"{datetime.now()}, {encoded_attempt}\n")
+
+    @session.download(
+        filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv"
+    )
+    async def download():
+        # This version uses a function to generate the filename. It also yields data
+        # multiple times.
+        yield "Timestamp,Encoded Attempt\n"
+   
+        for attempt in attempts:
+          await asyncio.sleep(0.25) 
+          yield attempt
+
+app = App(app_ui, server)
+
+```

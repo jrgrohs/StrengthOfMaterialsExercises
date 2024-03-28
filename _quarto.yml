@@ -21,12 +21,12 @@ book:
   
   chapters:
     - index.qmd
-    - part: "Problem 1"
+    - part: "Original Demo Problems"
       chapters:
         - problem1static.qmd
         - problem1dynamicsubmit.qmd
         - interfacedemo.qmd
-    - part: "Problem 391"
+    - part: "Working List of Problems"
       chapters:
         - problem138dynamicsubmit.qmd
         - problem139dynamicsubmit.qmd

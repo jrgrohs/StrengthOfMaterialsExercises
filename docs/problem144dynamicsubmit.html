@@ -330,7 +330,7 @@ def server(input, output, session):
         d1.set(random.randrange(0.3, 0.8, 0.1))
         d2.set(d1()*1.6)
         
-
+ 
     @reactive.Effect
     @reactive.event(input.submit)
     def _():

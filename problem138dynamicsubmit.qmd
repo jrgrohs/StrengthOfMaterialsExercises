@@ -1,4 +1,4 @@
-# Dynamic Problem Statement {.unnumbered}
+# Problem 2.1 {.unnumbered}
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
@@ -17,8 +17,14 @@ import random
 import asyncio
 import io
 import math
+import string
 from datetime import datetime
 from pathlib import Path
+
+
+def generate_random_letters(length):
+    # Generate a random string of letters of specified length
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))  
 
 problem_ID="138"
 F1=reactive.Value("__")
@@ -35,18 +41,21 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of inches", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in units of MPa", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
 
 def server(input, output, session):
+    # Initialize a counter for attempts
+    attempt_counter = reactive.Value(0)
+    
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A series of solid circular bars are loaded with three loads as shown. What is the largest absolute normal stress in any bar?")]
-    
+        return[ui.markdown(f"A series of solid circular bars are loaded with three loads as shown, F<sub>1</sub> = {F1()} N, F<sub>2</sub> = {F2()} N, and F<sub>3</sub> = {F3()} N. What is the largest absolute normal stress in any bar?")]
+     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
@@ -59,50 +68,55 @@ def server(input, output, session):
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
-        instr= F1()/(pi*(d2()/(1000*2))**2)
-        #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
-        if math.isclose(float(input.answer()),instr,rel_tol=0.001):
-           check="*Correct*"
+        attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
+        
+        # Calculate the instructor's answer and determine if the user's answer is correct.
+        instr= (F1()/(math.pi*(d2/(1000*2))**2))/10**6
+        
+        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+            check = "*Correct*"
+            correct_indicator = "JL"
         else:
-           check="*Not Correct.*"
-        
-        correct_indicator = "JL" if check == "*Correct*" else "JG"
-        
-        feedback=ui.markdown(f"Your answer of {input.answer()} is {check}.  For reference in debugging this, the calculated instructor answer is {instr}")
-        attempts.append(f"{datetime.now()}, {input.submit()},{input.answer()},{check}\n")
-        m=ui.modal(
-          feedback,
-          title="Feedback",
-          easy_close=True
+            check = "*Not Correct.*"
+            correct_indicator = "JG"
+
+        # Generate random parts for the encoded attempt.
+        random_start = generate_random_letters(4)
+        random_middle = generate_random_letters(4)
+        random_end = generate_random_letters(4)
+        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+
+        # Store the most recent encoded attempt in a reactive value so it persists across submissions
+        session.encoded_attempt = reactive.Value(encoded_attempt)
+
+        # Append the attempt data to the attempts list without the encoded attempt
+        attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
+
+        # Show feedback to the user.
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        m = ui.modal(
+            feedback,
+            title="Feedback",
+            easy_close=True
         )
         ui.modal_show(m)
-    import random
-    import string
 
-def generate_random_letters(length):
-    # Generate a random string of letters of specified length
-    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))   
-
-random_start = generate_random_letters(4)  
-random_end = generate_random_letters(4)    
-
-encoded_attempt = f"{random_start}{problem_ID}apoj{len(attempts)+1}{correct_indicator}{random_end}{input.ID()}"
-
-
-attempts.append(f"{datetime.now()}, {encoded_attempt}\n")
-
-    @session.download(
-        filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv"
-    )
+    @session.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
     async def download():
-        # This version uses a function to generate the filename. It also yields data
-        # multiple times.
-        yield "Timestamp,Encoded Attempt\n"
-   
-        for attempt in attempts:
-          await asyncio.sleep(0.25) 
-          yield attempt
+        # Start the CSV with the encoded attempt (without label)
+        final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"
+        yield f"{final_encoded}\n\n"
+        
+        # Write the header for the remaining CSV data once
+        yield "Timestamp,Attempt,Answer,Feedback\n"
+        
+        # Write the attempts data, ensure that the header from the attempts list is not written again
+        for attempt in attempts[1:]:  # Skip the first element which is the header
+            await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
+            yield attempt
 
+
+# App installation
 app = App(app_ui, server)
 
 ```

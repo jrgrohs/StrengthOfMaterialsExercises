@@ -334,7 +334,7 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         A = pi*(d()/(1000*2))**2
-        instr= (F()/2)/A
+        instr= ((F()/2)/A)/1000
         #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
         if math.isclose(float(input.answer()),instr,rel_tol=0.001):
            check="*Correct*"

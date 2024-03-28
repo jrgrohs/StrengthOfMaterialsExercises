@@ -1,11 +1,11 @@
-# Problem 2.3 {.unnumbered}
+# Dynamic Problem Statement {.unnumbered}
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
 
 ## Problem Image
 
-![Figure 1: A plastic cylindrical peg is constrained by a metal cap](images/144.png){fig-alt="Picture with a cylindrical peg constrained by a metal cap with a force applied to the plastic peg."}
+![Figure 1: Two blocks with square cross sections are stacked and loaded at the top.](images/193.png){fig-alt="Picture with two blocks stacked on top of each other. The bottom block is steel and has a width w[2] and a length L. The top block is aluminum and has a width w[1] and length L. The load is applied to the top of the aluminum block."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -21,54 +21,61 @@ import string
 from datetime import datetime
 from pathlib import Path
 
+
 def generate_random_letters(length):
     # Generate a random string of letters of specified length
-    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))  
 
-problem_ID="144"
-F=reactive.Value("__")
-d1=reactive.Value("__")
-d2=reactive.Value("__")
+problem_ID = "193"
+F = reactive.Value("__")
+w1 = reactive.Value("__")
+w2 = reactive.Value("__")
+L = reactive.Value("__")
+Esteel = 29000
+Ealuminum = 10000
 
-attempts=["Timestamp,Attempt,Answer,Feedback\n"]
+attempts = ["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
     ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
-    ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    ui.input_text("ID", "", placeholder="Enter ID Number Here"),
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of psi", placeholder="Please enter your answer"),
+    ui.input_text("answer", "Your Answer in units of inches", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
-
 def server(input, output, session):
     # Initialize a counter for attempts
     attempt_counter = reactive.Value(0)
-
+    
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A plastic cylindrical peg is constrained by a metal cap as shown. An axial load of F = {F()} lb is applied to the peg. If d<sub>1</sub> = {d1()} in and d<sub>2</sub> = {d2()} in, determine the normal stress in the peg. Assume the axial load is evenly distributed across the peg and that the metal cap is fixed and does not move.")]
+        return [
+            ui.markdown(
+                f"Two blocks with square cross-sections are stacked as shown, with the top block inserted into the bottom block and subjected to load F = {F()} kips. The top block is aluminum (E = 10,000 ksi) with side length w<sub>1</sub> = {w1()} in. and the bottom block is steel (E = 29,000 ksi) with side length w<sub>2</sub>= {w2()} in. If length L = {L()} in., what is the total change in length of the aluminum block? Ignore the weight of the blocks."
+            )
+        ]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        F.set(random.randrange(20, 80, 5))
-        d1.set(random.randrange(3, 8, 1)/10)
-        d2.set(round(d1() * 1.6, 2))
+        F.set(random.randrange(20, 100, 1)/10)
+        w1.set(random.randrange(15, 50, 1)/10)
+        w2.set(round(w1() * 1.5, 2))
+        L.set(random.randrange(50, 200, 1)/10)
         
- 
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        instr= F()/(math.pi*((d1()/2)**2))
-        #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
-        
+
+        # Calculate the instructor's answer and determine if the user's answer is correct.
+        instr = F() * L() * ((1 / w1() * Ealuminum) + (1 / w2() * Esteel))
         if math.isclose(float(input.answer()), instr, rel_tol=0.001):
             check = "*Correct*"
             correct_indicator = "JL"

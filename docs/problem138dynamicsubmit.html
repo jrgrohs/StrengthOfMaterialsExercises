@@ -323,7 +323,7 @@ def server(input, output, session):
     @render.ui
     def ui_problem_statement():
         return[ui.markdown(f"A series of solid circular bars are loaded with three loads as shown. What is the largest absolute normal stress in any bar?")]
-    
+     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
@@ -360,7 +360,7 @@ def generate_random_letters(length):
     # Generate a random string of letters of specified length
     return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))   
 
-random_start = generate_random_letters(4)  
+random_start = generate_random_letters(4) 
 random_end = generate_random_letters(4)    
 
 encoded_attempt = f"{random_start}{problem_ID}apoj{len(attempts)+1}{correct_indicator}{random_end}{input.ID()}"
