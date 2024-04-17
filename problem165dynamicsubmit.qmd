@@ -1,4 +1,4 @@
-# Problem 2.22{.unnumbered}
+# Problem 2.22 {.unnumbered}
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
@@ -68,7 +68,7 @@ def server(input, output, session):
       
         A = math.pi*(d()/(1000*2))**2
         instr= ((F()/2)/A)/1000
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, abs_tol=0.001):
             check = "*Correct*"
             correct_indicator = "JL"
         else:

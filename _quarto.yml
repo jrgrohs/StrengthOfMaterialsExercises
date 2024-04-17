@@ -38,7 +38,19 @@ book:
         - problem164dynamicsubmit.qmd
         - problem165dynamicsubmit.qmd
         - problem166dynamicsubmit.qmd
+        - problem168dynamicsubmit.qmd
         - problem169dynamicsubmit.qmd
+        - problem180dynamicsubmit.qmd
+        - problem183dynamicsubmit.qmd
+        - problem184dynamicsubmit.qmd
+        - problem185dynamicsubmit.qmd
+        - problem186dynamicsubmit.qmd
+        - problem187dynamicsubmit.qmd
+        - problem188dynamicsubmit.qmd
+        - problem191dynamicsubmit.qmd
+        - problem192dynamicsubmit.qmd
+        - problem193dynamicsubmit.qmd
+        
     - summary.qmd
     - references.qmd
 

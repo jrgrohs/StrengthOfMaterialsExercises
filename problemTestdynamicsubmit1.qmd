@@ -47,6 +47,7 @@ app_ui = ui.page_fluid(
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
+
 def server(input, output, session):
     # Initialize a counter for attempts
     attempt_counter = reactive.Value(0)

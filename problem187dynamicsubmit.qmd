@@ -1,4 +1,4 @@
-# Dynamic Problem Statement {.unnumbered}
+# Problem 5.15 {.unnumbered}
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
@@ -17,8 +17,13 @@ import random
 import asyncio
 import io
 import math
+import string
 from datetime import datetime
 from pathlib import Path
+
+def generate_random_letters(length):
+    # Generate a random string of letters of specified length
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length)) 
 
 problem_ID="187"
 W=reactive.Value("__")
@@ -45,10 +50,13 @@ app_ui = ui.page_fluid(
 
 
 def server(input, output, session):
+    # Initialize a counter for attempts
+    attempt_counter = reactive.Value(0)
+
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A crate weight W = {W()} lb is attached to a cable constructed from steel of length L[1] = {L1()} in. and Area A[1] = {A1()} in.^2 and aluminum of length L[2] = {L2()} in. and area A[2] = {A2()} in.^2. What is the total deflection of the crate after it is attached to the wire? Assume E[steel] = {Esteel()} ksi and E[aluminum] = {Ealuminum()} ksi. Neglect the weight of the wires.")]
+        return[ui.markdown(f"A crate weight W = {W()} lb is attached to a cable constructed from steel of length L<sub>1</sub> = {L1()} in. and Area A<sub>1</sub> = {A1()} in.<sup>2</sup> and aluminum of length L<sub>2</sub> = {L2()} in. and area A<sub>2</sub> = {A2()} in.<sup>2</sup>. What is the total deflection of the crate after it is attached to the wire? Assume E<sub>steel</sub> = {Esteel} ksi and E<sub>aluminum</sub> = {Ealuminum} ksi. Neglect the weight of the wires.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -56,60 +64,61 @@ def server(input, output, session):
         random.seed(input.ID())
         W.set(random.randrange(50, 250, 1))
         L1.set(random.randrange(10, 30, 1))
-        L2.set(L1()*2)
-        A1.set(random.randrange(.01, .05, .01))
-        A2.set(random.randrange(.01, .05, .01))
+        L2.set(round(L1()*2, 2))
+        A1.set(random.randrange(1, 5, 1)/100)
+        A2.set(random.randrange(1, 5, 1)/100)
         
         
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
+        attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         
         instr=(W()*L1())/(A1()*Esteel) + (W()*L2()/A2()*Ealuminum)
-        #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
-        if math.isclose(float(input.answer()),instr,rel_tol=0.001):
-           check="*Correct*"
+        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+            check = "*Correct*"
+            correct_indicator = "JL"
         else:
-           check="*Not Correct.*"
-        
-        correct_indicator = "JL" if check == "*Correct*" else "JG"
-        
-        feedback=ui.markdown(f"Your answer of {input.answer()} is {check}.  For reference in debugging this, the calculated instructor answer is {instr}")
-        attempts.append(f"{datetime.now()}, {input.submit()},{input.answer()},{check}\n")
-        m=ui.modal(
-          feedback,
-          title="Feedback",
-          easy_close=True
+            check = "*Not Correct.*"
+            correct_indicator = "JG"
+
+        # Generate random parts for the encoded attempt.
+        random_start = generate_random_letters(4)
+        random_middle = generate_random_letters(4)
+        random_end = generate_random_letters(4)
+        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+
+        # Store the most recent encoded attempt in a reactive value so it persists across submissions
+        session.encoded_attempt = reactive.Value(encoded_attempt)
+
+        # Append the attempt data to the attempts list without the encoded attempt
+        attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
+
+        # Show feedback to the user.
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        m = ui.modal(
+            feedback,
+            title="Feedback",
+            easy_close=True
         )
         ui.modal_show(m)
-    import random
-    import string
 
-def generate_random_letters(length):
-    # Generate a random string of letters of specified length
-    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))   
-
-random_start = generate_random_letters(4)  
-random_middle = generate_random_letters(4)
-random_end = generate_random_letters(4)    
-
-encoded_attempt = f"{random_start}{problem_ID}{random_middle}{len(attempts)+1}{correct_indicator}{random_end}{input.ID()}"
-
-
-attempts.append(f"{datetime.now()}, {encoded_attempt}\n")
-
-    @session.download(
-        filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv"
-    )
+    @session.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
     async def download():
-        # This version uses a function to generate the filename. It also yields data
-        # multiple times.
-        yield "Timestamp,Encoded Attempt\n"
-   
-        for attempt in attempts:
-          await asyncio.sleep(0.25) 
-          yield attempt
+        # Start the CSV with the encoded attempt (without label)
+        final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"
+        yield f"{final_encoded}\n\n"
+        
+        # Write the header for the remaining CSV data once
+        yield "Timestamp,Attempt,Answer,Feedback\n"
+        
+        # Write the attempts data, ensure that the header from the attempts list is not written again
+        for attempt in attempts[1:]:  # Skip the first element which is the header
+            await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
+            yield attempt
 
+
+# App installation
 app = App(app_ui, server)
 
 ```

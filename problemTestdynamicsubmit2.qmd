@@ -1,11 +1,11 @@
-# Problem 5.34 {.unnumbered}
+# Dynamic Problem Statement {.unnumbered}
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
 
 ## Problem Image
 
-![Figure 1: A copper circular rod is inserted into an aluminum tube as shown.](images/192.png){fig-alt="Picture with an circular copper rod inserted into an aluminum tube. A load is applied at the top of the tube. The radius of the copper rod is r. The inner radius of the aluminum tube is r[i] and the outer radius is r[o] "}
+![Figure 1: Two blocks with square cross sections are stacked and loaded at the top.](images/193.png){fig-alt="Picture with two blocks stacked on top of each other. The bottom block is steel and has a width w[2] and a length L. The top block is aluminum and has a width w[1] and length L. The load is applied to the top of the aluminum block."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -21,65 +21,85 @@ import string
 from datetime import datetime
 from pathlib import Path
 
+
 def generate_random_letters(length):
     # Generate a random string of letters of specified length
-    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length)) 
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))  
 
-problem_ID="192"
-r=reactive.Value("__")
-ri=reactive.Value("__")
-ro=reactive.Value("__")
-L=reactive.Value("__")
-dL=reactive.Value("__")
-Ecopper = 110
-Ealuminum = 70
+problem_ID = "193"
+F = reactive.Value("__")
+w1 = reactive.Value("__")
+w2 = reactive.Value("__")
+L = reactive.Value("__")
+Esteel = 29000
+Ealuminum = 10000
 
-
-
-attempts=["Timestamp,Attempt,Answer,Feedback\n"]
+attempts = ["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
     ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
-    ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    ui.input_text("ID", "", placeholder="Enter ID Number Here"),
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of kN", placeholder="Please enter your answer"),
+    ui.input_text("answer", "Your Answer in units of inches", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
+def is_acceptable(student_answer, instructor_answer):
+    # Custom comparison logic goes here
+    import math
+    order_of_magnitude = math.floor(math.log10(abs(instructor_answer))) if instructor_answer != 0 else 0
+    tolerance = 10 ** order_of_magnitude * 0.001
+    if abs(instructor_answer) < 1:
+        tolerance = 10 ** (order_of_magnitude - 2)
+    lower_bound = instructor_answer - tolerance
+    upper_bound = instructor_answer + tolerance
+    return lower_bound <= student_answer <= upper_bound
 
 def server(input, output, session):
     # Initialize a counter for attempts
     attempt_counter = reactive.Value(0)
-
+    
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A copper circular rod of radius r = {r()} cm is inserted into an aluminum tube with inner radius r<sub>i</sub> = {ri()} cm and outer radius r<sub>o</sub> = {ro()} cm as shown. Load P is applied to the rigid top plate. If length L = {L()} cm, what load P will cause the plate to deflect dL = {dL()} mm downward? Assume E<sub>copper</sub> = 110 GPa and E<sub>aluminum</sub> = 70 GPa")]
+        return [
+            ui.markdown(
+                f"Two blocks with square cross-sections are stacked as shown, with the top block inserted into the bottom block and subjected to load F = {F()} kips. The top block is aluminum (E = 10,000 ksi) with side length w<sub>1</sub> = {w1()} in. and the bottom block is steel (E = 29,000 ksi) with side length w<sub>2</sub>= {w2()} in. If length L = {L()} in., what is the total change in length of the aluminum block? Ignore the weight of the blocks."
+            )
+        ]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        r.set(random.randrange(20, 60, 1)/10)
-        ri.set(round(r()*1.25, 2))
-        ro.set(round(r()*1.5, 2))
-        L.set(random.randrange(150, 300, 1)/10)
-        dL.set(random.randrange(10, 50, 1)/100)
+        F.set(random.randrange(20, 100, 1)/10)
+        w1.set(random.randrange(15, 50, 1)/10)
+        w2.set(round(w1() * 1.5, 2))
+        L.set(random.randrange(50, 200, 1)/10)
         
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        instr=((dL()*Ecopper*r()**2*math.pi)/L()) + ((dL()*Ealuminum*(ro()-ri())**2*math.pi)/L())
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+
+        # Calculate the instructor's answer and determine if the user's answer is correct.
+        instr = F() * L() * ((1 / w1() * Ealuminum) + (1 / w2() * Esteel))
+        student_answer = float(input.answer())
+        if is_acceptable(student_answer, instr):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
             check = "*Not Correct.*"
             correct_indicator = "JG"
+        # if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        #     check = "*Correct*"
+        #     correct_indicator = "JL"
+        # else:
+        #     check = "*Not Correct.*"
+        #     correct_indicator = "JG"
 
         # Generate random parts for the encoded attempt.
         random_start = generate_random_letters(4)
@@ -119,4 +139,5 @@ def server(input, output, session):
 
 # App installation
 app = App(app_ui, server)
+
 ```
