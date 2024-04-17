@@ -21,12 +21,7 @@ book:
   
   chapters:
     - index.qmd
-    - part: "Original Demo Problems"
-      chapters:
-        - problem1static.qmd
-        - problem1dynamicsubmit.qmd
-        - interfacedemo.qmd
-    - part: "Working List of Problems"
+    - part: "List of Complete Problems"
       chapters:
         - problem138dynamicsubmit.qmd
         - problem139dynamicsubmit.qmd
@@ -38,6 +33,11 @@ book:
         - problem164dynamicsubmit.qmd
         - problem165dynamicsubmit.qmd
         - problem166dynamicsubmit.qmd
+    - part: "Interactive Interface Demo"
+      chapters:
+        - interfacedemo.qmd   
+    - part: "List of Working Problems"
+      chapters:
         - problem168dynamicsubmit.qmd
         - problem169dynamicsubmit.qmd
         - problem180dynamicsubmit.qmd
@@ -50,7 +50,6 @@ book:
         - problem191dynamicsubmit.qmd
         - problem192dynamicsubmit.qmd
         - problem193dynamicsubmit.qmd
-        
     - summary.qmd
     - references.qmd
 
