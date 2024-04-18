@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Strength of Materials Problem Exercises - Problem 2.22</title>
+<title>Strength of Materials Problem Exercises - Problem 5.53</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./problem166dynamicsubmit.html" rel="next">
-<link href="./problem164dynamicsubmit.html" rel="prev">
+<link href="./problem226dynamicsubmit.html" rel="next">
+<link href="./problem224dynamicsubmit.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./problem138dynamicsubmit.html">List of Complete Problems</a></li><li class="breadcrumb-item"><a href="./problem165dynamicsubmit.html">Problem 2.22</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./problem168dynamicsubmit.html">List of Working Problems</a></li><li class="breadcrumb-item"><a href="./problem225dynamicsubmit.html">Problem 5.53</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -181,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem165dynamicsubmit.html" class="sidebar-item-text sidebar-link active">
+  <a href="./problem165dynamicsubmit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem 2.22</span></a>
   </div>
 </li>
@@ -353,7 +353,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem225dynamicsubmit.html" class="sidebar-item-text sidebar-link">
+  <a href="./problem225dynamicsubmit.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Problem 5.53</span></a>
   </div>
 </li>
@@ -502,9 +502,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./problem138dynamicsubmit.html">List of Complete Problems</a></li><li class="breadcrumb-item"><a href="./problem165dynamicsubmit.html">Problem 2.22</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./problem168dynamicsubmit.html">List of Working Problems</a></li><li class="breadcrumb-item"><a href="./problem225dynamicsubmit.html">Problem 5.53</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Problem 2.22</h1>
+<h1 class="title">Problem 5.53</h1>
 </div>
 
 
@@ -524,12 +524,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This is a dynamic rendering of the problem with dynamic variables based on the username entered.</p>
 <section id="problem-image" class="level2">
 <h2 class="anchored" data-anchor-id="problem-image">Problem Image</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/165.png" class="img-fluid figure-img" alt="Picture with a bracket attached to the wall. The bottom of the bracket touching the wall has two rivits. The top of the bracket has a load applied."></p>
-<figcaption>Figure 1: A bracket is attached to a wall with two circular rivets</figcaption>
-</figure>
-</div>
+<p><img src="images/225.png" class="img-fluid" alt="Figure 1: Three cylindrical rods are rigidly connected togehter with a load applied to the free end.">{fig-alt=” Three cylindrical rods are rigidly connected togehter with a load applied to the free end. The left hand side is connected to the wall and is attached to rod A. Rod B is attached to rod A on the left and rod C on the right. The load is applied to the free end of rod C. The diameter of rod A is 3 cm, the diameter of rod B is 1 cm, and the diameter of rod C is 2 cm.”}</p>
 <pre class="shinylive-python" data-engine="python"><code>#| standalone: true
 #| viewerHeight: 600
 #| components: [viewer]
@@ -545,12 +540,20 @@ from pathlib import Path
 
 def generate_random_letters(length):
     # Generate a random string of letters of specified length
-    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length)) 
 
-problem_ID="165"
+problem_ID="225"
+L1=reactive.Value("__")
+L2=reactive.Value("__")
+L3=reactive.Value("__")
 F=reactive.Value("__")
-d=reactive.Value("__")
-
+dT=reactive.Value("__")
+alphaA=10*10**-6
+alphaB=5*10**-6
+alphaC=7*10**-6
+EA=40*10**9
+EB=120*10**9
+EC=80*10**9
 
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
@@ -560,7 +563,7 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of MPa", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in units of m", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -573,24 +576,26 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A bracket is attached to a wall with two circular rivets of diameter d = {d()} mm. A load F = {F()} kN is applied in the center of the bracket. Assuming the load is split evenly between the two rivits, determine the shear stress in each rivet. ")]
+        return[ui.markdown(f"Three cylindrical rods of lengths L&lt;sub&gt;1&lt;/sub&gt; = {L1()} in., L&lt;sub&gt;2&lt;/sub&gt; = {L2()} in., and L&lt;sub&gt;3&lt;/sub&gt; = {L3()} in. are connected together. A force F = {F()} kN is applied to the free end and all three rods are heated by {dT()} °C. The coefficient of thermal expansion, α, and elastic modulus, E, for each material are α&lt;sub&gt;A&lt;/sub&gt; = 10 x 10&lt;sup&gt;-6&lt;/sup&gt; /°C, α&lt;sub&gt;B&lt;/sub&gt; = 5 x 10&lt;sup&gt;-6&lt;/sup&gt; /°C, α&lt;sub&gt;C&lt;/sub&gt; = 7 x 10&lt;sup&gt;-6&lt;/sup&gt; /°C, E&lt;sub&gt;A&lt;/sub&gt; = 40 GPa, E&lt;sub&gt;B&lt;/sub&gt; = 120 GPa, and E&lt;sub&gt;C&lt;/sub&gt; = 80 GPa. What is the total deflection of the right rod tip?  ")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        F.set(random.randrange(30, 100, 1))
-        d.set(random.randrange(10, 40, 1))
+        L1.set(random.randrange(10, 90, 1))
+        L2.set(round(L1()*0.8))
+        L3.set(round(L1()*(2/3)))
+        F.set(random.randrange(5, 50, 1))
+        dT.set(random.randrange(100, 300, 10))
         
-
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
-        attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.  
-      
-        A = math.pi*(d()/(1000*2))**2
-        instr= ((F()/2)/A)/1000
-        if math.isclose(float(input.answer()), instr, abs_tol=0.001):
+        attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
+        deltaL = (F()*L1()/100)/(EA*math.pi*.015**2) + (F()*L2()/100)/(EB*math.pi*.005**2) + (F()*L3()/100)/(EC*math.pi*.01**2)
+        deltaT = alphaA*dT()*L1()/100 + alphaB*dT()*L2()/100 + alphaC*dT()*L3()/100 
+        instr= deltaL + deltaT
+        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -634,8 +639,7 @@ def server(input, output, session):
 
 
 # App installation
-app = App(app_ui, server)
-</code></pre>
+app = App(app_ui, server)</code></pre>
 
 
 </section>
@@ -1174,13 +1178,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./problem164dynamicsubmit.html" class="pagination-link" aria-label="Problem 2.21">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problem 2.21</span>
+      <a href="./problem224dynamicsubmit.html" class="pagination-link" aria-label="Problem 5.52">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problem 5.52</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./problem166dynamicsubmit.html" class="pagination-link" aria-label="Problem 2.37">
-        <span class="nav-page-text">Problem 2.37</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./problem226dynamicsubmit.html" class="pagination-link" aria-label="Problem 5.54">
+        <span class="nav-page-text">Problem 5.54</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
