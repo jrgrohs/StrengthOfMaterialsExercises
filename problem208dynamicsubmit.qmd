@@ -1,11 +1,11 @@
-# Problem 5.35 {.unnumbered}
+# Problem 4.25 {.unnumbered}
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
 
 ## Problem Image
 
-![Figure 1: Two blocks with square cross sections are stacked and loaded at the top.](images/193.png){fig-alt="Picture with two blocks stacked on top of each other. The bottom block is steel and has a width w[2] and a length L. The top block is aluminum and has a width w[1] and length L. The load is applied to the top of the aluminum block."}
+![Figure 1: A block is pulled in all three directions.](images/208.png){fig-alt="Picture of a block being pulled in all three directions. The loads are evenly distributed on each face. The length 6 cm in the x direction, 5 cm in the y direction, and 2 cm in the z direction."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -25,14 +25,13 @@ def generate_random_letters(length):
     # Generate a random string of letters of specified length
     return ''.join(random.choice(string.ascii_lowercase) for _ in range(length)) 
 
-problem_ID="193"
-F=reactive.Value("__")
-w1=reactive.Value("__")
-w2=reactive.Value("__")
+problem_ID="208"
+Px=reactive.Value("__")
+Py=reactive.Value("__")
+Pz=reactive.Value("__")
 L=reactive.Value("__")
-Esteel = 29000
-Ealuminum = 10000
-
+E=reactive.Value("__")
+v=reactive.Value("__")
 
 
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
@@ -43,7 +42,7 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of inches", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in percent", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -56,22 +55,32 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"Two blocks with square cross-sections are stacked as shown, with the top block inserted into the bottom block and subjected to load F = {F()} kips. The top block is aluminum (E = 10,000 ksi) with side length w<sub>1</sub> = {w1()} in.  and the bottom block is steel (E = 29,000 ksi) with side length w<sub>2</sub> = {w2()} in. If length L = {L()} in., what is the total change in length of the aluminum block? Ignore the weight of the blocks. ")]
+        return[ui.markdown(f"A block with sides is pulled in all three directions (P<sub>x</sub> = {Px()} kN, P<sub>y</sub> = {Py()} kN, P<sub>z</sub> = {Pz()} kN). What is the percent change in volume after all three loads are applied? Assume E = {E()} MPa and v = {v()}. ")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        F.set(random.randrange(20, 100, 1)/10)
-        w1.set(random.randrange(15, 50, 1)/10)
-        w2.set(round(w1()*1.5))
-        L.set(random.randrange(50, 200, 1)/10)
+        Px.set(random.randrange(1, 20, 1))
+        Py.set(random.randrange(1, 20, 1))
+        Pz.set(random.randrange(1, 20, 1))
+        E.set(random.randrange(1000, 2000, 100))
+        v.set(random.randrange(20, 40, 1)/100)
         
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        instr=F()*L()*((1/((w1()**2)*Ealuminum)) + (1/((w2()**2)*Esteel)))
+        sigmax = (Px()/(5*2))*10
+        sigmay = (Py()/(6*2))*10
+        sigmaz = (Pz()/(5*6))*10
+        Ex = (sigmax - v()*(sigmay+sigmaz))/(E())
+        Ey = (sigmay - v()*(sigmaz+sigmax))/(E())
+        Ez = (sigmaz - v()*(sigmax+sigmay))/(E())
+        Lx = 6 + 6*Ex
+        Ly = 5 + 5*Ey
+        Lz = 2 + 2*Ez
+        instr= (((Lx*Ly*Lz)-60)/60)*100
         if math.isclose(float(input.answer()), instr, rel_tol=0.001):
             check = "*Correct*"
             correct_indicator = "JL"

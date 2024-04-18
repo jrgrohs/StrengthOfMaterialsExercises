@@ -1,11 +1,11 @@
-# Problem 5.35 {.unnumbered}
+# Problem 6.12 {.unnumbered}
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
 
 ## Problem Image
 
-![Figure 1: Two blocks with square cross sections are stacked and loaded at the top.](images/193.png){fig-alt="Picture with two blocks stacked on top of each other. The bottom block is steel and has a width w[2] and a length L. The top block is aluminum and has a width w[1] and length L. The load is applied to the top of the aluminum block."}
+![Figure 1: A bar is attached to a wall. ](images/268.png){fig-alt=" A bar is attached to a wall. The bar has an inner diameter of 1 in and outer diameter of 2 in. Torque, T[1] is applied halfway down the bar. The bar length is 10 in total.  "}
 
 ```{shinylive-python}
 #| standalone: true
@@ -25,15 +25,10 @@ def generate_random_letters(length):
     # Generate a random string of letters of specified length
     return ''.join(random.choice(string.ascii_lowercase) for _ in range(length)) 
 
-problem_ID="193"
-F=reactive.Value("__")
-w1=reactive.Value("__")
-w2=reactive.Value("__")
-L=reactive.Value("__")
-Esteel = 29000
-Ealuminum = 10000
-
-
+problem_ID="268"
+T1=reactive.Value("__")
+angle=reactive.Value("__")
+G=reactive.Value("__")
 
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
@@ -43,7 +38,7 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of inches", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in units of ft-lb", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -56,22 +51,24 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"Two blocks with square cross-sections are stacked as shown, with the top block inserted into the bottom block and subjected to load F = {F()} kips. The top block is aluminum (E = 10,000 ksi) with side length w<sub>1</sub> = {w1()} in.  and the bottom block is steel (E = 29,000 ksi) with side length w<sub>2</sub> = {w2()} in. If length L = {L()} in., what is the total change in length of the aluminum block? Ignore the weight of the blocks. ")]
+        return[ui.markdown(f"A bar with a shear modulus G = {G()} x 10<sup>6</sup> psi is subjected to torques T<sub>1</sub> = {T1()} lb-ft at its center and T<sub>2</sub> at its free end. The inner diamter is 1 in and the outer diameter is 2 in and the total length of the bar is 10 in. If the rotation of the rod at its free end is Θ =  {angle()} ° clockwise, what is the magnitude of torque T<sub>2</sub>?")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        F.set(random.randrange(20, 100, 1)/10)
-        w1.set(random.randrange(15, 50, 1)/10)
-        w2.set(round(w1()*1.5))
-        L.set(random.randrange(50, 200, 1)/10)
+        G.set(random.randrange(90, 130, 1)/10)
+        T1.set(random.randrange(1000, 5000, 100))
+        angle.set(random.randrange(10, 50, 1)/10)
         
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        instr=F()*L()*((1/((w1()**2)*Ealuminum)) + (1/((w2()**2)*Esteel)))
+        J = (math.pi/2)*((2/2)**4-(1/2)**4)
+        LHS = (T1()*12*5) + math.radians(angle())*(G()*10**6*J)
+        RHS = 12*5 + 12*5 
+        instr= LHS/RHS
         if math.isclose(float(input.answer()), instr, rel_tol=0.001):
             check = "*Correct*"
             correct_indicator = "JL"
@@ -117,5 +114,4 @@ def server(input, output, session):
 
 # App installation
 app = App(app_ui, server)
-
 ```

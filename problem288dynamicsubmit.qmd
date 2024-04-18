@@ -1,11 +1,11 @@
-# Problem 5.35 {.unnumbered}
+# Problem 6.28 {.unnumbered}
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
 
 ## Problem Image
 
-![Figure 1: Two blocks with square cross sections are stacked and loaded at the top.](images/193.png){fig-alt="Picture with two blocks stacked on top of each other. The bottom block is steel and has a width w[2] and a length L. The top block is aluminum and has a width w[1] and length L. The load is applied to the top of the aluminum block."}
+![Figure 1: A composite circular rod is made from two different plastics. A torque is applied at the midpoint. ](images/288.png){fig-alt=" A composite circular rod is made from two different plastics. A torque is applied at the midpoint. One end is fixed to the wall. The length of each half of rod is L. The inner material is material 1 and the outer material is material 2. The inner radius is 2 cm and the outer radius is 3 cm.  "}
 
 ```{shinylive-python}
 #| standalone: true
@@ -25,15 +25,11 @@ def generate_random_letters(length):
     # Generate a random string of letters of specified length
     return ''.join(random.choice(string.ascii_lowercase) for _ in range(length)) 
 
-problem_ID="193"
-F=reactive.Value("__")
-w1=reactive.Value("__")
-w2=reactive.Value("__")
+problem_ID="288"
+T=reactive.Value("__")
 L=reactive.Value("__")
-Esteel = 29000
-Ealuminum = 10000
-
-
+G1=reactive.Value("__")
+G2=reactive.Value("__")
 
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
@@ -43,7 +39,7 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of inches", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in units of MPa", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -56,22 +52,29 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"Two blocks with square cross-sections are stacked as shown, with the top block inserted into the bottom block and subjected to load F = {F()} kips. The top block is aluminum (E = 10,000 ksi) with side length w<sub>1</sub> = {w1()} in.  and the bottom block is steel (E = 29,000 ksi) with side length w<sub>2</sub> = {w2()} in. If length L = {L()} in., what is the total change in length of the aluminum block? Ignore the weight of the blocks. ")]
+        return[ui.markdown(f"A composite circular rod is made from two different plastics. A torque of T = {T()} kN-m is applied at the midpoint. The right end is free. What is the maximum stress in either material? Assume length L = {L()} cm and the shear modulus of the two materials are G<sub>1</sub> = {G1()} GPa and G<sub>2</sub> = {G2()} GPa.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        F.set(random.randrange(20, 100, 1)/10)
-        w1.set(random.randrange(15, 50, 1)/10)
-        w2.set(round(w1()*1.5))
-        L.set(random.randrange(50, 200, 1)/10)
+        T.set(random.randrange(10, 200, 1)/10)
+        L.set(random.randrange(10, 50, 1))
+        G1.set(random.randrange(20, 50, 2)/10)
+        G2.set(G1()/2)
+        
         
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        instr=F()*L()*((1/((w1()**2)*Ealuminum)) + (1/((w2()**2)*Esteel)))
+        J1 = (math.pi/2)*(2/100)**4
+        J2 = (math.pi/2)*((3-2)/100)**4
+        RHS = G1()*10**9*J1+G2()*10**9*J2
+        LHS = T()*G2()*10**9*J2
+        T2 = LHS/RHS
+        T1 = T()-T2
+        instr= ((T1*(3/100))/J1)/1000
         if math.isclose(float(input.answer()), instr, rel_tol=0.001):
             check = "*Correct*"
             correct_indicator = "JL"
@@ -117,5 +120,4 @@ def server(input, output, session):
 
 # App installation
 app = App(app_ui, server)
-
 ```
