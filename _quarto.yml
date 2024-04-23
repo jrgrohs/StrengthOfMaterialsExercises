@@ -85,6 +85,12 @@ book:
 
 bibliography: references.bib
 
+website:
+  comments: 
+    hypothesis:
+      theme: clean
+      openSidebar: false
+
 format:
   html:
     fontsize: "10pt"
