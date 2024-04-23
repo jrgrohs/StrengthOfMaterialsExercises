@@ -85,11 +85,9 @@ book:
 
 bibliography: references.bib
 
-website:
-  comments: 
-    hypothesis:
-      theme: clean
-      openSidebar: false
+comments:
+  utterances:
+    repo: jrgrohs/StrengthOfMaterialsExercises
 
 format:
   html:
