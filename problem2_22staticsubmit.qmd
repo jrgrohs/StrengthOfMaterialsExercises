@@ -1,0 +1,12 @@
+# Problem 2.22 {.unnumbered}
+
+This is a static rendering of the problem. 
+
+## Problem Statement
+A bracket is attached to a wall with two circular rivets of diameter d = 20 mm. A load F = 50 kN is applied in the center of the bracket. Assuming the load is split evenly between the two rivits, determine the shear stress in each rivet. 
+
+## Problem Image
+
+![Figure 1: A bracket is attached to a wall with two circular rivets](images/165.png){fig-alt="Picture with a bracket attached to the wall. The bottom of the bracket touching the wall has two rivits. The top of the bracket has a load applied."}
+
+

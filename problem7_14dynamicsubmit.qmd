@@ -1,0 +1,100 @@
+# Problem 7.3 {.unnumbered}
+
+This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
+
+
+## Problem Image
+
+![Figure 1: A distributed load is applied to a beam. ](images/318.png){fig-alt=" A distributed load, w, is applied to a beam. The beam is length 2L and the load is applied on length L. "}
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
+
+from shiny import App, render, ui, reactive
+import random
+import asyncio
+import io
+import math
+import string
+from datetime import datetime
+from pathlib import Path
+
+def generate_random_letters(length):
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))
+
+problem_ID = "318"
+w = reactive.Value("__")
+L = reactive.Value("__")
+
+attempts = ["Timestamp,Attempt,Answer1,Answer2,Feedback\n"]
+
+app_ui = ui.page_fluid(
+    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    ui.input_text("ID", "", placeholder="Enter ID Number Here"),
+    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    ui.markdown("**Problem Statement**"),
+    ui.output_ui("ui_problem_statement"),
+    ui.input_text("answer1", "Your Answer 1 in units of kip", placeholder="Please enter your answer 1"),
+    ui.input_text("answer2", "Your Answer 2 in units of kip-lb", placeholder="Please enter your answer 2"),
+    ui.input_action_button("submit", "Submit Answers", class_="btn-primary"),
+    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+)
+
+def server(input, output, session):
+    attempt_counter = reactive.Value(0)
+
+    @output
+    @render.ui
+    def ui_problem_statement():
+        return [ui.markdown(f"Plot the shear force and bending moment diagrams for the loading shown. Assume w = {w()} kip/ft and L = {L()} ft. What is the maximum absolute shear force and maximum absolute bending moment?")]
+
+    @reactive.Effect
+    @reactive.event(input.generate_problem)
+    def randomize_vars():
+        random.seed(input.ID())
+        w.set(random.randrange(30, 200, 1)/10)
+        L.set(random.randrange(40, 10, 1)/10)
+
+    @reactive.Effect
+    @reactive.event(input.submit)
+    def _():
+        attempt_counter.set(attempt_counter() + 1)
+        Ay = w()*(L()+L()/2)/(2*L())
+        instr1 = 
+        instr2 = 
+        correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.001)
+        correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.001)
+        
+        if correct1 and correct2:
+            check = "*Both answers are Correct*"
+            correct_indicator = "JL"
+        else:
+            check = "*One or both answers are Not Correct.*"
+            correct_indicator = "JG"
+
+        random_start = generate_random_letters(4)
+        random_middle = generate_random_letters(4)
+        random_end = generate_random_letters(4)
+        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+
+        session.encoded_attempt = reactive.Value(encoded_attempt)
+        attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
+
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}. For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}.")
+        m = ui.modal(feedback, title="Feedback", easy_close=True)
+        ui.modal_show(m)
+
+    @session.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
+    async def download():
+        final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"
+        yield f"{final_encoded}\n\n"
+        yield "Timestamp,Attempt,Answer1,Answer2,Feedback\n"
+        for attempt in attempts[1:]:
+            await asyncio.sleep(0.25)
+            yield attempt
+
+app = App(app_ui, server)
+
+```

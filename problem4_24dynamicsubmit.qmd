@@ -1,11 +1,11 @@
-# Problem 2.37 {.unnumbered}
+# Problem 4.24 {.unnumbered}
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
 
 ## Problem Image
 
-![Figure 1: A crate is hanged on a circular solid metal rod.](images/166.png){fig-alt="Picture with a crate hanging on a circular solid metal rod. The crate is being help up by a cable on each side. The circular metal rod is between two walls."}
+![Figure 1: A strain gauge is placed on a test sample and a vertical load is applied to the test sample. ](images/205.png){fig-alt="A strain gauge is placed on a test sample and a vertical load is applied to the test sample. The sides of the length in the x direction of the sample is 4 in, in the y direction it is 3 in, and it is 1 in in the z direction."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -21,15 +21,17 @@ import string
 from datetime import datetime
 from pathlib import Path
 
-problem_ID="166"
-W=reactive.Value("__")
-d1=reactive.Value("__")
-d2=reactive.Value("__")
-t=reactive.Value("__")
-
 def generate_random_letters(length):
     # Generate a random string of letters of specified length
     return ''.join(random.choice(string.ascii_lowercase) for _ in range(length)) 
+
+problem_ID="205"
+P1=reactive.Value("__")
+E=reactive.Value("__")
+v=reactive.Value("__")
+SG=reactive.Value("__")
+
+
 
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
@@ -39,7 +41,7 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of ksi", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in percent", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -52,23 +54,24 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A crate of weight W = {W()} lb hangs from a solid circular metal rod of diameter d<sub>1</sub> = {d1()} in.. The cable is wrapped around a support collar of diameter d<sub>2</sub> = {d2()} in. and thickness t = {t()} in. to evenly distribute the cable load. What is the bearing stress on the support collar due to the rod? ")]
+        return[ui.markdown(f"A strain gauge is placed on a polymer test sample with an elastic modulus E =  {E()} x 10<sup>6</sup> psi and a Poisson's ratio of v = {v()}. When a P<sub>1</sub> = {P1()} kip vertical load is applied to the test sample, the strain gauge reads a strain of SG = {SG()} x 10<sup>-6</sup> in the x-direction. What is the relative error of the strain gauge compared to the theoretical strain of the test sample? Note: relative error is defined to be the difference between the measured value and the theoretical value divided by the theoretical value ")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        W.set(random.randrange(4000, 9000, 100))
-        d1.set(random.randrange(5, 30, 1)/10)
-        d2.set(round(d1() * 3, 2))
-        t.set(round(d1() * 2, 2))
-
+        P1.set(random.randrange(20, 200, 1)/10)
+        E.set(random.randrange(5, 20, 1))
+        v.set(random.randrange(20, 40, 1)/100)
+        SG.set((v()*P1()*1000)/(12*E())-random.randrange(3, 20, 1)/10)
+        
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-    
-        instr= (W()/(d1()*t()))/1000
+        sigmaz = (-P1()*1000)/(4*3)
+        Ex = ((-v()*(sigmaz))/(E()*10**6))
+        instr=  ((Ex - SG()*10**-6)/Ex)*100
         if math.isclose(float(input.answer()), instr, rel_tol=0.001):
             check = "*Correct*"
             correct_indicator = "JL"

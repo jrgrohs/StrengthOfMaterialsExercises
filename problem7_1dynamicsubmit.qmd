@@ -1,0 +1,99 @@
+# Problem 7.1 {.unnumbered}
+
+This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
+
+
+## Problem Image
+
+![Figure 1: A beam is subjected to a distributed load and force applied. ](images/305.png){fig-alt=" A beam is subjected to a distributed load, w between A and B. A force, F, is applied at C. The distance between A and B is 6ft and the distance between B and C is 2 ft. Section a-a is 3 ft from A. "}
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
+
+from shiny import App, render, ui, reactive
+import random
+import asyncio
+import io
+import math
+import string
+from datetime import datetime
+from pathlib import Path
+
+def generate_random_letters(length):
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))
+
+problem_ID = "305"
+w = reactive.Value("__")
+F = reactive.Value("__")
+
+attempts = ["Timestamp,Attempt,Answer1,Answer2,Feedback\n"]
+
+app_ui = ui.page_fluid(
+    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    ui.input_text("ID", "", placeholder="Enter ID Number Here"),
+    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    ui.markdown("**Problem Statement**"),
+    ui.output_ui("ui_problem_statement"),
+    ui.input_text("answer1", "Your internal shear force answer in units of lb", placeholder="Please enter your answer 1"),
+    ui.input_text("answer2", "Your moment answer in units of lb-ft", placeholder="Please enter your answer 2"),
+    ui.input_action_button("submit", "Submit Answers", class_="btn-primary"),
+    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+)
+
+def server(input, output, session):
+    attempt_counter = reactive.Value(0)
+
+    @output
+    @render.ui
+    def ui_problem_statement():
+        return [ui.markdown(f"A beam is subjected to the loading shown, where w = {w()} lb/ft and F = {F()} lb. Determine the internal shear force and bending moment at section a-a.")]
+
+    @reactive.Effect
+    @reactive.event(input.generate_problem)
+    def randomize_vars():
+        random.seed(input.ID())
+        w.set(random.randrange(5, 150, 5))
+        F.set(random.randrange(300, 750, 10))
+
+    @reactive.Effect
+    @reactive.event(input.submit)
+    def _():
+        attempt_counter.set(attempt_counter() + 1)
+        Ay = (F()*2 - w()*6*3) / -6
+        instr1 = Ay - w()*3
+        instr2 = Ay*3 - w()*3*1.5
+        correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.001)
+        correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.001)
+        
+        if correct1 and correct2:
+            check = "Both answers are correct."
+        else:
+            check = f" {'correct' if correct1 else 'incorrect'} and {'correct' if correct2 else 'incorrect'}."
+        
+        correct_indicator = "JL" if correct1 and correct2 else "JG"
+
+        random_start = generate_random_letters(4)
+        random_middle = generate_random_letters(4)
+        random_end = generate_random_letters(4)
+        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+
+        session.encoded_attempt = reactive.Value(encoded_attempt)
+        attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
+
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check} For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}.")
+        m = ui.modal(feedback, title="Feedback", easy_close=True)
+        ui.modal_show(m)
+
+    @session.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
+    async def download():
+        final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"
+        yield f"{final_encoded}\n\n"
+        yield "Timestamp,Attempt,Answer1,Answer2,Feedback\n"
+        for attempt in attempts[1:]:
+            await asyncio.sleep(0.25)
+            yield attempt
+
+app = App(app_ui, server)
+```

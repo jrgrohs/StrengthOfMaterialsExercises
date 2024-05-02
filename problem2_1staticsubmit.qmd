@@ -1,0 +1,11 @@
+# Problem 2.1 {.unnumbered}
+
+This is a static rendering of the problem.
+
+## Problem Statement
+A series of solid circular bars are loaded with three loads as shown, F<sub>1</sub> = 60 N, F<sub>2</sub> = 20 N, and F<sub>3</sub> = 40 N. What is the largest absolute normal stress in any bar?
+
+## Problem Image
+
+![Figure 1: A series of solid circular bars are loaded with three loads](images/138.png){fig-alt="Picture with a series of circular bars of three different diameters loaded with three loads attached to a wall."}
+
