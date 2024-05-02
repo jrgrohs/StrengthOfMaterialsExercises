@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2023.8.25)  23 APR 2024 14:02
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2023.8.25)  2 MAY 2024 19:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1109,20 +1109,81 @@ File: images/166.png Graphic file (type bmp)
 <images/166.png>
 [48
 
-] [49]
-Underfull \vbox (badness 10000) detected at line 1600
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1600
- []
-
-[50] [51]
+]
 part II.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 1602.
+(scrkbase)              on input line 1490.
+[49
+
+]
+File: images/138.png Graphic file (type bmp)
+<images/138.png>
+[50
+
+] [51
+
+]
+File: images/139.png Graphic file (type bmp)
+<images/139.png>
 [52
+
+] [53]
+Overfull \vbox (22.72327pt too high) has occurred while \output is active []
+
+[54]
+File: images/144.png Graphic file (type bmp)
+<images/144.png>
+[55
+
+] [56]
+Overfull \vbox (59.38078pt too high) has occurred while \output is active []
+
+[57]
+File: images/146.png Graphic file (type bmp)
+<images/146.png>
+[58
+
+] [59]
+File: images/153.png Graphic file (type bmp)
+<images/153.png>
+[60
+
+]
+File: images/156.png Graphic file (type bmp)
+<images/156.png>
+[61
+
+]
+Missing character: There is no σ in font [lmroman10-regular]:mapping=tex-text;!
+File: images/157.png Graphic file (type bmp)
+<images/157.png>
+[62
+
+] [63]
+File: images/164.png Graphic file (type bmp)
+<images/164.png>
+[64
+
+] [65]
+File: images/165.png Graphic file (type bmp)
+<images/165.png>
+[66
+
+] [67]
+Overfull \vbox (59.37868pt too high) has occurred while \output is active []
+
+[68]
+File: images/166.png Graphic file (type bmp)
+<images/166.png>
+[69
+
+] [70]
+part III.
+Package scrkbase Info: You've told me to use the font selection of the element
+(scrkbase)             `partprefix' that is an alias of element `partnumber'
+(scrkbase)              on input line 1817.
+[71
 
 ]
 File: images/stoplights.png Graphic file (type bmp)
@@ -1130,15 +1191,15 @@ File: images/stoplights.png Graphic file (type bmp)
 ! Dimension too large.
 \fb@put@frame ...p \ifdim \dimen@ >\ht \@tempboxa 
                                                   \fb@putboxa #1\fb@afterfra...
-l.2951 \end{Shaded}
+l.3166 \end{Shaded}
                     
 Here is how much of TeX's memory you used:
- 23268 strings out of 479819
- 425622 string characters out of 5895846
- 1151024 words of memory out of 5000000
- 40097 multiletter control sequences out of 15000+600000
+ 23299 strings out of 479819
+ 425808 string characters out of 5895846
+ 1151334 words of memory out of 5000000
+ 40128 multiletter control sequences out of 15000+600000
  535926 words of font info for 56 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  58i,7n,115p,10100b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on index.pdf (52 pages).
+Output written on index.pdf (71 pages).

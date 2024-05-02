@@ -8,9 +8,3 @@ A 2 inch thick board is cut and then glued back together along a line that is Θ
 ## Problem Image
 
 ![Figure 1: A 2 inch thick board is cut and then glued back together along a line](images/156.png){fig-alt="Picture with a board that is cut along a line at angel Θ with the vertical. The board is glued back together."}
-
-```{shinylive-python}
-
-""
-  
-```

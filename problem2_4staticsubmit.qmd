@@ -8,8 +8,3 @@ A crate weighing 45 kN is suspended by a set of cables. The diameter of each cab
 ## Problem Image
 
 ![Figure 1: A crate is suspended by a set of cables](images/146.png){fig-alt="Picture with a crate suspended by a set of cables. Two cables originate from point A, with one cable pointing upwards forming a 30° angle with the horizontal, and another cable pointing to the right forming a 45° angle with the horizontal. A third cable starts from point B and points downward, making a 75° angle with the horizontal."}
-
-```{shinylive-python}
-""
-    
-```

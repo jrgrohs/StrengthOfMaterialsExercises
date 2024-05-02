@@ -34,6 +34,7 @@ book:
         - problem2_22dynamicsubmit.qmd
         - problem2_38dynamicsubmit.qmd
     - part: "List of Complete Problems - Static Version"
+      chapters:
         - problem2_1staticsubmit.qmd
         - problem2_2staticsubmit.qmd
         - problem2_3staticsubmit.qmd
@@ -111,7 +112,6 @@ book:
         - problem7_1dynamicsubmit.qmd
         - problem7_2dynamicsubmit.qmd
         - problem7_3dynamicsubmit.qmd
-      
     - summary.qmd
     - references.qmd
 

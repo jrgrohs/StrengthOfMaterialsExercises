@@ -8,12 +8,3 @@ Two slanted brackets are glued together as shown. If F = 500 lb, L = 4 in., and 
 ## Problem Image
 
 ![Figure 1: Two slanted brackets are glued together](images/153.png){fig-alt="Picture with two slanted brackets glued together, and the slant is at the stated angle. A force is applied to each edge of the brackets."}
-
-```{shinylive-python}
-
-
-""
-    
-  
-
-```
