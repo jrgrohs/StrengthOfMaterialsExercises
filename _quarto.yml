@@ -49,8 +49,7 @@ book:
       chapters:
         - interfacedemo.qmd   
     - part: "List of Working Problems"
-      chapter 1:
-      chapter 2:
+      chapters:
         - problem2_1dynamicsubmit.qmd
         - problem2_2dynamicsubmit.qmd
         - problem2_3dynamicsubmit.qmd
@@ -58,13 +57,11 @@ book:
         - problem2_21dynamicsubmit.qmd
         - problem2_22dynamicsubmit.qmd
         - problem2_23dynamicsubmit.qmd
-        - problem2_37dynamicsubmit.qmd
+        - problem2_38dynamicsubmit.qmd
         - problem2_39dynamicsubmit.qmd
         - problem2_40dynamicsubmit.qmd
         - problem2_47dynamicsubmit.qmd
         - problem2_48dynamicsubmit.qmd
-      chapter 3:
-      chapter 4:
         - problem4_5dynamicsubmit.qmd
         - problem4_6dynamicsubmit.qmd
         - problem4_10dynamicsubmit.qmd
@@ -73,8 +70,7 @@ book:
         - problem4_23dynamicsubmit.qmd
         - problem4_24dynamicsubmit.qmd
         - problem4_25dynamicsubmit.qmd
-        - problem4_37dynamicsubmit.qmd
-      chapter 5:
+        - problem4_35dynamicsubmit.qmd
         - problem5_11dynamicsubmit.qmd
         - problem5_12dynamicsubmit.qmd
         - problem5_13dynamicsubmit.qmd
@@ -93,7 +89,6 @@ book:
         - problem5_53dynamicsubmit.qmd
         - problem5_54dynamicsubmit.qmd
         - problem5_55dynamicsubmit.qmd
-      chapter 6:
         - problem6_1dynamicsubmit.qmd
         - problem6_2dynamicsubmit.qmd
         - problem6_3dynamicsubmit.qmd
@@ -108,7 +103,6 @@ book:
         - problem6_28dynamicsubmit.qmd
         - problem6_30dynamicsubmit.qmd
         - problem6_31dynamicsubmit.qmd
-      chapter 7:
         - problem7_1dynamicsubmit.qmd
         - problem7_2dynamicsubmit.qmd
         - problem7_3dynamicsubmit.qmd
