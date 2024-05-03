@@ -1,4 +1,4 @@
-# Problem 2.37 {.unnumbered}
+# Problem 2.38 {.unnumbered}
 
 This is a static rendering of the problem.
 
