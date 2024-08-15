@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A bar is fixed to a wall at one end ](images/265.png){fig-alt=" A bar is fixed to a wall at one end. The bar has diameter d. "}
+![Figure 1: A bar is fixed to a wall at one end.](images/265.png){fig-alt=" A bar is fixed to a wall at one end. The bar has diameter d."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -66,7 +65,7 @@ def server(input, output, session):
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         J = (math.pi/2)*(d()/2000)**4
         instr= (T()*1000*J)/(d()/2000)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -86,7 +85,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

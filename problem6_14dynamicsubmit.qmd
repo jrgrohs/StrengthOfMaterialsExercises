@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A circualr rod is attached to a wall. ](images/270.png){fig-alt=" A circular rod is attached to a wall. The rod has length L and an inner radius r[i] and outer radius r[o]. The torque is apllied at the free end.  "}
+![Figure 1: A circualr rod is attached to a wall.](images/270.png){fig-alt="A circular rod is attached to a wall. The rod has length L and an inner radius r[i] and outer radius r[o]. The torque is apllied at the free end."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -40,11 +39,10 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of cm", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in units of mm", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
-
 
 def server(input, output, session):
     # Initialize a counter for attempts
@@ -65,15 +63,17 @@ def server(input, output, session):
         T.set(random.randrange(10, 100, 1)/10)
         stress.set(random.randrange(75, 150, 1))
         
-        
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        LHS = (((math.pi/2)*stress()*10**6)*(ro()/1000)**4)-(T()*(ro()/1000))
-        RHS = ((math.pi/2)*stress()*10**6)
-        instr= ((LHS/RHS)**.25)*100
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        r1= ((ro()/1000)**4-(2*T()*1000*ro()/1000/(math.pi*stress()*10**6)))**0.25*1000
+        r2 = ((ro()/1000)**4-(2*T()*1000*L()/1000/(math.pi*G()*10**9*2*math.pi/180)))**0.25*1000
+        if r1>r2:
+            instr = r2
+        else:
+            instr = r1
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -93,7 +93,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -114,7 +114,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

@@ -5,7 +5,7 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 
 ## Problem Image
 
-![Figure 1: A crate is suspended by a set of cables](images/146.png){fig-alt="Picture with a crate suspended by a set of cables. Two cables originate from point A, with one cable pointing upwards forming a 30° angle with the horizontal, and another cable pointing to the right forming a 45° angle with the horizontal. A third cable starts from point B and points downward, making a 75° angle with the horizontal."}
+![Figure 1: A crate is suspended by a set of cables.](images/146.png){fig-alt="Picture with a crate suspended by a set of cables. Two cables originate from point A, with one cable pointing upwards forming a 30° angle with the horizontal, and another cable pointing to the right forming a 45° angle with the horizontal. A third cable starts from point B and points downward, making a 75° angle with the horizontal."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -71,7 +71,7 @@ def server(input, output, session):
     
         R1 = W()/(((math.cos(angle1)/math.cos(angle2))*math.sin(angle2))+math.sin(angle1))
         instr= (R1*10**3/(math.pi*((d()/(1000*2))**2)))/10**9
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -91,7 +91,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

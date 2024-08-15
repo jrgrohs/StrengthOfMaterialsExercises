@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A weight is placed on a tall brass bar ](images/223.png){fig-alt=" A weight is placed on a tall brass bar. The brass bar has a circular cross section of diameter d.   "}
+![Figure 1: A weight is placed on a tall brass bar.](images/223.png){fig-alt="A weight is placed on a tall brass bar. The brass bar has a circular cross section of diameter d."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -54,7 +53,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"The W = {W()} kg weight is placed on a L = {L()} m tall brass bar with a cross section of d = {d()} cm. If the bar undergoes a temperature change of {TC()} °C, what is the total deformation of the bar? Assume the Young's Modulus and thermal coefficient of expansion is 100 GPa and 10 x 10<sup>-6</sup> / °C, respectively. Also, assume no buckling. ")]
+        return[ui.markdown(f"The W = {W()} kg weight is placed on a L = {L()} m tall brass bar with a cross section of d = {d()} cm. If the bar undergoes a temperature change of {TC()}°C, what is the total deformation of the bar? Assume the Young's Modulus and thermal coefficient of expansion is 100 GPa and 10 x 10<sup>-6</sup> /°C, respectively. Also, assume no buckling. ")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -71,9 +70,9 @@ def server(input, output, session):
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         deltaT = L()*alpha*TC()
-        deltaM = (W()*9.81*L())/(E*math.pi*(d()/2)**2)
-        instr= deltaT - deltaM
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        deltaM = (W()*9.81*L())/(E*math.pi*(d()/200)**2) #200 converts from diameter in cm to r in meters
+        instr= (deltaT - deltaM)*1000 # *1000 to get answer in mm
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -93,7 +92,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

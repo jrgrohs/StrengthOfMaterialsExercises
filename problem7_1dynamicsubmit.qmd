@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A beam is subjected to a distributed load and force applied. ](images/305.png){fig-alt=" A beam is subjected to a distributed load, w between A and B. A force, F, is applied at C. The distance between A and B is 6ft and the distance between B and C is 2 ft. Section a-a is 3 ft from A. "}
+![Figure 1: A beam is subjected to a distributed load and force applied. ](images/305.png){fig-alt="A beam is subjected to a distributed load, w between A and B. A force, F, is applied at C. The distance between A and B is 6ft and the distance between B and C is 2 ft. Section a-a is 3 ft from A."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -64,13 +63,17 @@ def server(input, output, session):
         Ay = (F()*2 - w()*6*3) / -6
         instr1 = Ay - w()*3
         instr2 = Ay*3 - w()*3*1.5
-        correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.001)
-        correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.001)
+        correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.01)
+        correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.01)
         
         if correct1 and correct2:
-            check = "Both answers are correct."
+            check = "both correct."
+        elif correct1:
+            check = f" {'correct for answer 1 and incorrect for answer 2.'}"
+        elif correct2:
+            check = f"{'incorrect for answer 1 and correct for answer 2.'}"
         else:
-            check = f" {'correct' if correct1 else 'incorrect'} and {'correct' if correct2 else 'incorrect'}."
+            check = f"{'both incorrect.'}"
         
         correct_indicator = "JL" if correct1 and correct2 else "JG"
 
@@ -82,7 +85,7 @@ def server(input, output, session):
         session.encoded_attempt = reactive.Value(encoded_attempt)
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
 
-        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check} For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}.")
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}.")
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 

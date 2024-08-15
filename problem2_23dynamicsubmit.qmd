@@ -31,7 +31,6 @@ L2=reactive.Value("__")
 d=reactive.Value("__")
 F=reactive.Value("__")
 
-
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
@@ -44,7 +43,6 @@ app_ui = ui.page_fluid(
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
-
 
 def server(input, output, session):
     # Initialize a counter for attempts
@@ -60,7 +58,7 @@ def server(input, output, session):
     def randomize_vars():
         random.seed(input.ID())
         L1.set(random.randrange(50, 150, 1)/10)
-        L2.set(round(L1() * 1.4, 2))
+        L2.set(round(L1() * 1.4, 1))
         d.set(random.randrange(4, 9, 1)/10)
         F.set(random.randrange(30, 100, 1))
 
@@ -73,7 +71,7 @@ def server(input, output, session):
         R = M/L1()
         A = math.pi*(d()/2)**2
         instr= R/(2*A)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -93,7 +91,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -115,8 +113,6 @@ def server(input, output, session):
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
 
-
 # App installation
 app = App(app_ui, server)
-
 ```

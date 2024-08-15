@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: Two steel circular rods are firmly welded together and attached between two walls. ](images/293.png){fig-alt="Two steel circular rods are firmly welded together and attached between two walls. The rod on the left has a diameter d1 and the rod on the right has a diameter d2. Each rod has length L. The torque is applied where the rods intersect  "}
+![Figure 1: Two steel circular rods are firmly welded together and attached between two walls.](images/293.png){fig-alt="Two steel circular rods are firmly welded together and attached between two walls. The rod on the left has a diameter d1 and the rod on the right has a diameter d2. Each rod has length L. The torque is applied where the rods intersect."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -32,7 +31,6 @@ d2=reactive.Value("__")
 L=reactive.Value("__")
 G = 80
 
-
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
@@ -45,7 +43,6 @@ app_ui = ui.page_fluid(
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
-
 
 def server(input, output, session):
     # Initialize a counter for attempts
@@ -74,8 +71,13 @@ def server(input, output, session):
         RHS = J1/J2
         Tb = (T()/(RHS+1))
         Ta = T() - Tb
-        instr= ((Tb*d1()/2000)/J1)/1000
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        tauA = (Ta*d1()/2000/J1)/10**6
+        tauB = (Tb*d2()/2000/J2)/10**6
+        if tauA>=tauB:
+            instr = tauA
+        else:
+            instr = tauB
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -95,7 +97,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -116,7 +118,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

@@ -2,7 +2,6 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
 ![Figure 1: A copper circular rod is inserted into an aluminum tube as shown.](images/192.png){fig-alt="Picture with an circular copper rod inserted into an aluminum tube. A load is applied at the top of the tube. The radius of the copper rod is r. The inner radius of the aluminum tube is r[i] and the outer radius is r[o] "}
@@ -34,8 +33,6 @@ dL=reactive.Value("__")
 Ecopper = 110
 Ealuminum = 70
 
-
-
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
@@ -48,7 +45,6 @@ app_ui = ui.page_fluid(
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
-
 
 def server(input, output, session):
     # Initialize a counter for attempts
@@ -73,8 +69,8 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        instr=((dL()*Ecopper*r()**2*math.pi)/L()) + ((dL()*Ealuminum*(ro()-ri())**2*math.pi)/L())
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        instr=(((dL()*Ecopper*r()**2*math.pi)/L()) + ((dL()*Ealuminum*(ro()**2-ri()**2)*math.pi)/L()))*10
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -94,7 +90,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -115,7 +111,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

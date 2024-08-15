@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A long square brass bar is placed between two fixed walls ](images/226.png){fig-alt=" A long square brass bar is placed between two fixed walls. The bar has length L. The cross section is square with sides h. "}
+![Figure 1: A long square brass bar is placed between two fixed walls. ](images/226.png){fig-alt="A long square brass bar is placed between two fixed walls. The bar has length L. The cross section is square with sides h."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -54,7 +53,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A long square brass bar is placed between two fixed walls and heated from {T1()} °C to {T2()} °C. If L = {L()} mm, h = {h()} mm, E = 100 GPa, and α = 20 x 10<sup>-6</sup> /°C, determine the stress in the bar.  ")]
+        return[ui.markdown(f"A square brass bar is placed between two fixed walls and heated from {T1()}°C to {T2()}°C. If L = {L()} mm, h = {h()} mm, E = 100 GPa, and α = 20 x 10<sup>-6</sup> /°C, determine the stress in the bar.  ")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -71,7 +70,7 @@ def server(input, output, session):
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         instr= (E*alpha*(T2()-T1()))/10**6
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -91,7 +90,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

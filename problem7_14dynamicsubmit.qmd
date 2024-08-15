@@ -1,11 +1,10 @@
-# Problem 7.3 {.unnumbered}
+# Problem 7.14 {.unnumbered}
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A distributed load is applied to a beam. ](images/318.png){fig-alt=" A distributed load, w, is applied to a beam. The beam is length 2L and the load is applied on length L. "}
+![Figure 1: A distributed load is applied to a beam.](images/318.png){fig-alt="A distributed load, w, is applied to a beam. The beam is length 2L and the load is applied over length L."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -36,8 +35,8 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer1", "Your Answer 1 in units of kip", placeholder="Please enter your answer 1"),
-    ui.input_text("answer2", "Your Answer 2 in units of kip-lb", placeholder="Please enter your answer 2"),
+    ui.input_text("answer1", "Your internal shear force answer in units of kip", placeholder="Please enter your answer 1"),
+    ui.input_text("answer2", "Your moment answer in units of kip-ft", placeholder="Please enter your answer 2"),
     ui.input_action_button("submit", "Submit Answers", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -55,24 +54,27 @@ def server(input, output, session):
     def randomize_vars():
         random.seed(input.ID())
         w.set(random.randrange(30, 200, 1)/10)
-        L.set(random.randrange(40, 10, 1)/10)
+        L.set(random.randrange(40, 100, 1)/10)
 
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)
-        Ay = w()*(L()+L()/2)/(2*L())
-        instr1 = 
-        instr2 = 
-        correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.001)
-        correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.001)
+        instr1 = 3/4*w()*L()
+        instr2 = instr1**2/(2*w())
+        correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.01)
+        correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.01)
         
         if correct1 and correct2:
-            check = "*Both answers are Correct*"
-            correct_indicator = "JL"
+            check = "both correct."
+        elif correct1:
+            check = f" {'correct for answer 1 and incorrect for answer 2.'}"
+        elif correct2:
+            check = f"{'incorrect for answer 1 and correct for answer 2.'}"
         else:
-            check = "*One or both answers are Not Correct.*"
-            correct_indicator = "JG"
+            check = f"{'both incorrect.'}"
+            
+        correct_indicator = "JL" if correct1 and correct2 else "JG"
 
         random_start = generate_random_letters(4)
         random_middle = generate_random_letters(4)
@@ -82,7 +84,7 @@ def server(input, output, session):
         session.encoded_attempt = reactive.Value(encoded_attempt)
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
 
-        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}. For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}.")
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}.")
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 
@@ -96,5 +98,4 @@ def server(input, output, session):
             yield attempt
 
 app = App(app_ui, server)
-
 ```

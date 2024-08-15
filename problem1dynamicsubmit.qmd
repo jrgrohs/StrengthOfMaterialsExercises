@@ -55,12 +55,12 @@ def server(input, output, session):
     def _():
         instr= (light_a()+2*lights_bc()/math.pi*(2.5**2 - 2.3**2))+ ((-1*lights_bc()*7- lights_bc()*11 - light_a()*15)*12*2.5)/ ((math.pi/4)*(2.5**4 - 2.3**4))
         #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
-        if math.isclose(float(input.answer()),instr,rel_tol=0.001):
+        if math.isclose(float(input.answer()),instr,rel_tol=0.01):
            check="*Correct*"
         else:
            check="*Not Correct.*"
         
-        if check=="*Not Correct.*" and math.isclose(abs(float(input.answer())),abs(instr),rel_tol=0.001):
+        if check=="*Not Correct.*" and math.isclose(abs(float(input.answer())),abs(instr),rel_tol=0.01):
            extra_check="An extra check says you may have a sign error."
         else:
            extra_check=""

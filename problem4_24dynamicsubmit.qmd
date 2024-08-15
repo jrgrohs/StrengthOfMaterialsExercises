@@ -5,7 +5,7 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 
 ## Problem Image
 
-![Figure 1: A strain gauge is placed on a test sample and a vertical load is applied to the test sample. ](images/205.png){fig-alt="A strain gauge is placed on a test sample and a vertical load is applied to the test sample. The sides of the length in the x direction of the sample is 4 in, in the y direction it is 3 in, and it is 1 in in the z direction."}
+![Figure 1: A strain gauge is placed on a test sample and a vertical load is applied to the test sample.](images/205.png){fig-alt="A strain gauge is placed on a test sample and a vertical load is applied to the test sample. The sides of the length in the x direction of the sample is 4 in, in the y direction it is 3 in, and it is 1 in in the z direction."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -31,8 +31,6 @@ E=reactive.Value("__")
 v=reactive.Value("__")
 SG=reactive.Value("__")
 
-
-
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
@@ -45,7 +43,6 @@ app_ui = ui.page_fluid(
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
-
 
 def server(input, output, session):
     # Initialize a counter for attempts
@@ -63,7 +60,7 @@ def server(input, output, session):
         P1.set(random.randrange(20, 200, 1)/10)
         E.set(random.randrange(5, 20, 1))
         v.set(random.randrange(20, 40, 1)/100)
-        SG.set((v()*P1()*1000)/(12*E())-random.randrange(3, 20, 1)/10)
+        SG.set(round((v()*P1()*1000)/(12*E()),1)-(random.randrange(3, 20, 1)/10))
         
     @reactive.Effect
     @reactive.event(input.submit)
@@ -72,7 +69,7 @@ def server(input, output, session):
         sigmaz = (-P1()*1000)/(4*3)
         Ex = ((-v()*(sigmaz))/(E()*10**6))
         instr=  ((Ex - SG()*10**-6)/Ex)*100
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -92,7 +89,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -114,8 +111,6 @@ def server(input, output, session):
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
 
-
 # App installation
 app = App(app_ui, server)
-
 ```

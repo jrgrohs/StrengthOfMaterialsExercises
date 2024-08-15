@@ -8,9 +8,9 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 ![Figure 1: A beam is subjected to a distributed load and force applied. ](images/305.png){fig-alt=" A beam is subjected to a distributed load, w between A and B. A force, F, is applied at C. The distance between A and B is 6ft and the distance between B and C is 2 ft. Section a-a is 3 ft from A. "}
 
 ```{shinylive-python}
-#| standalone: true
-#| viewerHeight: 600
-#| components: [viewer]
+# | standalone: true
+# | viewerHeight: 600
+# | components: [viewer]
 
 from shiny import App, render, ui, reactive
 import random
@@ -22,12 +22,14 @@ from datetime import datetime
 from pathlib import Path
 
 def generate_random_letters(length):
-    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))
+    # Generate a random string of letters of specified length
+    return "".join(random.choice(string.ascii_lowercase) for _ in range(length))
 
-problem_ID = "305"
-w = reactive.Value("__")
+problem_ID = "176"
+sigma_s = reactive.Value("__")
+sigma_b = reactive.Value("__")
 F = reactive.Value("__")
-
+a = reactive.Value("__")
 attempts = ["Timestamp,Attempt,Answer1,Answer2,Feedback\n"]
 
 app_ui = ui.page_fluid(
@@ -36,96 +38,59 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer1", "Your Answer 1 in units of lb", placeholder="Please enter your answer 1"),
-    ui.input_text("answer2", "Your Answer 2 in units of lb-ft", placeholder="Please enter your answer 2"),
+    ui.input_text("answer1", "Your Answer 1 in units of in", placeholder="Please enter your answer 1"),
+    ui.input_text("answer2", "Your Answer 2 in units of in", placeholder="Please enter your answer 2"),
     ui.input_action_button("submit", "Submit Answers", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
 def server(input, output, session):
+    # Initialize a counter for attempts
     attempt_counter = reactive.Value(0)
 
     @output
     @render.ui
     def ui_problem_statement():
-        return [ui.markdown(f"A beam is subjected to the loading shown, where w = {w()} lb/ft and F = {F()} lb. Determine the internal shear force and bending moment at section a-a.")]
+        return [
+            ui.markdown(
+                f"A metal end cap is secured to a wood structural member with grooves as shown. The failure shear and bearing stresses for the wood are σ<sub>s</sub> = {sigma_s()} ksi and σ<sub>b</sub> = {sigma_b()} ksi respectively. If load F = {F()} kips and dimension a = {a()} in., determine the dimensions, d and b, required for the wood not to fail."
+            )
+        ]
 
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        w.set(random.randrange(5, 150, 5))
-        F.set(random.randrange(300, 750, 10))
-
-    @reactive.Effect
-    @reactive.event(input.submit)
-    def _():
-        attempt_counter.set(attempt_counter() + 1)
-        Ay = (F()*2 - w()*6*3) / -6
-        instr1 = Ay - w()*3
-        instr2 = Ay*3 - w()*3*1.5
-        correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.001)
-        correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.001)
+        sigma_s.set(random.randrange(20,50,1)/10)
+        sigma_b.set(sigma_s()*2)
+        F.set(random.randrange(15,40,1))
+        a.set(random.randrange(50,100,1)/10)
         
-        from shiny import App, render, ui, reactive
-import random
-import asyncio
-import io
-import math
-import string
-from datetime import datetime
-from pathlib import Path
-
-def generate_random_letters(length):
-    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))
-
-problem_ID = "305"
-w = reactive.Value("__")
-F = reactive.Value("__")
-
-attempts = ["Timestamp,Attempt,Answer1,Answer2,Feedback\n"]
-
-app_ui = ui.page_fluid(
-    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
-    ui.input_text("ID", "", placeholder="Enter ID Number Here"),
-    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
-    ui.markdown("**Problem Statement**"),
-    ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer1", "Your internal shear force answer in units of lb", placeholder="Please enter your answer 1"),
-    ui.input_text("answer2", "Your moment answer in units of lb-ft", placeholder="Please enter your answer 2"),
-    ui.input_action_button("submit", "Submit Answers", class_="btn-primary"),
-    ui.download_button("download", "Download File to Submit", class_="btn-success"),
-)
-
-def server(input, output, session):
-    attempt_counter = reactive.Value(0)
-
-    @output
-    @render.ui
-    def ui_problem_statement():
-        return [ui.markdown(f"A beam is subjected to the loading shown, where w = {w()} lb/ft and F = {F()} lb. Determine the internal shear force and bending moment at section a-a.")]
-
-    @reactive.Effect
-    @reactive.event(input.generate_problem)
-    def randomize_vars():
-        random.seed(input.ID())
-        w.set(random.randrange(5, 150, 5))
-        F.set(random.randrange(300, 750, 10))
-
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
-        attempt_counter.set(attempt_counter() + 1)
-        Ay = (F()*2 - w()*6*3) / -6
-        instr1 = Ay - w()*3
-        instr2 = Ay*3 - w()*3*1.5
-        correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.001)
-        correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.001)
+        attempt_counter.set(
+            attempt_counter() + 1
+        )  # Increment the attempt counter on each submission.
+
+        # Calculate the instructor's answer and determine if the user's answer is correct.
+        P = 2*F()
+        Ab = P/sigma_b()
+        instr1 = Ab/a()
+        As = P/sigma_s()
+        instr2 = As/a()
+
+        correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.01)
+        correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.01)
         
         if correct1 and correct2:
-            check = "Both answers are correct."
+            check = f"{'both correct.'}"
+        elif correct1:
+            check = f" {'correct for answer 1 and incorrect for answer 2.'}"
+        elif correct2:
+            check = f"{'incorrect for answer 1 and correct for answer 2.'}"
         else:
-            check = f" {'correct' if correct1 else 'incorrect'} and {'correct' if correct2 else 'incorrect'}."
+            check = f"{'both incorrect.'}"
         
         correct_indicator = "JL" if correct1 and correct2 else "JG"
 
@@ -137,7 +102,7 @@ def server(input, output, session):
         session.encoded_attempt = reactive.Value(encoded_attempt)
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
 
-        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check} For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}.")
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}. For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}")
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 

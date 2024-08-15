@@ -5,7 +5,7 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 
 ## Problem Image
 
-![Figure 1: A link mechanism is connected with diameter pins.](images/180.png){fig-alt="Picture with a link mechanism connected with diameter pins. One end of the bar, A, is attached to the ground by a pin. The mechanism is at point B. Member BC is attached with the ground with a pin at point C. The force is being applied at the other end, D."}
+![Figure 1: A link mechanism is connected with pins.](images/180.png){fig-alt="Picture with a link mechanism connected with diameter pins. One end of the bar, A, is attached to the ground by a pin. The mechanism is at point B. Member BC is attached with the ground with a pin at point C. The force is being applied at the other end, D."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -54,7 +54,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A link mechanism is connected with pins of diameter d = {d()} in. A force F = {F()} lb is applied to the mechanism as shown. The mechanism has thickness width w = {w()} in. and thickness t = {t()} in. What is the bearing stress in member BC at joint B due to the pin at B? ")]
+        return[ui.markdown(f"A link mechanism is connected with pins of diameter d = {d()} in. A force F = {F()} lb is applied to the mechanism as shown. The mechanism has width w = {w()} in. and thickness t = {t()} in. What is the bearing stress in member BC at joint B due to the pin at B? ")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -63,7 +63,7 @@ def server(input, output, session):
         F.set(random.randrange(200, 900, 10))
         d.set(random.randrange(20, 150, 10)/100)
         t.set(random.randrange(2, 10, 1)/10)
-        w.set(round(d() * 2, 2))
+        w.set(round(d()*2, 2))
         
 
     @reactive.Effect
@@ -71,8 +71,8 @@ def server(input, output, session):
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         Fb=((18+8)*F())/18
-        instr= Fb/((w()/2)*(d()/2))
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        instr= Fb/(d()*t())/1000
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -92,7 +92,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

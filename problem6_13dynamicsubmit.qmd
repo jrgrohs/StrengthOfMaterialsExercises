@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A system of cylinders are attached to the wall at one end.  ](images/269.png){fig-alt=" A system of cylinders are attached to the wall at one end. The first torque is applied at the connection of the cylidner attached to the wall made of steel with the cylinder made of aluminum. The second torque is applied at the connection between the cylinder made of aluminum and the second cylinder made of steel. The third torque is applied at the free end. The first cyliner has length 10 cm and diamter 5 cm. The second cyliner has length 15 cm and diamter  3 cm. The third cyliner has length 8 cm and diamter 4 cm.  "}
+![Figure 1: A system of cylinders are attached to the wall at one end.  ](images/269.png){fig-alt="A system of cylinders are attached to the wall at one end. The first torque is applied at the connection of the cylidner attached to the wall made of steel with the cylinder made of aluminum. The second torque is applied at the connection between the cylinder made of aluminum and the second cylinder made of steel. The third torque is applied at the free end. The first cyliner has length 10 cm and diamter 5 cm. The second cyliner has length 15 cm and diamter  3 cm. The third cyliner has length 8 cm and diamter 4 cm."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -29,10 +28,8 @@ problem_ID="269"
 T1=reactive.Value("__")
 T2=reactive.Value("__")
 T3=reactive.Value("__")
-Es=77
-Ea=27
-vs=0.3
-va=0.33
+Gs=77
+Ga=27
 
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
@@ -55,7 +52,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"Three moments are applied to the system of cylinders as shown. Assume T<sub>1</sub> = {T1()} kN-m, T<sub>2</sub> = {T2()} kN-m, and T<sub>3</sub> = {T3()} kN-m. If E<sub>steel</sub> = 77 GPa and E<sub>aluminum</sub> = 27 GPa, determine the total angle of twist at the free end.")]
+        return[ui.markdown(f"Three moments are applied to the system of cylinders as shown. Assume T<sub>1</sub> = {T1()} kN-m, T<sub>2</sub> = {T2()} kN-m, and T<sub>3</sub> = {T3()} kN-m. If G<sub>steel</sub> = 77 GPa and G<sub>aluminum</sub> = 27 GPa, determine the total angle of twist at the free end.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -75,10 +72,8 @@ def server(input, output, session):
         J1 = (math.pi/2)*((5/200)**4)
         J2 = (math.pi/2)*((3/200)**4)
         J3 = (math.pi/2)*((4/200)**4)
-        Gs = Es/(2*(1+vs))
-        Ga = Ea/(2+(1+va))
-        instr= (T1()*.1)/(J1*Gs*10**6) + (T2()*.15)/(J2*Ga*10**6) + (T3()*.08)/(J3*Gs*10**6)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        instr= ((F1*1000*.1)/(J1*Gs*10**9) + (F2*1000*.15)/(J2*Ga*10**9) + (F3*1000*.08)/(J3*Gs*10**9))*180/math.pi
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -98,7 +93,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -119,7 +114,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

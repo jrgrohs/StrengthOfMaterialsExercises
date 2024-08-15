@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A bar is attached to a wall. ](images/268.png){fig-alt=" A bar is attached to a wall. The bar has an inner diameter of 1 in and outer diameter of 2 in. Torque, T[1] is applied halfway down the bar. The bar length is 10 in total.  "}
+![Figure 1: A bar is attached to a wall.](images/268.png){fig-alt=" A bar is attached to a wall. The bar has an inner diameter of 1 in and outer diameter of 2 in. Torque, T[1] is applied halfway down the bar. The bar length is 10 in total."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -51,7 +50,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A bar with a shear modulus G = {G()} x 10<sup>6</sup> psi is subjected to torques T<sub>1</sub> = {T1()} lb-ft at its center and T<sub>2</sub> at its free end. The inner diamter is 1 in and the outer diameter is 2 in and the total length of the bar is 10 in. If the rotation of the rod at its free end is Θ =  {angle()} ° clockwise, what is the magnitude of torque T<sub>2</sub>?")]
+        return[ui.markdown(f"A bar with a shear modulus G = {G()} x 10<sup>6</sup> psi is subjected to torques T<sub>1</sub> = {T1()} lb-ft at its center and T<sub>2</sub> at its free end. The inner diamter is 1 in and the outer diameter is 2 in and the total length of the bar is 10 in. If the rotation of the rod at its free end is Φ =  {angle()}° clockwise, what is the magnitude of torque T<sub>2</sub>?")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -65,11 +64,13 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        J = (math.pi/2)*((2/2)**4-(1/2)**4)
-        LHS = (T1()*12*5) + math.radians(angle())*(G()*10**6*J)
-        RHS = 12*5 + 12*5 
-        instr= LHS/RHS
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        ro = 2/2
+        ri = 1/2
+        J = math.pi/2*(ro**4-ri**4)
+        L1 = 10/2
+        L2 = 10/2
+        instr= abs((angle()*math.pi/180*G()*10**6*J+T1()*12*L1)/(L1+L2)/12)
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -89,7 +90,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -110,7 +111,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

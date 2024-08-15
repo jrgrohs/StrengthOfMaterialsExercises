@@ -77,7 +77,7 @@ def server(input, output, session):
 
         # Calculate the instructor's answer and determine if the user's answer is correct.
         instr = F() * L() * ((1 / w1() * Ealuminum) + (1 / w2() * Esteel))
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:

@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A composite circular rod is made from two different plastics. A torque is applied at the midpoint. ](images/288.png){fig-alt=" A composite circular rod is made from two different plastics. A torque is applied at the midpoint. One end is fixed to the wall. The length of each half of rod is L. The inner material is material 1 and the outer material is material 2. The inner radius is 2 cm and the outer radius is 3 cm.  "}
+![Figure 1: A composite circular rod is made from two different plastics. A torque is applied at the midpoint.](images/288.png){fig-alt="A composite circular rod is made from two different plastics. A torque is applied at the midpoint. One end is fixed to the wall. The length of each half of rod is L. The inner material is material 1 and the outer material is material 2. The inner radius is 2 cm and the outer radius is 3 cm."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -44,7 +43,6 @@ app_ui = ui.page_fluid(
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
-
 def server(input, output, session):
     # Initialize a counter for attempts
     attempt_counter = reactive.Value(0)
@@ -69,13 +67,13 @@ def server(input, output, session):
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         J1 = (math.pi/2)*(2/100)**4
-        J2 = (math.pi/2)*((3-2)/100)**4
+        J2 = (math.pi/2)*((3/100)**4-(2/100)**4)
         RHS = G1()*10**9*J1+G2()*10**9*J2
         LHS = T()*G2()*10**9*J2
         T2 = LHS/RHS
         T1 = T()-T2
-        instr= ((T1*(3/100))/J1)/1000
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        instr= ((T1*(2/100))/J1)/1000
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -95,7 +93,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -116,7 +114,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

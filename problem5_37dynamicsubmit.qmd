@@ -2,7 +2,6 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
 ![Figure 1: Two aluminum circular rods are placed between two fixed walls. ](images/247.png){fig-alt=" Two aluminum circular rods are placed between two fixed walls. Member 1 is on the left and member 2 is on the right. Member 2 has diameter d[1] and length L[1]. Member 2 has diameter d[2] and length L[2] "}
@@ -62,19 +61,19 @@ def server(input, output, session):
         random.seed(input.ID())
         F.set(random.randrange(20, 100, 1))
         d1.set(random.randrange(15, 50, 1))
-        d2.set(round(d1()*1.5, 2))
+        d2.set(round(d1()*1.5))
         L1.set(random.randrange(200, 800, 10))
-        L2.set(round(L1()*(2/3), 2))
+        L2.set(round(L1()*(2/3)))
        
         
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        LHS = (L1()/100)/(math.pi*(d1()/200)**2) + (L2()/100)/(math.pi*(d2()/200)**2)
-        RHS = (F()*L2()/100)/(math.pi*(d2()/200)**2)
-        instr= (RHS/LHS)/(math.pi*(d1()/200)**2)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        LHS = (L1()/1000)/(math.pi*(d1()/2000)**2) + (L2()/1000)/(math.pi*(d2()/2000)**2)
+        RHS = (F()*L2())/(math.pi*(d2()/2)**2)
+        instr= (RHS/LHS)/(math.pi*(d1()/2000)**2)
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -94,7 +93,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

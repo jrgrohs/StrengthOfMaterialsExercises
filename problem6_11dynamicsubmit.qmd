@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A hollow copper rod is fixed to a wall at one end and a torque is applied ](images/266.png){fig-alt=" A hollow copper rod is fixed to a wall at one end and a torque is applied. The rod has an outer diameter of d[o] and inner diameter of d[i] and length L.  "}
+![Figure 1: A hollow copper rod is fixed to a wall at one end and a torque is applied ](images/266.png){fig-alt="A hollow copper rod is fixed to a wall at one end and a torque is applied. The rod has an outer diameter of d[o] and inner diameter of d[i] and length L."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -55,7 +54,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A hollow copper rod (E = 110 GPa, v = 0.33) is subjected to torque T as shown. If length L = {L()} m, outer diameter d<sub>o</sub> = {do()} mm, and inner diameter d<sub>i</sub> = {di()} mm, determine torque T if the rod twists {angle()} ° .")]
+        return[ui.markdown(f"A hollow copper rod (E = 110 GPa, v = 0.33) is subjected to torque T as shown. If length L = {L()} m, outer diameter d<sub>o</sub> = {do()} mm, and inner diameter d<sub>i</sub> = {di()} mm, determine torque T if the rod twists {angle()}° .")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -73,7 +72,7 @@ def server(input, output, session):
         G = E*10**9/(2*(1+v))
         J = (math.pi/2)*((do()/2000)**4 -(di()/2000)**4 )
         instr= ((math.radians(angle())*G*J)/L())/10**3
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -93,7 +92,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

@@ -51,7 +51,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A plastic cylindrical peg is constrained by a metal cap as shown. An axial load of F = {F()} lb is applied to the peg. If d<sub>1</sub> = {d1()} in and d<sub>2</sub> = {d2()} in, determine the normal stress in the peg. Assume the axial load is evenly distributed across the peg and that the metal cap is fixed and does not move.")]
+        return[ui.markdown(f"A plastic cylindrical peg is constrained by a metal cap as shown. An axial load of F = {F()} lb is applied to the peg. If d<sub>1</sub> = {d1()} in and d<sub>2</sub> = {d2()} in, determine the largest normal stress in the peg. Assume the axial load is evenly distributed across the peg and that the metal cap is fixed and does not move.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -69,7 +69,7 @@ def server(input, output, session):
         instr= F()/(math.pi*((d1()/2)**2))
         #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
         
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -89,7 +89,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

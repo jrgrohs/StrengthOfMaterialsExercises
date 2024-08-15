@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: Three cylindrical rods are rigidly connected togehter with a load applied to the free end. ](images/225.png){fig-alt=" Three cylindrical rods are rigidly connected togehter with a load applied to the free end. The left hand side is connected to the wall and is attached to rod A. Rod B is attached to rod A on the left and rod C on the right. The load is applied to the free end of rod C. The diameter of rod A is 3 cm, the diameter of rod B is 1 cm, and the diameter of rod C is 2 cm."}
+![Figure 1: Three cylindrical rods are rigidly connected togehter with a load applied to the free end.](images/225.png){fig-alt="Three cylindrical rods are rigidly connected togehter with a load applied to the free end. The left hand side is connected to the wall and is attached to rod A. Rod B is attached to rod A on the left and rod C on the right. The load is applied to the free end of rod C. The diameter of rod A is 3 cm, the diameter of rod B is 1 cm, and the diameter of rod C is 2 cm."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -46,7 +45,7 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of m", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in units of mm", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -59,15 +58,15 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"Three cylindrical rods of lengths L<sub>1</sub> = {L1()} in., L<sub>2</sub> = {L2()} in., and L<sub>3</sub> = {L3()} in. are connected together. A force F = {F()} kN is applied to the free end and all three rods are heated by {dT()} °C. The coefficient of thermal expansion, α, and elastic modulus, E, for each material are α<sub>A</sub> = 10 x 10<sup>-6</sup> /°C, α<sub>B</sub> = 5 x 10<sup>-6</sup> /°C, α<sub>C</sub> = 7 x 10<sup>-6</sup> /°C, E<sub>A</sub> = 40 GPa, E<sub>B</sub> = 120 GPa, and E<sub>C</sub> = 80 GPa. What is the total deflection of the right rod tip?  ")]
+        return[ui.markdown(f"Three cylindrical rods of lengths L<sub>1</sub> = {L1()} m, L<sub>2</sub> = {L2()} m, and L<sub>3</sub> = {L3()} m are connected together. A force F = {F()} kN is applied to the free end and all three rods are heated by {dT()} °C. The coefficient of thermal expansion, α, and elastic modulus, E, for each material are α<sub>A</sub> = 10 x 10<sup>-6</sup> /°C, α<sub>B</sub> = 5 x 10<sup>-6</sup> /°C, α<sub>C</sub> = 7 x 10<sup>-6</sup> /°C, E<sub>A</sub> = 40 GPa, E<sub>B</sub> = 120 GPa, and E<sub>C</sub> = 80 GPa. What is the total deflection of the right rod tip?  ")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        L1.set(random.randrange(10, 90, 1))
-        L2.set(round(L1()*0.8))
-        L3.set(round(L1()*(2/3)))
+        L1.set(random.randrange(10, 40, 1)/10)
+        L2.set(round((L1()*0.8),1))
+        L3.set(round((L1()*2/3),1))        
         F.set(random.randrange(5, 50, 1))
         dT.set(random.randrange(100, 300, 10))
         
@@ -75,10 +74,10 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        deltaL = (F()*L1()/100)/(EA*math.pi*.015**2) + (F()*L2()/100)/(EB*math.pi*.005**2) + (F()*L3()/100)/(EC*math.pi*.01**2)
-        deltaT = alphaA*dT()*L1()/100 + alphaB*dT()*L2()/100 + alphaC*dT()*L3()/100 
-        instr= deltaL + deltaT
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        deltaL = (F()*L1()*1000)/(EA*math.pi*.015**2) + (F()*L2()*1000)/(EB*math.pi*.005**2) + (F()*L3()*1000)/(EC*math.pi*.01**2)
+        deltaT = alphaA*dT()*L1() + alphaB*dT()*L2() + alphaC*dT()*L3() 
+        instr= (deltaL + deltaT)*1000
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -98,7 +97,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -119,7 +118,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A solid circular bar is between two fixed walls. ](images/222.png){fig-alt="A solid circular bar is between two fixed walls with length L.  "}
+![Figure 1: A solid circular bar is between two fixed walls.](images/222.png){fig-alt="A solid circular bar is between two fixed walls with length L."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -39,7 +38,7 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in units of °F", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -52,7 +51,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"The axial stress in a solid circular bar between two fixed walls is {stress()} ksi. Find the temperature change necessary to relieve the stress. Assume L = {L()} in., E = 29,000 ksi, and alpha = 6.5 x 10<sup>-6</sup> / °F. ")]
+        return[ui.markdown(f"The axial stress in a solid circular bar between two fixed walls is {stress()} ksi. Find the temperature change necessary to relieve the stress. Assume L = {L()} in., E = 29,000 ksi, and α = 6.5 x 10<sup>-6</sup> / °F. ")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -66,7 +65,7 @@ def server(input, output, session):
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         instr= stress()/(alpha*E)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -86,7 +85,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

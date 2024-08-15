@@ -5,7 +5,7 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 
 ## Problem Image
 
-![Figure 1: Two sylinders are stacked on top of each other.](images/139.png){fig-alt="Picture with two cylinders stacked on top of each other and two forces are applied at the top surface and at the joint between teh cylinders as shown."}
+![Figure 1: Two cylinders are stacked on top of each other.](images/139.png){fig-alt="Picture with two cylinders stacked on top of each other and two forces are applied at the top surface and at the joint between teh cylinders as shown."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -45,7 +45,6 @@ app_ui = ui.page_fluid(
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
-
 def server(input, output, session):
     # Initialize a counter for attempts
     attempt_counter = reactive.Value(0)
@@ -64,14 +63,13 @@ def server(input, output, session):
         L1.set(random.randrange(2, 7, 1))
         L2.set(L1() * 1.3)
         
-
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
     
-        instr= (FA()*L1())/((math.pi*(5/2)**2)*E) + (FB()*L2())/((math.pi*(3/2)**2)*E)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        instr= (FA()*L1())/((math.pi*(5/2)**2)*E) + ((FB()+FA())*L2())/((math.pi*(3/2)**2)*E)
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -91,7 +89,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -112,7 +110,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

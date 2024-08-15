@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A hand crank is attached to a wall. ](images/267.png){fig-alt=" A hand crank is attached to the wall. Member AB is attached the wall and member CD is where the force is applied. AB and CD are length L and BC has length y.  "}
+![Figure 1: A hand crank is attached to a wall.](images/267.png){fig-alt="A hand crank is attached to the wall. Member AB is attached the wall and member CD is where the force is applied. AB and CD are length L and BC has length y."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -52,13 +51,13 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A force F = {F()} lb is applied to a hand crank that is stuck and will not turn. If L = {L()} in. and y = {y()} in., determine the maximum shear stress due to torsion in the crank rod between A and B. Assume the crank has diameter d = {d()} in. .")]
+        return[ui.markdown(f"A force F = {F()} lb is applied to a hand crank that is stuck and will not turn. If L = {L()} in. and y = {y()} in., determine the maximum shear stress due to torsion in the crank rod between A and B. Assume the crank has diameter d = {d()} in.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        F.set(random.randrange(100, 750, 10))
+        F.set(random.randrange(100, 350, 10))
         L.set(random.randrange(100, 200, 1)/10)
         y.set(round(L()/2, 2))
         d.set(random.randrange(3, 15, 1)/10)
@@ -70,7 +69,7 @@ def server(input, output, session):
         T = F()*y()
         J = (math.pi/2)*(d()/2)**4
         instr= ((T*d()/2)/J)/10**3
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -90,7 +89,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

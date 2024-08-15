@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A hollow circualr rod is attached to a wall and subjected to a torque at the free end.](images/274.png){fig-alt=" A hollow circualr rod is attached to a wall and subjected to a torque at the free end. The rod has inner diameter 8 cm and outer diameter 10 cm. The rod is length, L. "}
+![Figure 1: A hollow circualr rod is attached to a wall and subjected to a torque at the free end.](images/274.png){fig-alt="A hollow circualr rod is attached to a wall and subjected to a torque at the free end. The rod has inner diameter 8 cm and outer diameter 10 cm. The rod is length, L."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -44,7 +43,6 @@ app_ui = ui.page_fluid(
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
-
 def server(input, output, session):
     # Initialize a counter for attempts
     attempt_counter = reactive.Value(0)
@@ -63,8 +61,6 @@ def server(input, output, session):
         L.set(random.randrange(300, 800, 10))
         x.set(L()*random.randrange(2,7,1)/10)
         
-        
-        
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
@@ -72,7 +68,7 @@ def server(input, output, session):
         J = (math.pi/2)*((10/200)**4 - (8/200)**4)
         angle = (T()*1000*x()/1000)/(G()*10**9*J)
         instr= math.degrees(angle)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -92,7 +88,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -113,7 +109,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

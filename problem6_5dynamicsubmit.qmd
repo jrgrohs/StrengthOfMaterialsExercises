@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: Two torques are applied to a hollow pipe attached to the wall. ](images/278.png){fig-alt=" Two torques are applied to a hollow piped attached to the wall. The pipe has inner radius r[i] and outer radius r[o]. The torque T[B] is applied at a distance L from the wall. The torque T[C] is applied at a distance L from T[B] at the free end.   "}
+![Figure 1: Two torques are applied to a hollow pipe attached to the wall. ](images/278.png){fig-alt="Two torques are applied to a hollow piped attached to the wall. The pipe has inner radius r[i] and outer radius r[o]. The torque T[B] is applied at a distance L from the wall. The torque T[C] is applied at a distance L from T[B] at the free end."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -40,7 +39,7 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of psi", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in units of ksi", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -59,7 +58,7 @@ def server(input, output, session):
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        TB.set(random.randrange(500, 5000, 100))
+        TB.set(random.randrange(100, 500, 100))
         TC.set(TB()/2)
         L.set(random.randrange(10, 90, 1)/10)
         ro.set(random.randrange(15, 60, 1)/10)
@@ -70,10 +69,10 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        Tmax = TB()-TC()
+        Tmax = (TB()-TC())*12
         J = (math.pi/2)*(ro()**4 - ri()**4)
-        instr= (Tmax*L()*12*ro())/J
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        instr= (Tmax*ro())/J
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -93,7 +92,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -114,7 +113,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

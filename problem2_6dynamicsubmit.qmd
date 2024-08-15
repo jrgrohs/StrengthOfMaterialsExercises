@@ -1,0 +1,114 @@
+# Problem 2.6 {.unnumbered}
+
+This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
+
+
+## Problem Image
+
+![Figure 1: Truss ABCDEFGH supports three loads.](images/142.png){fig-alt="A truss supports three loads, F1, F2, and F3. The distance from A to C is 2ft, the distance from C to E is 3ft, the distance from E to G is 3ft, the distance from G to H is 2ft, and the vertical distance from H to F is 2 ft. F1 is applied at C, F2 is applied at D, and F3 is applied at G. The members have a hollow cylindrical cross section with an outer radius of 1.0in and an inner radius of 0.75in."}
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
+
+from shiny import App, render, ui, reactive
+import random
+import asyncio
+import io
+import math
+import string
+from datetime import datetime
+from pathlib import Path
+
+def generate_random_letters(length):
+    # Generate a random string of letters of specified length
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))  
+
+problem_ID="142"
+F1=reactive.Value("__")
+F2=reactive.Value("__")
+F3=reactive.Value("__")
+  
+attempts=["Timestamp,Attempt,Answer,Feedback\n"]
+
+app_ui = ui.page_fluid(
+    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    ui.markdown("**Problem Statement**"),
+    ui.output_ui("ui_problem_statement"),
+    ui.input_text("answer","Your Answer in units of ksi", placeholder="Please enter your answer"),
+    ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
+    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+)
+
+def server(input, output, session):
+    # Initialize a counter for attempts
+    attempt_counter = reactive.Value(0)
+
+    @output
+    @render.ui
+    def ui_problem_statement():
+        return[ui.markdown(f"A truss is subjected to loads F<sub>1</sub> = {F1()} kips, F<sub>2</sub> = {F2()} kips, and F<sub>3</sub> = {F3()} kips as shown. All members of the truss have the same circular cross-section shown. Determine the magnitude of the normal stress in member DF.")]
+    
+    @reactive.Effect
+    @reactive.event(input.generate_problem)
+    def randomize_vars():
+        random.seed(input.ID())
+        F1.set(random.randrange(10, 100, 1)/10)
+        F2.set(random.randrange(10, 100, 1)/10)
+        F3.set(random.randrange(10, 100, 1)/10)
+        
+    @reactive.Effect
+    @reactive.event(input.submit)
+    def _():
+        attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
+        Hy = (8*F3()+5*F2()+2*F1())/10
+        FDF = (-Hy*5+F3()*3)/2
+        instr = abs(FDF/0.3436)
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
+            check = "*Correct*"
+            correct_indicator = "JL"
+        else:
+            check = "*Not Correct.*"
+            correct_indicator = "JG"
+
+        # Generate random parts for the encoded attempt.
+        random_start = generate_random_letters(4)
+        random_middle = generate_random_letters(4)
+        random_end = generate_random_letters(4)
+        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+
+        # Store the most recent encoded attempt in a reactive value so it persists across submissions
+        session.encoded_attempt = reactive.Value(encoded_attempt)
+
+        # Append the attempt data to the attempts list without the encoded attempt
+        attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
+
+        # Show feedback to the user.
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        m = ui.modal(
+            feedback,
+            title="Feedback",
+            easy_close=True
+        )
+        ui.modal_show(m)
+
+    @session.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
+    async def download():
+        # Start the CSV with the encoded attempt (without label)
+        final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"
+        yield f"{final_encoded}\n\n"
+        
+        # Write the header for the remaining CSV data once
+        yield "Timestamp,Attempt,Answer,Feedback\n"
+        
+        # Write the attempts data, ensure that the header from the attempts list is not written again
+        for attempt in attempts[1:]:  # Skip the first element which is the header
+            await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
+            yield attempt
+
+# App installation
+app = App(app_ui, server)
+```

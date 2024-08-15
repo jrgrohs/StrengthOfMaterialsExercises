@@ -51,7 +51,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A rectangular bar is pulled in tension by a load P in the x-direction. The bar deflects by d<sub>1</sub> = {d1()} in and d<sub>2</sub> = {d2()} in, in the x- and y-direction, respectively. The length in the x-direction is 5 in, and the length in the y direction is 1 in. What is the Poisson's Ratio of the material? The z-direction deflection is not known. ")]
+        return[ui.markdown(f"A rectangular bar is pulled in tension by a load P in the x-direction. The bar deflects by d<sub>1</sub> = {d1()} in and d<sub>2</sub> = - {d2()} in, in the x- and y-direction, respectively. The length in the x-direction is 5 in, and the length in the y direction is 1 in. What is the Poisson's ratio of the material? The z-direction deflection is not known. ")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -65,7 +65,7 @@ def server(input, output, session):
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         instr= -(-d2()/1)/(d1()/5)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -85,7 +85,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

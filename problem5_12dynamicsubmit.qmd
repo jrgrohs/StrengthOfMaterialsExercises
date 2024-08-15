@@ -34,8 +34,6 @@ L3=reactive.Value("__")
 Esteel = 210
 Ealuminum = 70
 
-
-
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
@@ -44,11 +42,10 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of meters", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in units of micrometers", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
-
 
 def server(input, output, session):
     # Initialize a counter for attempts
@@ -69,14 +66,13 @@ def server(input, output, session):
         L2.set(round(L1()*0.6, 2))
         L3.set(round(L1()*0.8, 2))
         
-
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
        
-        instr= (F2()*L2())/(math.pi*0.3**2*Esteel*10**9) + ((F2()-F1())*L1())/(math.pi*0.5**2*Ealuminum*10**9)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        instr= ((F2()*10**3*L2())/(math.pi*0.3**2*Esteel*10**9) + ((F2()-F1())*1000*L1())/(math.pi*0.5**2*Ealuminum*10**9))*1000000
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -96,7 +92,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -117,7 +113,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A torque is applied two part circular rod, with one end attached to the wall.](images/273.png){fig-alt=" A torque is applied two part circular rod, with one end attached to the wall. The part attached to the wall has diameter d[1] and length 40 in. T[1] is applied at the intersection of the rods. The second rod has diameter d[2] and length 30 in. T[2] is applied at the free end. "}
+![Figure 1: A torque is applied two part circular rod, with one end attached to the wall.](images/273.png){fig-alt="A torque is applied two part circular rod, with one end attached to the wall. The part attached to the wall has diameter d[1] and length 40 in. T[1] is applied at the intersection of the rods. The second rod has diameter d[2] and length 30 in. T[2] is applied at the free end."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -44,7 +43,6 @@ app_ui = ui.page_fluid(
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
-
 def server(input, output, session):
     # Initialize a counter for attempts
     attempt_counter = reactive.Value(0)
@@ -63,8 +61,6 @@ def server(input, output, session):
         d1.set(random.randrange(40, 80, 1)/10)
         d2.set(round(d1()*0.8, 2))
         
-        
-        
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
@@ -73,8 +69,14 @@ def server(input, output, session):
         F2 = T2()
         J1 = (math.pi/2)*(d1()/2)**4
         J2 = (math.pi/2)*(d2()/2)**4
+        tau1 = abs(F1*d1()/2/J1)*1000
+        tau2 = abs(F2*d2()/2/J2)*1000
+        if tau1>=tau2:
+            instr = tau1
+        else:
+            instr = tau2
         instr= (-1*F1*(d1()/2)/J1)*1000
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -94,7 +96,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -115,7 +117,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

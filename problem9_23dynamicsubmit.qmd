@@ -1,0 +1,139 @@
+# Problem 9.23 {.unnumbered}
+
+This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
+
+## Problem Image
+
+![Figure 1: An I beam is subjected to a triangular load.](images/365.png){fig-alt="An I beam of length 2L is subjected to triangular loading wo. The triangular load increases from A to L to a peak of wo, and decreases from wo to 0 from L to C."}
+
+```{shinylive-python}
+# | standalone: true
+# | viewerHeight: 600
+# | components: [viewer]
+
+from shiny import App, render, ui, reactive
+import random
+import asyncio
+import io
+import math
+import string
+import pandas as pd
+from datetime import datetime
+from pathlib import Path
+
+def generate_random_letters(length):
+    # Generate a random string of letters of specified length
+    return "".join(random.choice(string.ascii_lowercase) for _ in range(length))
+
+problem_ID = "365"
+w0 = reactive.Value("__")
+L = reactive.Value("__")
+sigma = reactive.Value("__")
+
+attempts = ["Timestamp,Attempt,Answer,Feedback\n"]
+
+attempts = ["Timestamp,Attempt,Answer1,Answer2,Feedback\n"]
+
+app_ui = ui.page_fluid(
+    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    ui.input_text("ID", "", placeholder="Enter ID Number Here"),
+    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    ui.markdown("**Problem Statement**"),
+    ui.output_ui("ui_problem_statement"),
+    ui.input_text("answer1", "Your Answer for the first beam number", placeholder="Please enter your answer 1"),
+    ui.input_text("answer2", "Your Answer for the second beam number", placeholder="Please enter your answer 2"),
+    ui.input_action_button("submit", "Submit Answers", class_="btn-primary"),
+    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+)
+
+def server(input, output, session):
+    # Initialize a counter for attempts
+    attempt_counter = reactive.Value(0)
+
+    @output
+    @render.ui
+    def ui_problem_statement():
+        return [ui.markdown(f"A wide flange beam supports the distributed load shown, where w<sub>0</sub> = {w0()} kN/m. If length L = {L()} m and the allowable stress is σ = {sigma()} MPa, what is the lightest W-beam in Appendix A that could be used for the beam?")]
+
+    @reactive.Effect
+    @reactive.event(input.generate_problem)
+    def randomize_vars():
+        random.seed(input.ID())
+        w0.set(random.randrange(20, 200, 1)/10)
+        L.set(random.randrange(20, 50, 1)/10)
+        sigma.set(random.randrange(100, 250, 10))
+
+    @reactive.Effect
+    @reactive.event(input.submit)
+    def _():
+        attempt_counter.set(
+            attempt_counter() + 1
+        )  # Increment the attempt counter on each submission.
+        R = w0()*L()/2
+        M = R*L()-R*L()/3
+        S = M/sigma()*10**3
+
+        # Create a dataframe
+        df = pd.DataFrame()
+
+        # Define Beam Name Columns
+        df["I-Beam First Num"] = [1000,1000,1000,920,920,920,760,760,760,610,610,610,530,530,530,460,460,460,410,410,410,360,360,360,310,310,310]
+
+        #Define Weight Column
+        df["Weight"] = [642,443,393,725,368,313,484,257,147,415,195,125,300,182,101,193,113,60,100,60,46.1,134,79,51,158,79,38.7]
+        
+        # Define S Column
+        df["Sx (x10^3 mm^3)"] = [27700,19200,15900,30000,15000,11800,17000,8870,410,11800,5390,3210,7550,4470,2290,4200,2390,1120,1920,1060,773,2340,1270,796,2380,1160,547]
+
+        # Create Solution Dataframe
+        instr=pd.DataFrame()
+        instr["First Num"] =[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        instr["Second Num"] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        
+        # Search for Possible Solutions
+        i = 0
+        while i < 27:
+            if df.iloc[i, 2] >= S:
+                instr.iloc[i, 0] = df.iloc[i, 0]
+                instr.iloc[i, 1] = df.iloc[i, 1]
+            i += 1
+        instr = instr.loc[(instr != 0).any(axis=1)]
+
+        #Find Minimum Weight
+        wmin = min(instr.iloc[:,1])
+        mask = instr['Second Num'] == wmin
+        instr = pd.DataFrame(instr[mask])
+
+        correct1 = input.answer1() == instr.iloc[0,0]
+        correct2 = input.answer2() == instr.iloc[0,1]
+        
+        if correct1 and correct2:
+            check = "Both answers are correct."
+        else:
+            check = f" {'correct' if correct1 else 'incorrect'} and {'correct' if correct2 else 'incorrect'}."
+        
+        correct_indicator = "JL" if correct1 and correct2 else "JG"
+
+        random_start = generate_random_letters(4)
+        random_middle = generate_random_letters(4)
+        random_end = generate_random_letters(4)
+        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+
+        session.encoded_attempt = reactive.Value(encoded_attempt)
+        attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
+
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check} For reference in debugging this, the calculated instructor answers are {instr.iloc[0,0]} and {instr.iloc[0,1]}.")
+        m = ui.modal(feedback, title="Feedback", easy_close=True)
+        ui.modal_show(m)
+
+    @session.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
+    async def download():
+        final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"
+        yield f"{final_encoded}\n\n"
+        yield "Timestamp,Attempt,Answer1,Answer2,Feedback\n"
+        for attempt in attempts[1:]:
+            await asyncio.sleep(0.25)
+            yield attempt
+
+app = App(app_ui, server)
+```

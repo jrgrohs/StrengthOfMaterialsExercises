@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: A shaft made of two different materials is fixed between two walls. ](images/292.png){fig-alt="A shaft made of two different materials is fixed between two walls. The portion of the shaft made of nickel has diameter d[1] and length L[1]. The portion of the shaft made of aluminum has diameter d[2] and length L[2]. The torque is applied where the two metals meet.  "}
+![Figure 1: A shaft made of two different materials is fixed between two walls. ](images/292.png){fig-alt="A shaft made of two different materials is fixed between two walls. The portion of the shaft made of nickel has diameter d[1] and length L[1]. The portion of the shaft made of aluminum has diameter d[2] and length L[2]. The torque is applied where the two metals meet."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -67,17 +66,21 @@ def server(input, output, session):
         L1.set(random.randrange(4, 20, 2))
         L2.set(L1()/2)
         
-        
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         Jn = (math.pi/2)*(d1()/2)**4
         Ja = (math.pi/2)*(d2()/2)**4
-        RHS = (12*L2()*Gn*Jn)/(12*L1()*Ga*Ja)
-        Ta = (12*T())/(RHS+1)
-        instr= (Ta*d2()/2)/Ja
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        TN = T()*12*L2()*12*Gn*Jn/(L1()*12*Ga*Ja+L2()*12*Gn*Jn)
+        TA = T()*12-TN
+        tauA = TA*d2()/2/Ja
+        tauN = TN*d1()/2/Jn
+        if tauA>=tauN:
+            instr = tauA
+        else:
+            instr = tauN
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -97,7 +100,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -118,7 +121,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

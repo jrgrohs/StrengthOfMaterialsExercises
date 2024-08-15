@@ -31,8 +31,6 @@ E=reactive.Value("__")
 L=reactive.Value("__")
 d=reactive.Value("__")
 
-
-
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
@@ -46,7 +44,6 @@ app_ui = ui.page_fluid(
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
-
 def server(input, output, session):
     # Initialize a counter for attempts
     attempt_counter = reactive.Value(0)
@@ -54,7 +51,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A circular rod of an unknown metallic alloy is placed in tension with a P = {P()} kip axial load. The length of the rod is L = {L()} in. and the diameter is d = {d()} in.. After applying the load, the rod length increases by .0035 in and the diameter decreases by .00014 in. The Young's modulus is E = {E()} x 10<sup>6</sup>. What is the Poisson's ratio of the alloy?")]
+        return[ui.markdown(f"A circular rod of an unknown metallic alloy is placed in tension with a P = {P()} kip axial load. The length of the rod is L = {L()} in. and the diameter is d = {d()} in. After applying the load, the rod length increases by 0.0035 in and the diameter decreases by 0.00014 in. What is the Poisson's ratio of the alloy?")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -63,7 +60,7 @@ def server(input, output, session):
         P.set(random.randrange(20, 200, 1)/10)
         L.set(random.randrange(10, 20, 1))
         E.set(random.randrange(20, 40, 1)/100)
-        d.set(round((.00014*L())/(.0035*E()), 2))
+        d.set(round((.00014*L())/(.0035*E()), 1))
         
     @reactive.Effect
     @reactive.event(input.submit)
@@ -71,7 +68,7 @@ def server(input, output, session):
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
        
         instr= -(-.00014/d())/(.0035/L())
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -91,7 +88,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -113,8 +110,6 @@ def server(input, output, session):
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
 
-
 # App installation
 app = App(app_ui, server)
-
 ```

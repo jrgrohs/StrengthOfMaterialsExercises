@@ -4,7 +4,7 @@ project:
 
 filters:
   - shinylive
-
+ 
 toc: true
 
 number-depth: 2
@@ -106,6 +106,96 @@ book:
         - problem7_1dynamicsubmit.qmd
         - problem7_2dynamicsubmit.qmd
         - problem7_3dynamicsubmit.qmd
+        - problem7_14dynamicsubmit.qmd
+        - problem7_15dynamicsubmit.qmd
+        - problem7_16dynamicsubmit.qmd
+        - problem7_26dynamicsubmit.qmd
+        - problem7_28dynamicsubmit.qmd
+        - problem7_29dynamicsubmit.qmd
+        - problem8_1dynamicsubmit.qmd
+        - problem8_2dynamicsubmit.qmd
+        - problem9_1dynamicsubmit.qmd
+        - problem9_2dynamicsubmit.qmd
+        - problem9_3dynamicsubmit.qmd
+        - problem9_4dynamicsubmit.qmd
+        - problem9_5dynamicsubmit.qmd
+        - problem9_21dynamicsubmit.qmd
+        - problem9_22dynamicsubmit.qmd
+        - problem9_23dynamicsubmit.qmd
+        - problem9_24dynamicsubmit.qmd
+        - problem9_25dynamicsubmit.qmd
+        - problem9_31dynamicsubmit.qmd
+        - problem9_32dynamicsubmit.qmd
+        - problem9_33dynamicsubmit.qmd
+        - problem9_34dynamicsubmit.qmd
+        - problem10_1dynamicsubmit.qmd
+        - problem10_4dynamicsubmit.qmd
+        - problem10_5dynamicsubmit.qmd
+        - problem10_6dynamicsubmit.qmd
+        - problem10_7dynamicsubmit.qmd
+        - problem10_8dynamicsubmit.qmd
+        - problem10_17dynamicsubmit.qmd
+        - problem10_18dynamicsubmit.qmd
+        - problem10_19dynamicsubmit.qmd
+        - problem10_20dynamicsubmit.qmd
+        - problem10_21dynamicsubmit.qmd
+        - problem11_1dynamicsubmit.qmd
+        - problem11_2dynamicsubmit.qmd
+        - problem11_3dynamicsubmit.qmd
+        - problem11_4dynamicsubmit.qmd
+        - problem11_5dynamicsubmit.qmd
+        - problem11_17dynamicsubmit.qmd
+        - problem11_18dynamicsubmit.qmd
+        - problem11_19dynamicsubmit.qmd
+        - problem11_22dynamicsubmit.qmd
+        - problem11_23dynamicsubmit.qmd
+        - problem11_24dynamicsubmit.qmd
+        - problem11_25dynamicsubmit.qmd
+        - problem11_26dynamicsubmit.qmd
+        - problem11_36dynamicsubmit.qmd
+        - problem11_37dynamicsubmit.qmd
+        - problem11_38dynamicsubmit.qmd
+        - problem11_39dynamicsubmit.qmd
+        - problem11_40dynamicsubmit.qmd
+        - problem11_50dynamicsubmit.qmd
+        - problem11_51dynamicsubmit.qmd
+        - problem11_53dynamicsubmit.qmd
+        - problem12_1dynamicsubmit.qmd
+        - problem12_2dynamicsubmit.qmd
+        - problem12_3dynamicsubmit.qmd
+        - problem12_4dynamicsubmit.qmd
+        - problem12_5dynamicsubmit.qmd
+        - problem12_9dynamicsubmit.qmd
+        - problem12_10dynamicsubmit.qmd
+        - problem12_11dynamicsubmit.qmd
+        - problem12_12dynamicsubmit.qmd
+        - problem12_13dynamicsubmit.qmd
+        - problem12_25dynamicsubmit.qmd
+        - problem12_26dynamicsubmit.qmd
+        - problem12_27dynamicsubmit.qmd
+        - problem12_28dynamicsubmit.qmd
+        - problem12_29dynamicsubmit.qmd
+        - problem12_39dynamicsubmit.qmd
+        - problem12_40dynamicsubmit.qmd
+        - problem13_1dynamicsubmit.qmd
+        - problem13_2dynamicsubmit.qmd
+        - problem13_3dynamicsubmit.qmd
+        - problem13_4dynamicsubmit.qmd
+        - problem13_15dynamicsubmit.qmd
+        - problem13_16dynamicsubmit.qmd
+        - problem14_1dynamicsubmit.qmd
+        - problem14_2dynamicsubmit.qmd
+        - problem14_9dynamicsubmit.qmd
+        - problem14_10dynamicsubmit.qmd
+        - problem14_11dynamicsubmit.qmd
+        - problem15_1dynamicsubmit.qmd
+        - problem15_2dynamicsubmit.qmd
+        - problem15_3dynamicsubmit.qmd
+        - problem15_11dynamicsubmit.qmd
+        - problem15_12dynamicsubmit.qmd
+        - problem15_13dynamicsubmit.qmd
+        - problem15_14dynamicsubmit.qmd
+        - problem15_15dynamicsubmit.qmd
     - summary.qmd
     - references.qmd
 

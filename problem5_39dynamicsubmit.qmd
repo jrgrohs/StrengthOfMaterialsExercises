@@ -2,7 +2,6 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
 ![Figure 1: A concrete post with 6 steel rebar rods embedded in the concrete supports a load. ](images/250.png){fig-alt=" A concrete post with 6 steel rebar rods embedded in the concrete supports a load, F. The post has diamete d[c] and the rebar rods have diamete d[s]. "}
@@ -54,7 +53,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A concrete post of length L = {L()}  m and diameter d<sub>c</sub> = {dc()} mm supports a load F = {F()} kN. The concrete is reinforced with 6 steel rods of diameter d<sub>s</sub> = {ds()} mm. Assume Econcrete = 25 GPa and Esteel = 200 GPa. Determine the stress in the concrete.")]
+        return[ui.markdown(f"A concrete post of length L = {L()}  m and diameter d<sub>c</sub> = {dc()} mm supports a load F = {F()} kN. The concrete is reinforced with 6 steel rods of diameter d<sub>s</sub> = {ds()} mm. Assume E<sub>concrete</sub> = 25 GPa and E<sub>steel</sub> = 200 GPa. Determine the stress in the concrete.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -62,7 +61,7 @@ def server(input, output, session):
         random.seed(input.ID())
         L.set(random.randrange(10, 50, 1)/10)
         dc.set(random.randrange(100, 500, 10))
-        ds.set(round(dc()/12,2))
+        ds.set(round(dc()/12))
         F.set(random.randrange(100, 500, 10))
         
     @reactive.Effect
@@ -76,7 +75,7 @@ def server(input, output, session):
         LHS = F()*Cside
         RHS = Cside+Sside
         instr= ((LHS/RHS)/(Ac/100**2))/10**3
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -96,7 +95,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

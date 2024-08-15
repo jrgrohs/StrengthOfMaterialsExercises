@@ -4,7 +4,7 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 
 ## Problem Image
 
-![Figure 1: A crate is hanged on a circular solid metal rod.](images/166.png){fig-alt="Picture with a crate hanging on a circular solid metal rod. The crate is being help up by a cable on each side. The circular metal rod is between two walls"}
+![Figure 1: A crate is hung on a circular solid metal rod.](images/166.png){fig-alt="Picture with a crate hanging on a circular solid metal rod. The crate is being help up by a cable on each side. The circular metal rod is between two walls"}
 
 
 ```{shinylive-python}
@@ -66,7 +66,7 @@ def server(input, output, session):
         
         instr= W()/(d1()*t()*1000)
         
-        if math.isclose(float(input.answer()), instr, abs_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -86,7 +86,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

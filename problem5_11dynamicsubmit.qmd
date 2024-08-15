@@ -45,7 +45,6 @@ app_ui = ui.page_fluid(
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
-
 def server(input, output, session):
     # Initialize a counter for attempts
     attempt_counter = reactive.Value(0)
@@ -63,14 +62,13 @@ def server(input, output, session):
         F2.set(random.randrange(10, 100, 1)/10)
         F3.set(random.randrange(10, 100, 1)/10)
         F4.set(random.randrange(10, 100, 1)/10)
-        
 
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        instr= ((F1()*3)/(E*math.pi*0.5**2)+((F1()+F2())*3)/(E*math.pi*1**2)+((F1()+F2()+F3())*4)/(E*math.pi*0.25**2)+((F1()+F2()+F3()+F4())*2)/(E*math.pi*0.5**2))*1000
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        instr= ((F1()*3)/(E*math.pi*0.5**2)+((F1()+F2())*3)/(E*math.pi*1**2)+((F1()+F2()+F3())*4)/(E*math.pi*0.25**2)+((F1()+F2()+F3()+F4())*2)/(E*math.pi*0.5**2))/10
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -90,7 +88,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -112,8 +110,6 @@ def server(input, output, session):
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
 
-
 # App installation
 app = App(app_ui, server)
-
 ```

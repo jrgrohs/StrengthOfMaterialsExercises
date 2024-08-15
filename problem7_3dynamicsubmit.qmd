@@ -5,7 +5,7 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 
 ## Problem Image
 
-![Figure 1: Three loads are applied to the structure as shown. ](images/309.png){fig-alt="  "}
+![Figure 1: Three loads are applied to the structure as shown.](images/309.png){fig-alt=" unsure how to describe."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -67,13 +67,17 @@ def server(input, output, session):
         attempt_counter.set(attempt_counter() + 1)
         instr1 = -F3() + F3()*math.sin(math.radians(Θ()))
         instr2 = 2*F1() - 2*F2() - 4*F3()*math.sin(math.radians(Θ()))
-        correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.001)
-        correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.001)
+        correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.01)
+        correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.01)
         
         if correct1 and correct2:
-            check = "Both answers are correct."
+            check = "both correct."
+        elif correct1:
+            check = f" {'correct for answer 1 and incorrect for answer 2.'}"
+        elif correct2:
+            check = f"{'incorrect for answer 1 and correct for answer 2.'}"
         else:
-            check = f" {'correct' if correct1 else 'incorrect'} and {'correct' if correct2 else 'incorrect'}."
+            check = f"{'both incorrect.'}"
         
         correct_indicator = "JL" if correct1 and correct2 else "JG"
 
@@ -85,7 +89,7 @@ def server(input, output, session):
         session.encoded_attempt = reactive.Value(encoded_attempt)
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
 
-        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check} For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}.")
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}.")
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 
@@ -99,5 +103,4 @@ def server(input, output, session):
             yield attempt
 
 app = App(app_ui, server)
-
 ```

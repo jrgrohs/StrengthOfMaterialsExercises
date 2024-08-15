@@ -61,7 +61,7 @@ def server(input, output, session):
     def _():
         instr= -w()/12*x()*12*x()*12*(6*L()*12*L()*12-4*L()*12*x()*12+x()*12*x()*12)/24/E/I-P()*x()*12*x()*12*(3*L()*12-x())*12/6/E/I
         #check=math.isclose(float(input.answer()),instr,rel_tol=0.001)
-        if math.isclose(float(input.answer()),instr,rel_tol=0.001):
+        if math.isclose(float(input.answer()),instr,rel_tol=0.01):
            check="*Correct*"
         else:
            check="*Not Correct.*"

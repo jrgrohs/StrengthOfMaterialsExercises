@@ -55,7 +55,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A block with sides is pulled in all three directions (P<sub>x</sub> = {Px()} kN, P<sub>y</sub> = {Py()} kN, P<sub>z</sub> = {Pz()} kN). What is the percent change in volume after all three loads are applied? Assume E = {E()} MPa and v = {v()}. ")]
+        return[ui.markdown(f"A block is pulled in all three directions (P<sub>x</sub> = {Px()} kN, P<sub>y</sub> = {Py()} kN, P<sub>z</sub> = {Pz()} kN). What is the percent change in volume after all three loads are applied? Assume E = {E()} MPa and v = {v()}. ")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -81,7 +81,7 @@ def server(input, output, session):
         Ly = 5 + 5*Ey
         Lz = 2 + 2*Ez
         instr= (((Lx*Ly*Lz)-60)/60)*100
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -101,7 +101,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

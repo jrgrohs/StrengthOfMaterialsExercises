@@ -2,7 +2,6 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
 ![Figure 1: A crate is attached to a cable made from steel and aluminum.](images/187.png){fig-alt="Picture with a create attached to cable. The steel part of the cable is L[1] in and the aluminum part of the cable is L[2]. "}
@@ -34,7 +33,6 @@ A2=reactive.Value("__")
 Esteel = 29000
 Ealuminum = 10000
 
-
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
@@ -47,7 +45,6 @@ app_ui = ui.page_fluid(
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
-
 
 def server(input, output, session):
     # Initialize a counter for attempts
@@ -68,14 +65,13 @@ def server(input, output, session):
         A1.set(random.randrange(1, 5, 1)/100)
         A2.set(random.randrange(1, 5, 1)/100)
         
-        
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         
-        instr=(W()*L1())/(A1()*Esteel) + (W()*L2()/A2()*Ealuminum)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        instr=(W()*L1()/(A1()*Esteel*1000) + (W()*L2()/(A2()*Ealuminum*1000)))
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -95,7 +91,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -117,8 +113,6 @@ def server(input, output, session):
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
 
-
 # App installation
 app = App(app_ui, server)
-
 ```

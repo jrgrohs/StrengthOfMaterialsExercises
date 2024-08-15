@@ -1,0 +1,115 @@
+# Problem 12.13 {.unnumbered}
+
+This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
+
+
+## Problem Image
+
+![Figure 1: Two sylinders are stacked on top of each other.](images/512.png){fig-alt=A member is subjected to a state of stress caused by sigma_x, and sigma_y."}
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
+
+from shiny import App, render, ui, reactive
+import random
+import asyncio
+import io
+import math
+import string
+from datetime import datetime
+from pathlib import Path
+
+def generate_random_letters(length):
+    # Generate a random string of letters of specified length
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))  
+
+problem_ID="512"
+sigma_x=reactive.Value("__")
+sigma_y=reactive.Value("__")
+tau_max=reactive.Value("__")
+  
+attempts=["Timestamp,Attempt,Answer,Feedback\n"]
+
+app_ui = ui.page_fluid(
+    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    ui.markdown("**Problem Statement**"),
+    ui.output_ui("ui_problem_statement"),
+    ui.input_text("answer","Your Answer in units of degrees", placeholder="Please enter your answer"),
+    ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
+    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+)
+
+def server(input, output, session):
+    # Initialize a counter for attempts
+    attempt_counter = reactive.Value(0)
+
+    @output
+    @render.ui
+    def ui_problem_statement():
+        return[ui.markdown(f"The state of stress at a point in a beam is shown, where σ<sub>x</sub> = {sigma_x()} ksi, σ<sub>y</sub> = {sigma_y()} ksi, and τ<sub>xy</sub> is unknown. The maximum shear stress for this state of stress is τ<sub>max</sub> = {tau_max()} ksi. Determine the angle that this maximum stress occurs at.")]
+    
+    @reactive.Effect
+    @reactive.event(input.generate_problem)
+    def randomize_vars():
+        random.seed(input.ID())
+        sigma_x.set(random.randrange(10, 50, 1))
+        sigma_y.set(sigma_x()+random.randrange(10, 30, 1))
+        tau_max.set(random.randrange(10, 50, 1))        
+        
+    @reactive.Effect
+    @reactive.event(input.submit)
+    def _():
+        attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
+        tau_xy = math.sqrt(tau_max()**2-((sigma_x()-sigma_y())/2)**2)
+        instr= (math.atan((-sigma_x()+sigma_y())/(2*tau_xy)))/2*180/math.pi
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
+            check = "*Correct*"
+            correct_indicator = "JL"
+        else:
+            check = "*Not Correct.*"
+            correct_indicator = "JG"
+
+        # Generate random parts for the encoded attempt.
+        random_start = generate_random_letters(4)
+        random_middle = generate_random_letters(4)
+        random_end = generate_random_letters(4)
+        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+
+        # Store the most recent encoded attempt in a reactive value so it persists across submissions
+        session.encoded_attempt = reactive.Value(encoded_attempt)
+
+        # Append the attempt data to the attempts list without the encoded attempt
+        attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
+
+        # Show feedback to the user.
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        m = ui.modal(
+            feedback,
+            title="Feedback",
+            easy_close=True
+        )
+        ui.modal_show(m)
+
+    @session.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
+    async def download():
+        # Start the CSV with the encoded attempt (without label)
+        final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"
+        yield f"{final_encoded}\n\n"
+        
+        # Write the header for the remaining CSV data once
+        yield "Timestamp,Attempt,Answer,Feedback\n"
+        
+        # Write the attempts data, ensure that the header from the attempts list is not written again
+        for attempt in attempts[1:]:  # Skip the first element which is the header
+            await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
+            yield attempt
+
+
+# App installation
+app = App(app_ui, server)
+
+```

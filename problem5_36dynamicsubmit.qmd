@@ -2,7 +2,6 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
 ![Figure 1: Two square members are placed between two fixed walls.  ](images/246.png){fig-alt=" Two square members are placed between two fixed walls. The wood piece is on the left and the plastic piece is on the right. Point B is at the intersection of the wood and plastic members. The members are each length L.  "}
@@ -62,13 +61,12 @@ def server(input, output, session):
         L.set(random.randrange(4, 15, 1))
         Eplastic.set(random.randrange(350, 900, 10))
        
-        
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        instr= (d()*1*Ewood*1000)/5 - (-d()*4*Eplastic()*1000)/5 
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        instr= (d()*1*Ewood*1000)/L() - (-d()*4*Eplastic()*1000)/L() 
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -88,7 +86,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",
@@ -109,7 +107,6 @@ def server(input, output, session):
         for attempt in attempts[1:]:  # Skip the first element which is the header
             await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
             yield attempt
-
 
 # App installation
 app = App(app_ui, server)

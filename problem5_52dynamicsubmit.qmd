@@ -2,10 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
 ## Problem Image
 
-![Figure 1: Two cylindrical rods are connected and heated until they expand to close the gap. ](images/224.png){fig-alt=" Two cylindrical rods are connected and heated until they expand to close the gap to the wall on the right hand side. The left hand side is fixed. Rod A is attached to the wall on the left hand side. Rod B is attached to Rod A. "}
+![Figure 1: Two cylindrical rods are connected and heated until they expand to close a gap. ](images/224.png){fig-alt="Two cylindrical rods are connected and heated until they expand to close the gap to the wall on the right hand side. The left hand side is fixed. Rod A is attached to the wall on the left hand side. Rod B is attached to Rod A."}
 
 ```{shinylive-python}
 #| standalone: true
@@ -73,7 +72,7 @@ def server(input, output, session):
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         instr= d()/(alphaA*L1()+alphaB*L2())
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
@@ -93,7 +92,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

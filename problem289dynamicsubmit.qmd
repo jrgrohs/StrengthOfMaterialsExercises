@@ -78,7 +78,7 @@ def server(input, output, session):
         Ta = RHS/LHS
         Ts = Tnew-Ta
         instr= ((Ts*ri()/Js))
-        if math.isclose(float(input.answer()), instr, rel_tol=0.001):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
