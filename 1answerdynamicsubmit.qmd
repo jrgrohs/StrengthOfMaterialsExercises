@@ -116,5 +116,4 @@ def server(input, output, session):
 
 # App installation
 app = App(app_ui, server)
-
 ```

@@ -8,9 +8,9 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 ![Figure 1: Two sylinders are stacked on top of each other.](images/624.png){fig-alt="A column of length L is fixed at both ends and is subjected to a force F."}
 
 ```{shinylive-python}
-# | standalone: true
-# | viewerHeight: 600
-# | components: [viewer]
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
 
 from shiny import App, render, ui, reactive
 import random

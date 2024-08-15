@@ -7,9 +7,9 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 ![Figure 1: A wide flange beam is subjected to two loads.](images/364.png){fig-alt="A wide flange beam of length 3L supports two loads of F. The first load occurs at L and the second load occurs at 2L. The beam is pinned at A and B."}
 
 ```{shinylive-python}
-# | standalone: true
-# | viewerHeight: 600
-# | components: [viewer]
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
 
 from shiny import App, render, ui, reactive
 import random

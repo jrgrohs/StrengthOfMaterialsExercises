@@ -8,6 +8,9 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 ![Figure 1: Two sylinders are stacked on top of each other.](images/404.png){fig-alt="A beam of length L is subjected to the distributed load w as defined by the equation w = w0sin(x*pi/L)."}
 
 ```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
 from shiny import App, render, ui, reactive
 import random
 import asyncio

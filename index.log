@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2023.8.25)  3 MAY 2024 18:41
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2024.5.29)  15 AUG 2024 14:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -347,7 +347,7 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \c@LT@chunks=\count281
 \LT@p@ftn=\toks21
 )
-Class scrreprt Info: longtable captions redefined on input line 98.
+Class scrreprt Info: longtable captions redefined on input line 112.
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen153
@@ -559,47 +559,47 @@ Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
 ) (/usr/share/texlive/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2020/01/24 v 0.09 modify URL breaks
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 214.
+Package hyperref Info: Option `colorlinks' set `true' on input line 229.
 No file index.aux.
 \openout1 = `index.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-Package scrbase Info: activating english \contentsname on input line 220.
-Package scrbase Info: activating english \listfigurename on input line 220.
-Package scrbase Info: activating english \listtablename on input line 220.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+Package scrbase Info: activating english \contentsname on input line 236.
+Package scrbase Info: activating english \listfigurename on input line 236.
+Package scrbase Info: activating english \listtablename on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 220.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 220.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 220.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 220.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 220.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 220.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 220.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 236.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -628,7 +628,7 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 220.
+(Font)              scaled to size 10.95pt on input line 236.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -667,18 +667,18 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 220.
+(Font)              scaled to size 10.95pt on input line 236.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 220.
+(Font)              `operators' in the math version `normal' on input line 236.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 220.
+ line 236.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 220.
+(Font)              `operators' in the math version `bold' on input line 236.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
-t line 220.
+t line 236.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -765,15 +765,15 @@ t=math;language=dflt;"
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 220.
+(Font)              `symbols' in the math version `normal' on input line 236.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 220.
+t line 236.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 220.
+(Font)              `symbols' in the math version `bold' on input line 236.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
-t line 220.
+t line 236.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -843,17 +843,17 @@ pt=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 2
-20.
+36.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 220.
+t line 236.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 220
+(Font)              `largesymbols' in the math version `bold' on input line 236
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
-t line 220.
-LaTeX Info: Redefining \microtypecontext on input line 220.
+t line 236.
+LaTeX Info: Redefining \microtypecontext on input line 236.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -864,7 +864,7 @@ File: mt-LatinModernRoman.cfg 2013/03/13 v1.0 microtype config. file: Latin Mod
 ern Roman (RS)
 )
 \AtBeginShipoutBox=\box61
-Package hyperref Info: Link coloring ON on input line 220.
+Package hyperref Info: Link coloring ON on input line 236.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -874,9 +874,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count309
 )
-LaTeX Info: Redefining \ref on input line 220.
-LaTeX Info: Redefining \pageref on input line 220.
-LaTeX Info: Redefining \nameref on input line 220.
+LaTeX Info: Redefining \ref on input line 236.
+LaTeX Info: Redefining \pageref on input line 236.
+LaTeX Info: Redefining \nameref on input line 236.
 
 Package hyperref Warning: Rerun to get /PageLabels entry.
 
@@ -888,36 +888,36 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 222.
+(Font)              scaled to size 14.4pt on input line 238.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 222.
+(Font)              scaled to size 10.0pt on input line 238.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 222.
+(Font)              scaled to size 7.0pt on input line 238.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-22.
+38.
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.4013pt on input line 222.
+(Font)              scaled to size 14.4013pt on input line 238.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 222.
+(Font)              scaled to size 10.00092pt on input line 238.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 222.
+(Font)              scaled to size 7.00064pt on input line 238.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.39845pt on input line 222.
+(Font)              scaled to size 14.39845pt on input line 238.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 222.
+(Font)              scaled to size 9.99893pt on input line 238.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 222.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 222
+(Font)              scaled to size 6.99925pt on input line 238.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 238
 .
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 222
+LaTeX Font Info:    Trying to load font information for U+msb on input line 238
 .
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -928,8 +928,8 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 
 ]
-Package tocbasic Info: character protrusion at toc deactivated on input line 22
-7.
+Package tocbasic Info: character protrusion at toc deactivated on input line 24
+3.
 \tf@toc=\write4
 \openout4 = `index.toc'.
 
@@ -941,7 +941,7 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 22
 part I.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 249.
+(scrkbase)              on input line 266.
 [4
 
 ]
@@ -950,19 +950,19 @@ File: images/138.png Graphic file (type bmp)
 [5
 
 ]
-Underfull \vbox (badness 10000) detected at line 388
+Underfull \vbox (badness 10000) detected at line 405
  []
 
 
-Underfull \vbox (badness 10000) detected at line 388
+Underfull \vbox (badness 10000) detected at line 405
  []
 
 [6]
-Underfull \vbox (badness 10000) detected at line 388
+Underfull \vbox (badness 10000) detected at line 405
  []
 
 
-Underfull \vbox (badness 10000) detected at line 388
+Underfull \vbox (badness 10000) detected at line 405
  []
 
 [7] [8]
@@ -974,240 +974,8 @@ File: images/139.png Graphic file (type bmp)
 Overfull \vbox (22.72327pt too high) has occurred while \output is active []
 
 [11] [12]
-Overfull \vbox (2.50754pt too high) detected at line 524
- []
-
-[13] [14]
-File: images/144.png Graphic file (type bmp)
-<images/144.png>
-[15
-
-] [16]
-Overfull \vbox (59.38078pt too high) has occurred while \output is active []
-
-[17] [18]
-Underfull \vbox (badness 10000) detected at line 659
+Underfull \vbox (badness 10000) detected at line 538
  []
 
 
-Underfull \vbox (badness 10000) detected at line 659
- []
-
-[19] [20]
-File: images/146.png Graphic file (type bmp)
-<images/146.png>
-[21
-
-] [22]
-Overfull \vbox (2.43088pt too high) detected at line 795
- []
-
-[23]
-Underfull \vbox (badness 10000) detected at line 795
- []
-
-
-Underfull \vbox (badness 10000) detected at line 795
- []
-
-[24] [25]
-File: images/153.png Graphic file (type bmp)
-<images/153.png>
-[26
-
-] [27]
-Underfull \vbox (badness 10000) detected at line 928
- []
-
-
-Underfull \vbox (badness 10000) detected at line 928
- []
-
-[28] [29]
-File: images/156.png Graphic file (type bmp)
-<images/156.png>
-[30
-
-]
-Underfull \vbox (badness 10000) detected at line 1062
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1062
- []
-
-[31]
-Underfull \vbox (badness 10000) detected at line 1062
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1062
- []
-
-[32] [33]
-File: images/157.png Graphic file (type bmp)
-<images/157.png>
-Missing character: There is no σ in font [lmmono10-regular]:!
-Missing character: There is no σ in font [lmmono10-regular]:!
-Missing character: There is no σ in font [lmmono10-regular]:!
-Missing character: There is no σ in font [lmmono10-regular]:!
-Missing character: There is no σ in font [lmmono10-regular]:!
-[34
-
-]
-Underfull \vbox (badness 10000) detected at line 1198
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1198
- []
-
-[35]
-Underfull \vbox (badness 10000) detected at line 1198
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1198
- []
-
-[36] [37]
-File: images/164.png Graphic file (type bmp)
-<images/164.png>
-[38
-
-]
-Missing character: There is no τ in font [lmmono10-regular]:!
-Missing character: There is no τ in font [lmmono10-regular]:!
-Missing character: There is no τ in font [lmmono10-regular]:!
-Missing character: There is no τ in font [lmmono10-regular]:!
-[39]
-Underfull \vbox (badness 10000) detected at line 1332
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1332
- []
-
-[40] [41]
-File: images/165.png Graphic file (type bmp)
-<images/165.png>
-[42
-
-] [43]
-Overfull \vbox (59.37868pt too high) has occurred while \output is active []
-
-[44] [45]
-Underfull \vbox (badness 10000) detected at line 1466
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1466
- []
-
-[46] [47]
-File: images/166.png Graphic file (type bmp)
-<images/166.png>
-[48
-
-] [49]
-Underfull \vbox (badness 10000) detected at line 1597
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1597
- []
-
-[50] [51]
-part II.
-Package scrkbase Info: You've told me to use the font selection of the element
-(scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 1599.
-[52
-
-]
-File: images/138.png Graphic file (type bmp)
-<images/138.png>
-[53
-
-] [54
-
-]
-File: images/139.png Graphic file (type bmp)
-<images/139.png>
-[55
-
-] [56]
-Overfull \vbox (22.72327pt too high) has occurred while \output is active []
-
-[57]
-File: images/144.png Graphic file (type bmp)
-<images/144.png>
-[58
-
-] [59]
-Overfull \vbox (59.38078pt too high) has occurred while \output is active []
-
-[60]
-File: images/146.png Graphic file (type bmp)
-<images/146.png>
-[61
-
-] [62]
-File: images/153.png Graphic file (type bmp)
-<images/153.png>
-[63
-
-]
-File: images/156.png Graphic file (type bmp)
-<images/156.png>
-[64
-
-]
-Missing character: There is no σ in font [lmroman10-regular]:mapping=tex-text;!
-File: images/157.png Graphic file (type bmp)
-<images/157.png>
-[65
-
-] [66]
-File: images/164.png Graphic file (type bmp)
-<images/164.png>
-[67
-
-] [68]
-File: images/165.png Graphic file (type bmp)
-<images/165.png>
-[69
-
-] [70]
-Overfull \vbox (59.37868pt too high) has occurred while \output is active []
-
-[71]
-File: images/166.png Graphic file (type bmp)
-<images/166.png>
-[72
-
-] [73]
-part III.
-Package scrkbase Info: You've told me to use the font selection of the element
-(scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 1926.
-[74
-
-]
-File: images/stoplights.png Graphic file (type bmp)
-<images/stoplights.png>
-! Dimension too large.
-\fb@put@frame ...p \ifdim \dimen@ >\ht \@tempboxa 
-                                                  \fb@putboxa #1\fb@afterfra...
-l.3275 \end{Shaded}
-                    
-Here is how much of TeX's memory you used:
- 23299 strings out of 479819
- 425808 string characters out of 5895846
- 1151334 words of memory out of 5000000
- 40128 multiletter control sequences out of 15000+600000
- 535926 words of font info for 56 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 58i,7n,115p,10100b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on index.pdf (74 pages).
+Underfull \vbox (badness 10000) de

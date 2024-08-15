@@ -7,9 +7,9 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 ![Figure 1: A I beam is subjected to a distributed load and a tip load.](images/367.png){fig-alt="An I beam of length L1+L2 is subjected to a distributed load w and a point load F. The distributed load w occurs over L1 and the point load F occurs at the end of L2."}
 
 ```{shinylive-python}
-# | standalone: true
-# | viewerHeight: 600
-# | components: [viewer]
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
 
 from shiny import App, render, ui, reactive
 import random

@@ -7,9 +7,9 @@ This is a dynamic rendering of the problem with dynamic variables based on the u
 ![Figure 1: An I beam is subjected to a triangular load.](images/365.png){fig-alt="An I beam of length 2L is subjected to triangular loading wo. The triangular load increases from A to L to a peak of wo, and decreases from wo to 0 from L to C."}
 
 ```{shinylive-python}
-# | standalone: true
-# | viewerHeight: 600
-# | components: [viewer]
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
 
 from shiny import App, render, ui, reactive
 import random
