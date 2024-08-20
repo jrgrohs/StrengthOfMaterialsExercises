@@ -56,19 +56,20 @@ def server(input, output, session):
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        d.set(random.randrange(150, 200, 2))
-        L.set(random.randrange(10, 30, 1)/10)
+        d.set(random.randrange(75, 125, 1))
+        L.set(random.randrange(20, 30, 1)/10)
         P.set(random.randrange(10, 100, 1)/10)
 
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        I = P()*(L()*1000)**3/(3*200*d())
-        print(I)
+        I1 = P()*(L()*1000)**3/(3*200*50)
+        I2 = P()*L()*1000*d()/2/0.400
+        I = max(I1,I2)
         ri = ((math.pi*(d()/2)**4/4-I)*4/math.pi)**(1/4)
-        print(ri)
         instr= d()/2-ri
+
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"

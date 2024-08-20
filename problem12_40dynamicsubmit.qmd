@@ -36,8 +36,8 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer1", "Your Answer 1 in units of ksi", placeholder="Please enter your answer 1"),
-    ui.input_text("answer2", "Your Answer 2 in units of ksi", placeholder="Please enter your answer 2"),
+    ui.input_text("answer1", "Your σ2 in units of ksi", placeholder="Please enter your σ2"),
+    ui.input_text("answer2", "Your max absolute shear stress in units of ksi", placeholder="Please enter your shear stress"),
     ui.input_action_button("submit", "Submit Answers", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -48,7 +48,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return [ui.markdown(f"A plane stress state results in principal stress σ<sub>1</sub> = {sigma1()} ksi and τ<sub>max</sub>-in-plane = {tau_max()} ksi. Use Mohr's Circle to determine σ<sub>2</sub> and the maximum absolute shear stresses.")]
+        return [ui.markdown(f"A plane stress state results in principal stress σ<sub>1</sub> = {sigma1()} ksi and τ<sub>max-in-plane</sub> = {tau_max()} ksi. Use Mohr's Circle to determine σ<sub>2</sub> and the maximum absolute shear stresses.")]
 
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -67,9 +67,9 @@ def server(input, output, session):
         correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.01)
         
         if correct1 and correct2:
-            check = "Both answers are correct."
+            check = "both correct."
         else:
-            check = f" {'correct' if correct1 else 'incorrect'} and {'correct' if correct2 else 'incorrect'}."
+            check = f" {'correct' if correct1 else 'incorrect'} and {'correct respectively' if correct2 else 'incorrect respectively'}."
         
         correct_indicator = "JL" if correct1 and correct2 else "JG"
 

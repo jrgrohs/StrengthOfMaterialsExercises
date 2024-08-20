@@ -1,0 +1,8 @@
+# Problem 5.34 {.unnumbered}
+
+## Problem Statement
+A copper circular rod of radius r = 4 cm is inserted into an aluminum tube with inner radius r<sub>i</sub> = 5 cm and outer radius r<sub>o</sub> = 6 cm as shown. Load P is applied to the rigid top plate. If length L = 15 cm, what load P will cause the plate to deflect dL = 0.23 mm downward? Assume E<sub>copper</sub> = 110 GPa and E<sub>aluminum</sub> = 70 GPa.
+
+## Problem Image
+
+![Figure 1: A copper circular rod is inserted into an aluminum tube as shown.](images/192.png){fig-alt="Picture with an circular copper rod inserted into an aluminum tube. A load is applied at the top of the tube. The radius of the copper rod is r. The inner radius of the aluminum tube is r[i] and the outer radius is r[o] "}

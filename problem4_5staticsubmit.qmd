@@ -1,0 +1,8 @@
+# Problem 4.5 {.unnumbered}
+
+## Problem Statement
+A single force F = 3 kips pulls on three cylindrical rods, each of length L = 6 in., Diameter d<sub>1</sub> = 2 in., and d<sub>2</sub> = 1 in. What is the strain in the steel cylinder? Assume E<sub>steel</sub> = 29,000 ksi and E<sub>aluminum</sub> = 10,000 ksi.
+
+## Problem Image
+
+![Figure 1: A single force pulls on three cylindrical rods that are fixed to a wall.](images/188.png){fig-alt="Picture with three cylindrical rods. The middle rod is made of steel and the two outer rods are made of aluminum. The left cylinder is attached to the wall with a diameter of d[1]. The middle cylinder has a diameter of d[2]. The right cylinder has a diameter of d[3] and the force is applied. "}

@@ -50,7 +50,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A cylindrical pressure vessel of outer diameter d = {d()} mm experiences an internal pressure P = {P()} kPa. Determine the maximum shear stress in the vessel wall if the wall thibckness is t = {t()} mm.")]
+        return[ui.markdown(f"A cylindrical pressure vessel of outer diameter d = {d()} mm experiences an internal pressure P = {P()} kPa. Determine the maximum shear stress in the vessel wall if the wall thickness is t = {t()} mm.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -64,8 +64,8 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        sigma_a = P()*d()/2/(2*t())
-        sigma_h = P()*d()/2/t()
+        sigma_a = P()*(d()/2-t())/(2*t())
+        sigma_h = P()*(d()/2-t())/t()
         instr= (math.sqrt(((-sigma_h+sigma_a)/2)**2))
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"

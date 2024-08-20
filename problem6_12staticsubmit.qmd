@@ -1,0 +1,9 @@
+# Problem 6.12 {.unnumbered}
+
+## Problem Statement
+
+A bar with a shear modulus G = 11 x 10<sup>6</sup> psi is subjected to torques T<sub>1</sub> = 1,500 lb-ft at its center and T<sub>2</sub> at its free end. The inner diameter is 1 in and the outer diameter is 2 in and the total length of the bar is 10 in. If the rotation of the rod at its free end is Φ =  2° clockwise, what is the magnitude of torque T<sub>2</sub>?
+
+## Problem Image
+
+![Figure 1: A bar is attached to a wall.](images/268.png){fig-alt=" A bar is attached to a wall. The bar has an inner diameter of 1 in and outer diameter of 2 in. Torque, T[1] is applied halfway down the bar. The bar length is 10 in total."}

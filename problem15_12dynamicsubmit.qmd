@@ -49,7 +49,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A W10 x 45 beam is used as a column with a length L = {L()} ft. It is fixed at both ends and subjected to load F = {F()} kips. If the elastic modulus E = 29,000 ksi, determine the factor of safety with respect to buckling.")]
+        return[ui.markdown(f"A W16 x 40 beam is used as a column with a length L = {L()} ft. It is fixed at both ends and subjected to load F = {F()} kips. If the elastic modulus E = 29,000 ksi, determine the factor of safety with respect to buckling.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -62,8 +62,8 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        Pcr = math.pi**2*29*10**6*53.4/(36*L()**2)
-        instr= Pcr/(F()*1000)
+        Pcr = math.pi**2*29*10**3*28.9/(0.5*L()*12)**2
+        instr= Pcr/F()
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
@@ -109,5 +109,4 @@ def server(input, output, session):
 
 # App installation
 app = App(app_ui, server)
-
 ```

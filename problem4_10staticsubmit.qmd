@@ -1,0 +1,8 @@
+# Problem 4.10 {.unnumbered}
+
+## Problem Statement
+A circular rod of an unknown metallic alloy is placed in tension with a P = 5 kip axial load. The length of the rod is L = 10 in. and the diameter is d = 1 in. After applying the load, the rod length increases by 0.0035 in and the diameter decreases by 0.00014 in. What is the Poisson's ratio of the alloy?
+
+## Problem Image
+
+![Figure 1: A circular road is placed in tension with an axial load. ](images/206.png){fig-alt="A circular road is placed in tension with an axial load, P. The circular rod has a diameter d and length L. "}

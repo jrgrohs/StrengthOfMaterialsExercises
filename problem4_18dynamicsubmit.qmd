@@ -50,7 +50,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A copper pipe (α = 17x10<sup>-6</sup> 1/°C) of length L = {L()} m is cooled from {Ti()}°C to to {Tf()}°C. Determine the longitudinal strain in the cooled pipe.")]
+        return[ui.markdown(f"A copper pipe (α = 17x10<sup>-6</sup> /°C) of length L = {L()} m is cooled from {Ti()}°C to to {Tf()}°C. Determine the longitudinal strain in the cooled pipe.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)

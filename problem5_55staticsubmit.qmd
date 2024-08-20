@@ -1,0 +1,8 @@
+# Problem 5.55 {.unnumbered}
+
+## Problem Statement
+Bars AB and BC are pinned at joint B. Both bars are made from the same material with E = 200 GPa, v = 0.32, and a = 11.7 x 10<sup>-6</sup> /°C. Dimensions L = 400  mm, t = 33 mm, h = 15 mm, and d = 10 mm. If both bars are heated by 20 °C, determine the shear stress generated in the pin at B.
+
+## Problem Image
+
+![Figure 1: Two bars are pinned at joint B between two walls.](images/249.png){fig-alt=" Two bars are pinned at joint B between two walls. Joint AB is on the left hand side and joint BC is on the right hand side. Both bars are length L and thickness t and height h. The diameter of the bolt holding them together is d. "}

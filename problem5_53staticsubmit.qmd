@@ -1,0 +1,9 @@
+# Problem 5.53 {.unnumbered}
+
+## Problem Statement
+
+Three cylindrical rods of lengths L<sub>1</sub> = 0.12 m, L<sub>2</sub> = 0.1 m, and L<sub>3</sub> = 0.08 m are connected together. A force F = 15 kN is applied to the free end and all three rods are heated by 120 °C. The coefficient of thermal expansion, α, and elastic modulus, E, for each material are α<sub>A</sub> = 10 x 10<sup>-6</sup> /°C, α<sub>B</sub> = 5 x 10<sup>-6</sup> /°C, α<sub>C</sub> = 7 x 10<sup>-6</sup> /°C, E<sub>A</sub> = 40 GPa, E<sub>B</sub> = 120 GPa, and E<sub>C</sub> = 80 GPa. What is the total deflection of the right rod tip?
+
+## Problem Image
+
+![Figure 1: Three cylindrical rods are rigidly connected togehter with a load applied to the free end.](images/225.png){fig-alt="Three cylindrical rods are rigidly connected togehter with a load applied to the free end. The left hand side is connected to the wall and is attached to rod A. Rod B is attached to rod A on the left and rod C on the right. The load is applied to the free end of rod C. The diameter of rod A is 3 cm, the diameter of rod B is 1 cm, and the diameter of rod C is 2 cm."}

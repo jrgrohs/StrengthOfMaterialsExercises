@@ -1,0 +1,8 @@
+# Problem 5.38 {.unnumbered}
+
+## Problem Statement
+A distributed load w = 100 N/cm<sup>2</sup> is applied to a short column made from wood and concrete. Assume E<sub>concrete </sub>= 25 GPa, E<sub>wood</sub> = 12 GPa, b = 3 cm, h<sub>1</sub> = 3 cm, and h<sub>2</sub> = 6 cm. What load is carried by the concrete center?
+
+## Problem Image
+
+![Figure 1: A pressure load is applied to a short column made of wood and concrete. ](images/248.png){fig-alt="A pressure load is applied to a short column made of wood and concrete. Concerete is the center of the column and it is surrounded by wood. The side of the column is 3 * b, with the width of the wood, concrete, and wood each being b. The other side of the column is h[1] + h[2] + h[1], with the length of the wood being h[1] and the length of the concrete being h[2]."}

@@ -64,7 +64,7 @@ def server(input, output, session):
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         sigma_norm = P()/(t()*(1.5))
         instr= 1.95*(sigma_norm)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
+        if math.isclose(float(input.answer()), instr, rel_tol=0.1):
             check = "*Correct*"
             correct_indicator = "JL"
         else:

@@ -61,15 +61,17 @@ def server(input, output, session):
         attempt_counter.set(attempt_counter() + 1)
         By = 13*(w2()-w1())/30+6.5*w1()
         Cy = 13*w1()+13*(w2()-w1())/2-By
-        instr1= abs(By+Cy-9*w1()-162/(13*(w2()-w1())))
-        instr2 = abs(5*By-81*w1()/2-486/(13*(w2()-w1())))
+   #    instr1= abs(By+Cy-9*w1()-162/(13*(w2()-w1())))
+   #    instr2 = abs(5*By-81*w1()/2-486/(13*(w2()-w1())))
+        instr1 = 5.1854*w1()
+        instr2 = 15.17*w1()
         correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.01)
         correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.01)
         
         if correct1 and correct2:
-            check = "Both answers are correct."
+            check = "both correct."
         else:
-            check = f" {'correct' if correct1 else 'incorrect'} and {'correct' if correct2 else 'incorrect'}."
+            check = f" {'correct' if correct1 else 'incorrect'} and {'correct respectively' if correct2 else 'incorrect respectively'}."
         
         correct_indicator = "JL" if correct1 and correct2 else "JG"
 

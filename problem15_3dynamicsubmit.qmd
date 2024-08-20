@@ -64,13 +64,13 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        I = 3326*10**-8
+        I = 3.32875*10**-5
         instr= math.sqrt(math.pi**2*E()*10**9*I/(F()*10**3*FS()))
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
-            check = "*Not Correct.*"
+            check = "*Not Correct*"
             correct_indicator = "JG"
 
         # Generate random parts for the encoded attempt.

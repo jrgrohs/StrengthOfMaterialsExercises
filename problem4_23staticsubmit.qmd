@@ -1,0 +1,8 @@
+# Problem 4.23 {.unnumbered}
+
+## Problem Statement
+A square steel plate of side length L = 6 in. and thickness t = 1/2 in. is uniformly pulled by two forces F<sub>x</sub> = 15 kips and F<sub>y</sub> = 25 kips as shown. If E = 29,000 ksi and Poisson's ratio v = 0.29, determine the change in thickness of the plate.
+
+## Problem Image
+
+![Figure 1: A block is pulled in by two forces.](images/204.png){fig-alt="Picture of a steel block being pulled in uniformly pulled by two forces. The block has sides L and thickness t."}

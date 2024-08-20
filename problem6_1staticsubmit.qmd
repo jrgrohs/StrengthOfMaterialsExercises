@@ -1,0 +1,8 @@
+# Problem 6.1 {.unnumbered}
+
+## Problem Statement
+What torque is required to create a maximum shear stress of τ = 50 MPa in a solid circular bar of diameter d  = 60 mm?
+
+## Problem Image
+
+![Figure 1: A bar is fixed to a wall at one end.](images/265.png){fig-alt="A bar is fixed to a wall at one end. The bar has diameter d."}

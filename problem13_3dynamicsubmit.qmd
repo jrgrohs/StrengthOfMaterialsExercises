@@ -66,8 +66,8 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        sigma_a = P()*ri()*12/(2*t())/1000
-        sigma_h = P()*ri()*12/t()/1000
+        sigma_a = P()*ri()/(2*t())/1000
+        sigma_h = P()*ri()/t()/1000
         v = 0.3
         E = 29000
         e = (sigma_a-v*sigma_h)/E

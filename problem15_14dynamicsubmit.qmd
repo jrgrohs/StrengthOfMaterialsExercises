@@ -57,7 +57,7 @@ def server(input, output, session):
     def ui_problem_statement():
         return [
             ui.markdown(
-                f"A wide-flange column that is fixed at both ends is required to cary a load F = {F()} kips. If length L = {L()} ft and the elastic modulus E = 29,000 ksi, determine the lightest structural member in Appendix A that can be used. Use a factor of safety of {FS()} against buckling."
+                f"A wide-flange column that is fixed at both ends is required to carry a load F = {F()} kips. If length L = {L()} ft and the elastic modulus E = 29,000 ksi, determine the lightest structural member in Appendix A that can be used. Use a factor of safety of {FS()} against buckling."
             )
         ]
 

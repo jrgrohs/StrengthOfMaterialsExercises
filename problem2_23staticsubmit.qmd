@@ -1,0 +1,9 @@
+# Problem 2.23 {.unnumbered}
+
+## Problem Statement
+
+A square bar of length L<sub>1</sub> = 10 in. and L<sub>2</sub> = 14 in. is pinned at one end and rests on a circular rod of diameter d = 5/8 in. A force F = 60 lb is applied at the free end. What is the average shear stress in the circular rod?
+
+## Problem Image
+
+![Figure 1: A square bar of length is pinned at one end and rests on a circular rod.](images/168.png){fig-alt="Picture with a circular rod pinned at one end and resting on a circular rod at a distance L1 from the wall. The other end of the rod has a force applied downward."}

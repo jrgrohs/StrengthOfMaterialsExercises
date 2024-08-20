@@ -48,7 +48,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A lawnmower engine supplied {hp()} hp running at {rpm()} rpm is being used to power a homemade winch. Given the gearing shown, determine the heaviest load that can be lifted.")]
+        return[ui.markdown(f"A lawnmower engine supplying {hp()} hp running at {rpm()} rpm is being used to power a homemade winch. Given the gearing shown, determine the heaviest load that can be lifted.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)

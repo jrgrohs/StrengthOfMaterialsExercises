@@ -50,7 +50,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A W8 x 15 beam is used as a column with one end fixed and the other end pinned. If the length of the column L = {L()} ft, determine the largest load it can carry with a factor of safety of {FS()}. The elastic modulus E = {E()} ksi.")]
+        return[ui.markdown(f"A W14 x 53 beam is used as a column with one end fixed and the other end pinned. If the length of the column L = {L()} ft, determine the largest load it can carry with a factor of safety of {FS()}. The elastic modulus E = {E()} ksi.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -64,7 +64,7 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        Pcr = 2.046*math.pi**2*E()*3.41/(L()**2*144)
+        Pcr = math.pi**2*E()*57.7/(0.7*L()*12)**2
         instr= Pcr/FS()
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"

@@ -66,8 +66,8 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        sigma_f = F()/(math.pi*((di()/2+t())**2-(di()/2)**2))
-        instr= (4*t()*sigma_f/di()/2)/10**6
+        sigma_f = F()*1000/(math.pi*((di()/2000+t()/1000)**2-(di()/2000)**2))/1000
+        instr= (2*t()/1000*sigma_f/(di()/2000))
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"

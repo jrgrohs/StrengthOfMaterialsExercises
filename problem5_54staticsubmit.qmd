@@ -1,0 +1,8 @@
+# Problem 5.54 {.unnumbered}
+
+## Problem Statement
+A square brass bar is placed between two fixed walls and heated from 5 °C to 35 °C. If L = 450 mm, h = 15 mm, E = 100 GPa, and α = 20 x 10<sup>-6</sup> /°C, determine the stress in the bar.
+
+## Problem Image
+
+![Figure 1: A long square brass bar is placed between two fixed walls. ](images/226.png){fig-alt="A long square brass bar is placed between two fixed walls. The bar has length L. The cross section is square with sides h."}

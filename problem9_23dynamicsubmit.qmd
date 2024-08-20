@@ -59,7 +59,7 @@ def server(input, output, session):
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        w0.set(random.randrange(20, 200, 1)/10)
+        w0.set(random.randrange(200, 300, 1)/10)
         L.set(random.randrange(20, 50, 1)/10)
         sigma.set(random.randrange(100, 250, 10))
 

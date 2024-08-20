@@ -49,7 +49,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A C 12 x 30 channel beam is used as a column that is pinned at both ends. If length L = {L()} ft and the elastic modulus E = {E()} x 10<sup>6</sup> psi, determine the critical stress for the column.")]
+        return[ui.markdown(f"A W14 x 34 channel beam is used as a column that is pinned at both ends. If length L = {L()} ft and the elastic modulus E = {E()} x 10<sup>6</sup> psi, determine the critical stress for the column.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -62,8 +62,8 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        A = 8.82
-        I = 5.14
+        A = 10
+        I = 6.91
         instr= math.pi**2*E()*10**6*I/(A*144*L()**2)/1000
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"

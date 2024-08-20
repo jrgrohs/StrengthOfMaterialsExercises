@@ -1,0 +1,8 @@
+# Problem 4.6 {.unnumbered}
+
+## Problem Statement
+A polymer test specimen is subjected to an axial load of F = 18 kips. The central portion of the specimen has an initial length L = 8 in., w = 3 in., and t = 1/4 in. If the length increases by dL = 0.052 in., determine the elastic modulus of the material.
+
+## Problem Image
+
+![Figure 1: A polymer test specimen is pulled from the top and bottom.](images/194.png){fig-alt="Picture of dog bone shaped polymer test specimen is pulled from the top and bottom. The length, L, represented the distance between two points in the center of the speciment. The width, w, is the distance across the middle of the dog bone."}

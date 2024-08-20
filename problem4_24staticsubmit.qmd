@@ -1,0 +1,8 @@
+# Problem 4.24 {.unnumbered}
+
+## Problem Statement
+A strain gauge is placed on a polymer test sample with an elastic modulus E =  1 x 10<sup>7</sup> psi and a Poisson's ratio of v = 0.3. When a P<sub>1</sub> = 5 kip vertical load is applied to the test sample, the strain gauge reads a strain of SG = 11 x 10<sup>-6</sup> in the x-direction. What is the relative error of the strain gauge compared to the theoretical strain of the test sample? Note: relative error is defined to be the difference between the measured value and the theoretical value divided by the theoretical value.
+
+## Problem Image
+
+![Figure 1: A strain gauge is placed on a test sample and a vertical load is applied to the test sample.](images/205.png){fig-alt="A strain gauge is placed on a test sample and a vertical load is applied to the test sample. The sides of the length in the x direction of the sample is 4 in, in the y direction it is 3 in, and it is 1 in in the z direction."}

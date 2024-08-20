@@ -1,0 +1,8 @@
+# Problem 5.39 {.unnumbered}
+
+## Problem Statement
+A concrete post of length L = 0.3  m and diameter d<sub>c</sub> = 120 mm supports a load F = 150 kN. The concrete is reinforced with 6 steel rods of diameter d<sub>s</sub> = 10 mm. Assume E<sub>concrete</sub> = 25 GPa and E<sub>steel</sub> = 200 GPa. Determine the stress in the concrete.
+
+## Problem Image
+
+![Figure 1: A concrete post with 6 steel rebar rods embedded in the concrete supports a load. ](images/250.png){fig-alt="A concrete post with 6 steel rebar rods embedded in the concrete supports a load, F. The post has diamete d[c] and the rebar rods have diamete d[s]."}

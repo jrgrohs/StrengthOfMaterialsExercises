@@ -1,0 +1,122 @@
+# Problem 6.14 {.unnumbered}
+
+## Problem Statement
+
+A circular rod of length L = 350 mm, outer radius r<sub>o</sub> = 30 mm, and unknown inner radius r<sub>i</sub> has a shear modulus G = 80 GPa. The rod is subjected to torque T = 1.25 kN-m at the free end. If the angle of twist must not exceed 2° and the shear stress must not exceed 100 MPa, what is the minimum required inner radius?
+
+## Problem Image
+
+![Figure 1: A circualr rod is attached to a wall.](images/270.png){fig-alt="A circular rod is attached to a wall. The rod has length L and an inner radius r[i] and outer radius r[o]. The torque is apllied at the free end."}
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 600
+#| components: [viewer]
+
+from shiny import App, render, ui, reactive
+import random
+import asyncio
+import io
+import math
+import string
+from datetime import datetime
+from pathlib import Path
+
+def generate_random_letters(length):
+    # Generate a random string of letters of specified length
+    return ''.join(random.choice(string.ascii_lowercase) for _ in range(length)) 
+
+problem_ID="270"
+L=reactive.Value("__")
+ro=reactive.Value("__")
+T=reactive.Value("__")
+G=reactive.Value("__")
+stress=reactive.Value("__")
+
+attempts=["Timestamp,Attempt,Answer,Feedback\n"]
+
+app_ui = ui.page_fluid(
+    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    ui.markdown("**Problem Statement**"),
+    ui.output_ui("ui_problem_statement"),
+    ui.input_text("answer","Your Answer in units of mm", placeholder="Please enter your answer"),
+    ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
+    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+)
+
+def server(input, output, session):
+    # Initialize a counter for attempts
+    attempt_counter = reactive.Value(0)
+
+    @output
+    @render.ui
+    def ui_problem_statement():
+        return[ui.markdown(f"A circular rod of length L = {L()} mm, outer radius r<sub>o</sub> = {ro()} mm, and unknown inner radius r<sub>i</sub> has a shear modulus G = {G()} GPa. The rod is subjected to torque T = {T()} kN-m at the free end. If the angle of twist must not exceed 2° and the shear stress must not exceed {stress()} MPa, what is the minimum required inner radius?")]
+    
+    @reactive.Effect
+    @reactive.event(input.generate_problem)
+    def randomize_vars():
+        random.seed(input.ID())
+        L.set(random.randrange(250, 500, 10))
+        ro.set(random.randrange(30, 75, 1))
+        G.set(random.randrange(60, 100, 1))
+        T.set(random.randrange(10, 100, 1)/10)
+        stress.set(random.randrange(75, 150, 1))
+        
+    @reactive.Effect
+    @reactive.event(input.submit)
+    def _():
+        attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
+        r1= ((ro()/1000)**4-(2*T()*1000*ro()/1000/(math.pi*stress()*10**6)))**0.25*1000
+        r2 = ((ro()/1000)**4-(2*T()*1000*L()/1000/(math.pi*G()*10**9*2*math.pi/180)))**0.25*1000
+        if r1>r2:
+            instr = r2
+        else:
+            instr = r1
+        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
+            check = "*Correct*"
+            correct_indicator = "JL"
+        else:
+            check = "*Not Correct.*"
+            correct_indicator = "JG"
+
+        # Generate random parts for the encoded attempt.
+        random_start = generate_random_letters(4)
+        random_middle = generate_random_letters(4)
+        random_end = generate_random_letters(4)
+        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+
+        # Store the most recent encoded attempt in a reactive value so it persists across submissions
+        session.encoded_attempt = reactive.Value(encoded_attempt)
+
+        # Append the attempt data to the attempts list without the encoded attempt
+        attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
+
+        # Show feedback to the user.
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
+        m = ui.modal(
+            feedback,
+            title="Feedback",
+            easy_close=True
+        )
+        ui.modal_show(m)
+
+    @session.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
+    async def download():
+        # Start the CSV with the encoded attempt (without label)
+        final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"
+        yield f"{final_encoded}\n\n"
+        
+        # Write the header for the remaining CSV data once
+        yield "Timestamp,Attempt,Answer,Feedback\n"
+        
+        # Write the attempts data, ensure that the header from the attempts list is not written again
+        for attempt in attempts[1:]:  # Skip the first element which is the header
+            await asyncio.sleep(0.25)  # This delay may not be necessary; adjust as needed
+            yield attempt
+
+# App installation
+app = App(app_ui, server)
+```

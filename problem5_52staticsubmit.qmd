@@ -1,0 +1,8 @@
+# Problem 5.52 {.unnumbered}
+
+## Problem Statement
+Two cylindrical rods are heated until they expand, just closing the gap of d = 0.01 in. The coefficient of thermal expansion, α, for material A and B is 6 x 10<sup>-6</sup>/°F and 10 x 10<sup>-6</sup>/°F, respectively. The radius of A r<sub>A</sub> = 0.5 in and the length is L<sub>1</sub> = 10 in. The radius of B is r<sub>B</sub> = 0.8 in and the length is L<sub>2</sub> = 6 in. What is the change in temperature?
+
+## Problem Image
+
+![Figure 1: Two cylindrical rods are connected and heated until they expand to close a gap. ](images/224.png){fig-alt="Two cylindrical rods are connected and heated until they expand to close the gap to the wall on the right hand side. The left hand side is fixed. Rod A is attached to the wall on the left hand side. Rod B is attached to Rod A."}

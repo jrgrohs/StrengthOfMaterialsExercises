@@ -49,7 +49,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"To draw attention, a junkyard owner mounts a car on top of a column of length L = {L()} ft made from a W8 x 15 beam. If the elastic modulus E = 29,000 ksi, what is the heaviest car body that can be used to avoid buckling? Use a factor of safety of {FS()}.")]
+        return[ui.markdown(f"To draw attention, a junkyard owner mounts a car on top of a column of length L = {L()} ft made from a W8 x 15 beam I<sub>x</sub> = 48.0 in.<sup>4</sup>, I<sub>y</sub> = 3.41 in.<sup>4</sup>). If the elastic modulus E = 29,000 ksi, what is the heaviest car body that can be used to avoid buckling? Use a factor of safety of {FS()}.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -109,5 +109,4 @@ def server(input, output, session):
 
 # App installation
 app = App(app_ui, server)
-
 ```

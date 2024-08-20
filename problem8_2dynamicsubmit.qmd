@@ -48,13 +48,12 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"For the beam cross-section shown, determine the centroid location, measured from the top surface. Assume dimensions a = {a()} in. and b = {b()} in.")]
+        return[ui.markdown(f"For the beam cross-section shown, determine the centroid location, measured from the top surface. Assume dimensions a = 3 in. and b = {b()} in.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        a.set(random.randrange(30, 50, 1)/10)
         b.set(random.randrange(30, 50, 1)/10)
         
     @reactive.Effect
@@ -70,12 +69,12 @@ def server(input, output, session):
         y7 = 1.75+b()/2
         A1 = 0.4418
         A2 = A1
-        A3 = a()*0.75
-        A4 = 1.5+a()
-        A5 = 0.375*b()
+        A3 = 3*0.75
+        A4 = 4.5
+        A5 = 0.625*b()
         A6 = A5
         A7 = 2*b()
-        instr= (y1*A1+y2*A2+y3*A3+y4*A4+y5*A5+y6*A6+y7*A7)/(A1+A2+A3*A4+A5+A6+A7)
+        instr= (y1*A1+y2*A2+y3*A3+y4*A4+y5*A5+y6*A6+y7*A7)/(A1+A2+A3+A4+A5+A6+A7)
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"

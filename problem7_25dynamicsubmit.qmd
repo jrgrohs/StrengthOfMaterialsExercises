@@ -64,13 +64,14 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        R2 = (-W1()*L()*L()/2+W2()*L()*L()/2+W1()*L()*1.5*L()+W2()*L()*2.5*L())/(2*L())
-        R1 = 2*W1()*L()+2*W2()*L()-R2
-        V1 = abs(-W1()*L())
-        V2 = abs(R1-V1)
-        V3 = abs(R2-W2()*L()-W1()*3*L())
-        V4 = abs(R2-V3)
-        instr = max(V1, V2, V3, V4)
+        R2 = (-W1()*L()/2+W2()*L()/2+W1()*1.5*L()+W2()*2.5*L())/(2*L())
+        R1 = 2*W1()+2*W2()-R2
+        V1 = -W1()
+        V2 = V1+R1
+        V3 = V2-W2()
+        V4 = V3-W1()
+        V5 = V4+R2
+        instr = max(abs(V1), abs(V2), abs(V3), abs(V4), abs(V5))
 
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"

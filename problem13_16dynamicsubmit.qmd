@@ -50,7 +50,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A spherical thin-walled pressure vessel is to be constructed of steel with a yield stress of {sigma_yield()} ksi and a wall thickness t = {t()} in. If the interal diameter of the tank is d<sub>i</sub> = {di()} ft, determine the maximum allowable pressure before yielding.")]
+        return[ui.markdown(f"A spherical thin-walled pressure vessel is to be constructed of steel with a yield stress of {sigma_yield()} ksi and a wall thickness t = {t()} in. If the internal diameter of the tank is d<sub>i</sub> = {di()} ft, determine the maximum allowable pressure before yielding.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)

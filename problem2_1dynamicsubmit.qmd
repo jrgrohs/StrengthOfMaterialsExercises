@@ -1,11 +1,10 @@
 # Problem 2.1 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
 ## Problem Image
 
 ![Figure 1: A series of solid circular bars are loaded with three loads](images/138.png){fig-alt="Picture with a series of circular bars of three different diameters loaded with three loads attached to a wall."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
