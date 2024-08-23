@@ -1,11 +1,7 @@
 # Problem 2.21 {.unnumbered}
 
-This is a static rendering of the problem. 
-
 ## Problem Statement
+
 A double lap joint is glued together using glue with a shear stress failure strength of 8000 psi. If dimensions L = 6 in. and t = 8 in., what is the maximum load P that the joint can withstand? Assume the load is evenly distributed across the joint on both sides.
 
-## Problem Image
-
-![Figure 1: A double lap joint is glued together](images/164.png){fig-alt="Picture with a double lap joint glued together. The two external joints have half the load applied to them, while the middle piece has the load applied in the oposite direction. The top view shows the dimension of the overlap between teh joints, t."}
-
+![Figure 1: A double lap joint is glued together](images/164.png){fig-alt="Picture with a double lap joint glued together. The two external joints have half the load applied to them, while the middle piece has the load applied in the oposite direction. The top view shows the dimension of the overlap between teh joints, t."} \[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

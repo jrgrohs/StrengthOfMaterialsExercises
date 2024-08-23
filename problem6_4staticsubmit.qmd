@@ -1,0 +1,8 @@
+# Problem 6.4 {.unnumbered}
+
+## Problem Statement
+Three belt pulleys are connected to a solid circular shaft of diameter d = 3 in. that rotates freely at joints A and E. The pulleys are subjected to forces F<sub>1</sub> = 1 kips, F<sub>2</sub> = 1 kips, and F<sub>3</sub> = 1.5 kips. What is the maximum shear stress in the shaft between pulleys B and C?
+
+
+![Figure 1: Three belt pullets are connected to a solid shaft.](images/276.png){fig-alt="Three belt pullets are connected to a solid shaft. The shaft is dixed at points A and E. F[1] is applied at the first pulley, or point B. F[2] is applied at the second pulley or point C. F[3] is applied at the third pulley or point D.  The shaft has diameter d."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

@@ -1,11 +1,8 @@
 # Problem 11.26 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Two sylinders are stacked on top of each other.](images/422.png){fig-alt="An overhanging beam of length L1+L2 is subjected to a distributed load w. The distributed load is applied over length L2."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -90,7 +87,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

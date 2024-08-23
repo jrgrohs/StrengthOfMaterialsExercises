@@ -3,6 +3,7 @@
 ## Problem Statement
 Two forces, F<sub>1</sub> = 1 kN and F<sub>2</sub> = 2 kN, are applied to the system of cylinders as shown. If L<sub>1</sub> = 10 mm and L<sub>2</sub> = 14 mm, what is the total change in length of the system. Assume E<sub>brass</sub> = 100 GPa and E<sub>aluminum</sub> = 70 GPa.
 
-## Problem Image
 
 ![Figure 1: Two forces are applied to the system of cylinders.](images/185.png){fig-alt="Picture with two  cylinders connected. The cylinder on the left is made of brass and attached to the wall, with a load applied at the intersection of the cylinders. The brass cylinder has a length L[1] a radius of 2 mm. The second cylinder is made of aluminum, has a length of L[2], and has a radius of 3 mm. The scn load is applied to the end of the aluminum cylinder."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

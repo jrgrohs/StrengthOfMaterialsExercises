@@ -3,6 +3,7 @@
 ## Problem Statement
 A series of solid circular steel bars are loaded as shown, where F<sub>1</sub> = 60 N, F<sub>2</sub> = 20 N, and F<sub>3</sub> = 40 N. If lengths L<sub>1</sub> = L<sub>2</sub> = 30 cm and L<sub>3</sub> = 40 cm, determine the total change in length of the system. Assume E<sub>steel</sub> = 210 GPa.
 
-## Problem Image
 
 ![Figure 1: A series of solid circular steel bars are loaded with three loads.](images/186.png){fig-alt="Picture with three cylinders connected and three loads applied. The cylinder on the left is attached to the wall, has a diameter of 8 mm, and has F[1] applied at the intersection of the second cylinder. The middle cylinder has a diameter of 6 mm and F[2] applied at the intersection with the third cylinder. The third cylinder has a diameter of 10 mm with F[3] applied at the end."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

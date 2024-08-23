@@ -1,0 +1,10 @@
+# Problem 11.5 {.unnumbered}
+
+## Problem Statement
+
+A cantilever beam of length L = 6.5 ft is subjected to a distributed load w = 300 lb/in. and a concentrated load F = 2.5 kips as shown. Determine the magnitude of the deflection of the beam at point B. Assume EI = 45,000 kip-in.<sup>2</sup>.
+
+
+![Figure 1: Two sylinders are stacked on top of each other.](images/396.png){fig-alt="A beam of length L is subjected to a distributed load w and a point load P at L/2. Point A is on the left of the beam, and point B is on the right end, a distance of L from A."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

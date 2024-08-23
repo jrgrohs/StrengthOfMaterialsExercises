@@ -1,10 +1,9 @@
 # Problem 6.4 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: Three belt pullets are connected to a solid shaft.](images/276.png){fig-alt="Three belt pullets are connected to a solid shaft. The shaft is dixed at points A and E. F[1] is applied at the first pulley, or point B. F[2] is applied at the second pulley or point C. F[3] is applied at the third pulley or point D.  The shaft has diameter d."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

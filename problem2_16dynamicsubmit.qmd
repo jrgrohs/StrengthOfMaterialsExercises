@@ -1,11 +1,8 @@
 # Problem 2.16 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Two forces are applied to a system of cylinders as shown.](images/162.png){fig-alt="Picture with two cylinders in a system with forces F1 and F2 applied. F1 is applied to the left and F2 is applied to the right. The first cylinder is made of brass, has a diameter of d1 and a length of 10 mm. The second cylinder is made of aluminum, has a diameter of d2 and a length of 14 mm."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 # | standalone: true

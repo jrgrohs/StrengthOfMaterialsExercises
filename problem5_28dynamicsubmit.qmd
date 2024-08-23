@@ -1,10 +1,8 @@
 # Problem 5.28 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A bar is attached to two wires with forces applied. ](images/202.png){fig-alt=" Picture with a 10 cm long bar attached to two wires. Wire a is 4 cm long and is made of brass. Wire b is 6 cm long and is made of aluminum. Force F1 is applied at 2 cm from the left and force F2 is applied at 10 cm from the left. Wire a is attached at the left end and wire be is attached 7 cm from the left end."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

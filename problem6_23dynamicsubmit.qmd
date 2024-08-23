@@ -1,10 +1,7 @@
 # Problem 6.23 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
-
 ![Figure 1: A lawnmower engine powers a winch supporting a load.](images/670.png){fig-alt="A lawnmower engine with a horsepower of hp has a radius of 0.5 in. This engine is being used to power a homemade winch of radius 3 in supporting a load of w."}
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -83,7 +80,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

@@ -1,0 +1,9 @@
+# Problem 9.4 {.unnumbered}
+
+## Problem Statement
+
+A beam with a hollow circular cross-section of outer radius r<sub>o</sub> = 5.5 in. and inner radius r<sub>i</sub> = 5 in. is subjected to a distributed load as shown. If w = 100 lb/ft, L<sub>1</sub> = 5 ft, and L<sub>2</sub> = 10 ft, determine the magnitude of the maximum bending stress in the beam.
+
+![Figure 1: A beam with a circular cross section is subjected to a distributed load.](images/345.png){fig-alt="A beam of length 2L1+L2 with a circular ring cross section is subjected to a distributed load w. The left end of the beam has a pin a distance of L1 from the start of the distributed load. The distributed load occurs over a length of L2. The right end of the beam has a pin a distance of L1 from the end of the distributed load. The beam's cross section is a ring with outer diameter ro and inner diameter ri."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

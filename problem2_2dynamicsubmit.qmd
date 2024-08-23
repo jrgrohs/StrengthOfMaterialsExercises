@@ -1,11 +1,7 @@
 # Problem 2.2 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
-
 ![Figure 1: Two cylinders are stacked on top of each other.](images/139.png){fig-alt="Picture with two cylinders stacked on top of each other and two forces are applied at the top surface and at the joint between teh cylinders as shown."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

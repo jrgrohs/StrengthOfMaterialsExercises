@@ -10,9 +10,9 @@ toc: true
 number-depth: 2
 
 book:
-  title: "Strength of Materials Problem Exercises"
-  author: "Curated by James Lord, Jake Grohs, ..."
-  date: "1/5/2024"
+  title: "Problem Set for Strength of Materials"
+  author: "Edited by James Lord and Jacob Grohs"
+  date: "8/23/2024"
   page-navigation: true
   search: true
   sidebar:
@@ -21,7 +21,7 @@ book:
   
   chapters:
     - index.qmd
-    - part: "Chapter 2"
+    - part: "Chapter 2 Problems - Problem Submission App"
       chapters:
         - problem2_1dynamicsubmit.qmd
         - problem2_2dynamicsubmit.qmd
@@ -35,7 +35,13 @@ book:
         - problem2_41dynamicsubmit.qmd
         - problem2_47dynamicsubmit.qmd
         - problem2_48dynamicsubmit.qmd
-    - part: "Chapter 4"
+        
+    - part: "Chapter 3 - Problem Submission App"
+      chapters:
+        - problem3_2dynamicsubmit.qmd
+        - problem3_7dynamicsubmit.qmd
+
+    - part: "Chapter 4 - Problem Submission App"
       chapters:
         - problem4_5dynamicsubmit.qmd
         - problem4_6dynamicsubmit.qmd
@@ -46,7 +52,8 @@ book:
         - problem4_24dynamicsubmit.qmd
         - problem4_25dynamicsubmit.qmd
         - problem4_35dynamicsubmit.qmd
-    - part: "Chapter 5"
+        
+    - part: "Chapter 5 - Problem Submission App"
       chapters:
         - problem5_11dynamicsubmit.qmd
         - problem5_12dynamicsubmit.qmd
@@ -66,7 +73,8 @@ book:
         - problem5_53dynamicsubmit.qmd
         - problem5_54dynamicsubmit.qmd
         - problem5_55dynamicsubmit.qmd
-    - part: "Chapter 6"
+        
+    - part: "Chapter 6 - Problem Submission App"
       chapters:
         - problem6_1dynamicsubmit.qmd
         - problem6_2dynamicsubmit.qmd
@@ -79,7 +87,15 @@ book:
         - problem6_14dynamicsubmit.qmd
         - problem6_15dynamicsubmit.qmd
         - problem6_27dynamicsubmit.qmd
-    - part: "Problem Exercises (No App)"
+        
+    - part: "Chapter 11 - Problem Submission App"
+      chapters:
+        - problem11_1dynamicsubmit.qmd
+        - problem11_4dynamicsubmit.qmd
+        - problem11_22dynamicsubmit.qmd
+        - problem11_25dynamicsubmit.qmd
+        
+    - part: "Problem Exercises - Fixed Variable (No App)"
       chapters:
         - problem2_1staticsubmit.qmd
         - problem2_2staticsubmit.qmd
@@ -93,15 +109,22 @@ book:
         - problem2_41staticsubmit.qmd
         - problem2_47staticsubmit.qmd
         - problem2_48staticsubmit.qmd
+        - problem3_2staticsubmit.qmd
+        - problem3_7staticsubmit.qmd
         - problem4_5staticsubmit.qmd
         - problem4_6staticsubmit.qmd
         - problem4_10staticsubmit.qmd
         - problem4_11staticsubmit.qmd
         - problem4_12staticsubmit.qmd
+        - problem4_18staticsubmit.qmd
+        - problem4_19staticsubmit.qmd
         - problem4_23staticsubmit.qmd
         - problem4_24staticsubmit.qmd
         - problem4_25staticsubmit.qmd
         - problem4_35staticsubmit.qmd
+        - problem5_6staticsubmit.qmd
+        - problem5_8staticsubmit.qmd
+        - problem5_10staticsubmit.qmd
         - problem5_11staticsubmit.qmd
         - problem5_12staticsubmit.qmd
         - problem5_13staticsubmit.qmd
@@ -110,61 +133,89 @@ book:
         - problem5_27staticsubmit.qmd
         - problem5_34staticsubmit.qmd
         - problem5_35staticsubmit.qmd
+        - problem5_36staticsubmit.qmd
+        - problem5_37staticsubmit.qmd
+        - problem5_38staticsubmit.qmd
+        - problem5_39staticsubmit.qmd
+        - problem5_50staticsubmit.qmd
+        - problem5_51staticsubmit.qmd
+        - problem5_52staticsubmit.qmd
+        - problem5_53staticsubmit.qmd
+        - problem5_54staticsubmit.qmd
+        - problem5_55staticsubmit.qmd
+        - problem6_1staticsubmit.qmd
+        - problem6_2staticsubmit.qmd
+        - problem6_3staticsubmit.qmd
+        - problem6_4staticsubmit.qmd
+        - problem6_5staticsubmit.qmd
+        - problem6_11staticsubmit.qmd
+        - problem6_12staticsubmit.qmd
+        - problem6_13staticsubmit.qmd
+        - problem6_14staticsubmit.qmd
+        - problem6_15staticsubmit.qmd
+        - problem6_22staticsubmit.qmd
+        - problem6_23staticsubmit.qmd
+        - problem6_27staticsubmit.qmd
+        - problem6_28staticsubmit.qmd
+        - problem6_29staticsubmit.qmd
+        - problem6_30staticsubmit.qmd
+        - problem6_31staticsubmit.qmd
+        - problem7_1staticsubmit.qmd
+        - problem7_2staticsubmit.qmd
+        - problem7_3staticsubmit.qmd
+        - problem7_14staticsubmit.qmd
+        - problem7_15staticsubmit.qmd
+        - problem7_16staticsubmit.qmd
+        - problem7_25staticsubmit.qmd
+        - problem7_26staticsubmit.qmd
+        - problem7_27staticsubmit.qmd
+        - problem7_28staticsubmit.qmd
+        - problem7_29staticsubmit.qmd
+        - problem8_1staticsubmit.qmd
+        - problem8_2staticsubmit.qmd
+        - problem8_7staticsubmit.qmd
+        - problem9_1staticsubmit.qmd
+        - problem9_2staticsubmit.qmd
+        - problem9_3staticsubmit.qmd
+        - problem9_4staticsubmit.qmd
+        - problem9_5staticsubmit.qmd
+        - problem9_21staticsubmit.qmd
+        - problem9_22staticsubmit.qmd
+        - problem9_23staticsubmit.qmd
+        - problem9_24staticsubmit.qmd
+        - problem9_25staticsubmit.qmd
+        - problem10_1staticsubmit.qmd
+        - problem10_4staticsubmit.qmd
+        - problem10_5staticsubmit.qmd
+        - problem10_6staticsubmit.qmd
+        - problem10_7staticsubmit.qmd
+        - problem10_8staticsubmit.qmd
+        - problem10_17staticsubmit.qmd
+        - problem10_18staticsubmit.qmd
+        - problem10_19staticsubmit.qmd
+        - problem10_20staticsubmit.qmd
+        - problem10_21staticsubmit.qmd
+        - problem11_1staticsubmit.qmd
+        - problem11_2staticsubmit.qmd
+        - problem11_3staticsubmit.qmd
+        - problem11_4staticsubmit.qmd
+        - problem11_5staticsubmit.qmd
+        - problem11_17staticsubmit.qmd
+        - problem11_18staticsubmit.qmd
+        - problem11_19staticsubmit.qmd
+        - problem11_50staticsubmit.qmd
+        - problem11_51staticsubmit.qmd
+        - problem11_53staticsubmit.qmd
+        - problem12_39staticsubmit.qmd
+        - problem12_40staticsubmit.qmd
+
     - part: "Interactive Interface Demo"
       chapters:
         - interfacedemo.qmd   
-    - part: "List of Working Problems"
+        
+    - part: "List of Working Problems (Not yet for use)"
       chapters:
-        - problem2_1dynamicsubmit.qmd
-        - problem2_2dynamicsubmit.qmd
-        - problem2_3dynamicsubmit.qmd
-        - problem2_4dynamicsubmit.qmd
-        - problem2_21dynamicsubmit.qmd
-        - problem2_22dynamicsubmit.qmd
-        - problem2_23dynamicsubmit.qmd
-        - problem2_38dynamicsubmit.qmd
-        - problem2_39dynamicsubmit.qmd
-        - problem2_40dynamicsubmit.qmd
-        - problem2_47dynamicsubmit.qmd
-        - problem2_48dynamicsubmit.qmd
-        - problem4_5dynamicsubmit.qmd
-        - problem4_6dynamicsubmit.qmd
-        - problem4_10dynamicsubmit.qmd
-        - problem4_11dynamicsubmit.qmd
-        - problem4_12dynamicsubmit.qmd
-        - problem4_23dynamicsubmit.qmd
-        - problem4_24dynamicsubmit.qmd
-        - problem4_25dynamicsubmit.qmd
-        - problem4_35dynamicsubmit.qmd
-        - problem5_11dynamicsubmit.qmd
-        - problem5_12dynamicsubmit.qmd
-        - problem5_13dynamicsubmit.qmd
-        - problem5_14dynamicsubmit.qmd
-        - problem5_15dynamicsubmit.qmd
-        - problem5_27dynamicsubmit.qmd
-        - problem5_34dynamicsubmit.qmd
-        - problem5_35dynamicsubmit.qmd
-        - problem5_36dynamicsubmit.qmd
-        - problem5_37dynamicsubmit.qmd
-        - problem5_38dynamicsubmit.qmd
-        - problem5_39dynamicsubmit.qmd
-        - problem5_50dynamicsubmit.qmd
-        - problem5_51dynamicsubmit.qmd
-        - problem5_52dynamicsubmit.qmd
-        - problem5_53dynamicsubmit.qmd
-        - problem5_54dynamicsubmit.qmd
-        - problem5_55dynamicsubmit.qmd
-        - problem6_1dynamicsubmit.qmd
-        - problem6_2dynamicsubmit.qmd
-        - problem6_3dynamicsubmit.qmd
-        - problem6_4dynamicsubmit.qmd
-        - problem6_5dynamicsubmit.qmd
-        - problem6_11dynamicsubmit.qmd
-        - problem6_12dynamicsubmit.qmd
-        - problem6_13dynamicsubmit.qmd
-        - problem6_14dynamicsubmit.qmd
-        - problem6_15dynamicsubmit.qmd
-        - problem6_27dynamicsubmit.qmd
+        - problem5_10dynamicsubmit.qmd
         - problem6_28dynamicsubmit.qmd
         - problem6_30dynamicsubmit.qmd
         - problem6_31dynamicsubmit.qmd
@@ -204,18 +255,14 @@ book:
         - problem10_19dynamicsubmit.qmd
         - problem10_20dynamicsubmit.qmd
         - problem10_21dynamicsubmit.qmd
-        - problem11_1dynamicsubmit.qmd
         - problem11_2dynamicsubmit.qmd
         - problem11_3dynamicsubmit.qmd
-        - problem11_4dynamicsubmit.qmd
         - problem11_5dynamicsubmit.qmd
         - problem11_17dynamicsubmit.qmd
         - problem11_18dynamicsubmit.qmd
         - problem11_19dynamicsubmit.qmd
-        - problem11_22dynamicsubmit.qmd
         - problem11_23dynamicsubmit.qmd
         - problem11_24dynamicsubmit.qmd
-        - problem11_25dynamicsubmit.qmd
         - problem11_26dynamicsubmit.qmd
         - problem11_36dynamicsubmit.qmd
         - problem11_37dynamicsubmit.qmd
@@ -261,14 +308,6 @@ book:
         - problem15_13dynamicsubmit.qmd
         - problem15_14dynamicsubmit.qmd
         - problem15_15dynamicsubmit.qmd
-    - summary.qmd
-    - references.qmd
-
-bibliography: references.bib
-
-comments:
-  utterances:
-    repo: jrgrohs/StrengthOfMaterialsExercises
 
 format:
   html:

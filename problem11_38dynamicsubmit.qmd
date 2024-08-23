@@ -1,11 +1,9 @@
 # Problem 11.38 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: Two sylinders are stacked on top of each other.](images/438.png){fig-alt="A beam of length L1+L2+L3 is subjected to a distributed load w and is connected to the wall at point C. The distance from A to B is L1, the distance from B to the start of w is L2, and the distance from the start of w to the wall at C is L3. There is a pin at point B."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -91,7 +89,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

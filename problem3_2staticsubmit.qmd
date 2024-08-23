@@ -1,0 +1,8 @@
+# Problem 3.2 {.unnumbered}
+
+## Problem Statement
+
+During a tension test of a rectangular prism, the original gage length L = 200 mm is increased to L' = 201.43 mm. determine the normal strain, ε, in the prism.
+
+![Figure 1: A rectangular prism is subjected to a tension test.](images/650.png){fig-alt="A rectangular prism is subjected to a tension test."} 
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]

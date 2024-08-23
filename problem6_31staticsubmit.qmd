@@ -1,0 +1,10 @@
+# Problem 6.31 {.unnumbered}
+
+## Problem Statement
+
+Two steel (G = 80 GPa) circular rods are firmly welded together and attached between two walls. Assume d<sub>1</sub> = 5 mm, d<sub>2</sub> = 4 mm, and L  = 25 mm. A torque T = 10 N-m is applied at the welded joint as shown. What is the highest stress in either rod?
+
+
+![Figure 1: Two steel circular rods are firmly welded together and attached between two walls.](images/293.png){fig-alt="Two steel circular rods are firmly welded together and attached between two walls. The rod on the left has a diameter d1 and the rod on the right has a diameter d2. Each rod has length L. The torque is applied where the rods intersect."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

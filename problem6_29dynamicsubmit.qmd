@@ -1,10 +1,8 @@
 # Problem 6.29 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A composite circular rod is made from aluminum and steel.](images/289.png){fig-alt="A composite circular rod of length L is made from aluminum and steel. The steel rod has a diameter of ri and the aluminum rod has a diameter of ro."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 # | standalone: true

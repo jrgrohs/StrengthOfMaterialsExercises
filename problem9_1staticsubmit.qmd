@@ -1,0 +1,10 @@
+# Problem 9.1 {.unnumbered}
+
+## Problem Statement
+
+A beam with a rectangular cross-section of base b = 80 mm and h = 200 mm is subjected to the leading shown. If w = 2 kN/m and L = 2 m, determine the magnitude of the largest bending stress in the beam.
+
+
+![Figure 1: Beam undergoing a distributed load.](images/342.png){fig-alt="Beam undergoing a distributed load from A to the midpoint. The distributed load (w) is applied over length L,with point B located at 2L from A. The beam has a rectangular cross section of height h and width b."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

@@ -1,0 +1,9 @@
+# Problem 6.3 {.unnumbered}
+
+## Problem Statement
+
+Two torques are applied to a two part circular rod as shown. If T<sub>1</sub> = -6 kip-in., T<sub>2</sub> = 2 kip-in., d<sub>1</sub> = 5 in., and d<sub>2</sub> = 4 in., what is the magnitude of the maximum shear stress?
+
+
+![Figure 1: A torque is applied two part circular rod, with one end attached to the wall.](images/273.png){fig-alt="A torque is applied two part circular rod, with one end attached to the wall. The part attached to the wall has diameter d[1] and length 40 in. T[1] is applied at the intersection of the rods. The second rod has diameter d[2] and length 30 in. T[2] is applied at the free end."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

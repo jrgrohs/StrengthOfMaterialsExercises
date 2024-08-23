@@ -1,0 +1,7 @@
+# Problem 12.39 {.unnumbered}
+
+## Problem Statement
+
+A plane stress state results in principal stress σ<sub>1</sub> = 435 MPa and σ<sub>2</sub> = -124 MPa. Use Mohr's Circle to determine the maximum in-plane and maximum absolute shear stresses.
+
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]

@@ -1,11 +1,8 @@
 # Problem 5.20 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A force on a lever causes a force to compress a cylinder.](images/199.png){fig-alt="Picture with lever ABC causing a force at D to compress the cylinder. There is a 45 degree angle from B to member LAB and a 45 degree angle from B to member LBC."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

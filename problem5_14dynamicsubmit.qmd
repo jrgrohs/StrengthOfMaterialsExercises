@@ -1,11 +1,8 @@
 # Problem 5.14 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A series of solid circular steel bars are loaded with three loads.](images/186.png){fig-alt="Picture with three cylinders connected and three loads applied. The cylinder on the left is attached to the wall, has a diameter of 8 mm, and has F[1] applied at the intersection of the second cylinder. The middle cylinder has a diameter of 6 mm and F[2] applied at the intersection with the third cylinder. The third cylinder has a diameter of 10 mm with F[3] applied at the end."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

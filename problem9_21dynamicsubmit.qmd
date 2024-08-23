@@ -1,11 +1,7 @@
 # Problem 9.21 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
-
 ![Figure 1: A beam is subjected to a distributed load.](images/360.png){fig-alt="A beam is subjected to a distributed load w between A and B. The distance between A and B is L. The beam has a cross section of height h and width b."}
-
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 ```{shinylive-python}
 #| standalone: true
 #| viewerHeight: 600

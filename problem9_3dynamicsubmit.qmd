@@ -1,10 +1,9 @@
 # Problem 9.3 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A diving board with a person standing on it.](images/344.png){fig-alt="A diving board of length L1+L2 has a person of mass m standing on the right side. The distance from the first pin to the second pin is L1 and the distance from the second pin to the right end is L2. The beam has a rectangular cross section of height h and width b."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

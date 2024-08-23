@@ -1,11 +1,7 @@
 # Problem 11.51 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
-
 ![Figure 1: Two sylinders are stacked on top of each other.](images/682.png){fig-alt="A window has a height of h and a base of b. The window has a uniform thickness of 3.7 mm."}
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -86,7 +82,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

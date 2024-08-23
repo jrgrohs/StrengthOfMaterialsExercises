@@ -1,11 +1,9 @@
 # Problem 2.23 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A square bar of length is pinned at one end and rests on a circular rod.](images/168.png){fig-alt="Picture with a circular rod pinned at one end and resting on a circular rod at a distance L1 from the wall. The other end of the rod has a force applied downward."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

@@ -1,11 +1,9 @@
 # Problem 10.6 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: Two sylinders are stacked on top of each other.](images/371.png){fig-alt="A T beam has a height of h1+h2 and an upper width of b2. Top of the T has a base of b2 and a height of h2, and the stem of the T has a height of h1 and a base of b1."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

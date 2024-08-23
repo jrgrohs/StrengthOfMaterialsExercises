@@ -1,0 +1,10 @@
+# Problem 8.7 {.unnumbered}
+
+## Problem Statement
+
+The cross-section shows a concrete beam with two hollow round holes. Determine the area moment of inertia about the beam's centroid. Assume lengths a = 5 in., b = 2 in., c = 6 in., d = 4 in., d<sub>1</sub> = 3 in., and d<sub>2</sub> = 6 in.
+
+
+![Figure 1: A cross section has two round holes.](images/347.png){fig-alt="Picture with a cross section with two holes drilled. The cross section has a height of d+c+b and a width of a+a. The bottom hole is centered at height d with a diameter of d2. The top hole is centered at height c+d with a diameter of d1."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

@@ -1,11 +1,8 @@
 # Problem 5.19 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Two circular rods are attached together and loaded with forces.](images/198.png){fig-alt="Picture with two circular rods attached together and loaded with two forces. Rod a has a diameter of 25 mm and a length of L1. Rod b has a diameter of 30 mm and a length of L2. Force F1 is applied to the left at the end of rod a and force F2 is applied to the right at the end of rod b."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

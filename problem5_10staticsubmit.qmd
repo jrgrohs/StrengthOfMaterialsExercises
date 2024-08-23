@@ -1,0 +1,9 @@
+# Problem 5.10 {.unnumbered}
+
+## Problem Statement
+
+The linkage of thickness t = 0.5 in. shown is subjected to load P = 25 kips. Determine the maximum stress in the linkage.
+
+![Figure 1: A linkage is subjected to a loading as shown.](images/668.png){fig-alt="Picture with a linkage being subjected to a loading P. The linkage has a thickness of t, an initial width of 2in, a final width of 4in, and filets of radius 0.5 in. The linkage has a hole of diameter 1.5 in drilled in the wide part."}
+
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]

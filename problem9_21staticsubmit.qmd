@@ -1,0 +1,10 @@
+# Problem 9.21 {.unnumbered}
+
+## Problem Statement
+
+A beam with a rectangular cross-section is subjected to a distributed load w = 3 kN/m as shown. The maximum allowable bending stress in the beam is 7 MPa. If length L = 5 m and the cross-sectional area of the beam is A = 0.025 m<sup>2</sup>, determine the required width (b) of the cross-section.
+
+
+![Figure 1: A beam is subjected to a distributed load.](images/360.png){fig-alt="A beam is subjected to a distributed load w between A and B. The distance between A and B is L. The beam has a cross section of height h and width b."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

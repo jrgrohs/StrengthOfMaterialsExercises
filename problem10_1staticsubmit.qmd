@@ -1,0 +1,8 @@
+# Problem 10.1 {.unnumbered}
+
+## Problem Statement
+
+For the built-up T-beam shown, determine the first moment of area, Q, at point A and at the centroid of the cross-section. Assume dimensions b<sub>1</sub> = 1.5 in., b<sub>2</sub> = 5.5 in., h<sub>1</sub> = 7.5 in., and h<sub>2</sub> = 1.5 in.
+
+![Figure 1: A beam is subjected to a distributed load and force applied. ](images/680.png){fig-alt="A T beam has an upper base of b2 and a lower base of b1. The T beam also has a stem height of h1 and a top height of h2."}
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]

@@ -1,11 +1,9 @@
 # Problem 15.3 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: Two sylinders are stacked on top of each other.](images/611.png){fig-alt="A column of length L with pins at both ends is subjected to a force F. The column is a hollow rectangle with an exterior width of 17 cm and an exterior height of 15 cm and an interior width of 15cm and an interior height of 10 cm."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -86,7 +84,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

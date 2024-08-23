@@ -1,0 +1,10 @@
+# Problem 7.14 {.unnumbered}
+
+## Problem Statement
+
+Plot the shear force and bending moment diagrams for the loading shown. Assume w = 5 kip/ft and L = 6 ft. What is the maximum absolute shear force and maximum absolute bending moment?
+
+
+![Figure 1: A distributed load is applied to a beam.](images/318.png){fig-alt="A distributed load, w, is applied to a beam. The beam is length 2L and the load is applied over length L."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

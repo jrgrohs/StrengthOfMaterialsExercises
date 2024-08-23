@@ -1,10 +1,7 @@
 # Problem 8.2 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
-
 ![Figure 1: A cross section has filets and a tapered base.](images/676.png){fig-alt="A cross section has a maximum width of 1.5+a and a maximum height of 1.75+b. The cross section has filets in the top two corners of radius 0.75 in. The cross section has two triangles on the bottom of height b and width 1.25 in."}
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -95,7 +92,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

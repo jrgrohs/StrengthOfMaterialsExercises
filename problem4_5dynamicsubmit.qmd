@@ -1,11 +1,9 @@
 # Problem 4.5 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A single force pulls on three cylindrical rods that are fixed to a wall.](images/188.png){fig-alt="Picture with three cylindrical rods. The middle rod is made of steel and the two outer rods are made of aluminum. The left cylinder is attached to the wall with a diameter of d[1]. The middle cylinder has a diameter of d[2]. The right cylinder has a diameter of d[3] and the force is applied. "}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

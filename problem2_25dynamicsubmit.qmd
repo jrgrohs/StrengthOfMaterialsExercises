@@ -1,11 +1,8 @@
 # Problem 2.25 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A lap joint is constructed with layers.](images/173.png){fig-alt="Picture with a four layer lap joint subjected to force F. The lap joint is L mm long and w mm wide."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 # | standalone: true

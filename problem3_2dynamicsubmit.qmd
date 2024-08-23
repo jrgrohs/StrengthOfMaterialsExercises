@@ -1,12 +1,7 @@
 # Problem 3.2 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
-
-![Figure 1: A rectangular prism is subjected to a tension test.](images/650.png){fig-alt="A rectangular prism is subjected to a tension test."}
-
+![Figure 1: A rectangular prism is subjected to a tension test.](images/650.png){fig-alt="A rectangular prism is subjected to a tension test."} 
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]
 ```{shinylive-python}
 #| standalone: true
 #| viewerHeight: 600
@@ -85,7 +80,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

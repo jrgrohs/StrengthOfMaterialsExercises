@@ -1,10 +1,9 @@
 # Problem 5.35 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-## Problem Image
 
 ![Figure 1: Two blocks with square cross sections are stacked and loaded at the top.](images/193.png){fig-alt="Picture with two blocks stacked on top of each other. The bottom block is steel and has a width w[2] and a length L. The top block is aluminum and has a width w[1] and length L. The load is applied to the top of the aluminum block."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

@@ -1,0 +1,10 @@
+# Problem 7.3 {.unnumbered}
+
+## Problem Statement
+
+Three loads are applied to the structure as shown, where F<sub>1</sub> = 10 lb., F<sub>2</sub> = 13 lb., and F<sub>3</sub> = 10 lb applied at an angle Θ = 50°. Determine the internal shear force and bending moment at section aa.
+
+
+![Figure 1: Three loads are applied to the structure as shown.](images/309.png){fig-alt=" unsure how to describe."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

@@ -1,0 +1,10 @@
+# Problem 10.20 {.unnumbered}
+
+## Problem Statement
+
+A T-beam is constructed from two wooden boards nailed together as shown. The nails can withstand a shear load of 10 kN and the beam is subjected to a maximum shear force V = 30 kN. If dimensions b<sub>1</sub> =20 mm, b<sub>2</sub> = 200 mm, h<sub>1</sub> = 160 mm, and h<sub>2</sub> = 20 mm, determine the minimum permissible spacing between the nails.
+
+
+![Figure 1: Two sylinders are stacked on top of each other.](images/384.png){fig-alt="A T beam is made of two pieces nailed together. The base of the T is height h1 and width b1. The top of the T is height h2 and base b2."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

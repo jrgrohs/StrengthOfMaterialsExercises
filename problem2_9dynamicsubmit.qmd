@@ -1,11 +1,8 @@
 # Problem 2.9 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Truss ABCDEFGHIJ is subjected to two forces.](images/150.png){fig-alt="Picture of a truss subjected to forces F1 and F2. The distance from A to B is 12 ft, the distance from B to I is 12 ft, and the distance from I to J is 12 ft. The vertical distance from F to G is 5 ft. Force F1 is applied at I and force F2 is applied at J."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

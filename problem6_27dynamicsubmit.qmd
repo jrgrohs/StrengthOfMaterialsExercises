@@ -1,10 +1,8 @@
 # Problem 6.27 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A steel rod is attached between two walls. The load is applied as shown. ](images/287.png){fig-alt="A steel rod is attached between two walls. The load is applied to a perpendicular rod at a distance L from the steel rod. The steel rod has diameter d, the distance between the AB is 40 cm, and the distance between BC is 30 cm."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

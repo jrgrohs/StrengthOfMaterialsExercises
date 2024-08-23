@@ -1,11 +1,8 @@
 # Problem 2.47 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Two slanted brackets are glued together.](images/153.png){fig-alt="Picture with two slanted brackets glued together, and the slant is at the stated angle. A force is applied to each edge of the brackets."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

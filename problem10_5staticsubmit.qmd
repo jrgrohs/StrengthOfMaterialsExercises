@@ -1,0 +1,11 @@
+# Problem 10.5 {.unnumbered}
+
+## Problem Statement
+
+A simply supported beam is constructed from two wooden boards as shown. The beam supports a concentrated load F = 10 kN. If length L = 5 m  and cross-section dimensions b = 40 mm and h = 20 mm, determine the shear stress in the glue that holds the boards together.
+
+
+
+![Figure 1: Two sylinders are stacked on top of each other.](images/370.png){fig-alt="A beam of length L is supported by pins at A and B. The beam has a force F applied at L/2. The beam cross section is two stacked rectangles The top rectangle has a base of h and a height of h, and the bottom rectangle has a base of b  and a height of h."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

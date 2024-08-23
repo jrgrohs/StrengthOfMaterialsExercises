@@ -1,10 +1,8 @@
 # Problem 7.29 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A beam is subjected to a non-uniform distributed load. ](images/334.png){fig-alt="A beam is subjected to a non-unform distributed load, w1 at A and w2 at B with supports at B and C. The distance between A and B is 4 ft, the distance between B and C is 5 ft and the distance between C and D is 4 ft."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -88,7 +86,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check} For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}.")
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}.")
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 

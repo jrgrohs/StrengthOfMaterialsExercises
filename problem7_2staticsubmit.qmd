@@ -1,0 +1,10 @@
+# Problem 7.2 {.unnumbered}
+
+## Problem Statement
+
+A beam is subjected to the loading shown, where w = 4 kN/m and L = 2 m. What is the internal bending moment at section a-a at x = 1 m?
+
+
+![Figure 1: A beam is subjected to a triangular load as shown.](images/306.png){fig-alt="A beam is subjected to a triangular load, w. Point A is attached to the wall and point C is free. Point B is halfway between A and C with distances L. Section a-a is at distance x from point A."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

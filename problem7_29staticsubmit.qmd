@@ -1,0 +1,10 @@
+# Problem 7.29 {.unnumbered}
+
+## Problem Statement
+
+Plot the shear force and bending moment diagrams for the loading shown. Assume w<sub>1</sub> = 2 kip/ft and w<sub>2</sub> = 4 kip/ft. What is the maximum absolute shear force and maximum absolute bending moment?
+
+
+![Figure 1: A beam is subjected to a non-uniform distributed load. ](images/334.png){fig-alt="A beam is subjected to a non-unform distributed load, w1 at A and w2 at B with supports at B and C. The distance between A and B is 4 ft, the distance between B and C is 5 ft and the distance between C and D is 4 ft."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

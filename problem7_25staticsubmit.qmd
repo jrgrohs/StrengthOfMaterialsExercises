@@ -1,0 +1,10 @@
+# Problem 7.25 {.unnumbered}
+
+## Problem Statement
+
+A shelf is loaded with four boxes as shown. Assume W<sub>1</sub> = 5 lb, W<sub>2</sub> = 10 lb, and L = 1 ft. Determine the maximum internal shear force.
+
+
+![Figure 1: A shelf is loaded with four boxes.](images/321.png){fig-alt="Picture of a shelf with four boxes. Box one was a weight of W1 over a distance L, box two has a weight of W2 over a distance L, box three has a weight of W3 over a distance L, and box four has a weight of W4 over a distance L. The shelf has two supports at L and 3L."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

@@ -1,10 +1,6 @@
 # Problem 8.1 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
-
-![Figure 1: A composite cross section is made of a base and a square.](images/675.png){fig-alt="A composite cross section has a base of height h1 and a hollow square of height h2. The base is of length 2b1+b2 and the hollow square has a thickness of 4 mm."}
+![Figure 1: A composite cross section is made of a base and a square.](images/675.png){fig-alt="A composite cross section has a base of height h1 and a hollow square of height h2. The base is of length 2b1+b2 and the hollow square has a thickness of 4 mm."} \[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -30,7 +26,7 @@ b2=reactive.Value("__")
 h1=reactive.Value("__")
 h2=reactive.Value("__")
 t=reactive.Value("__")
-
+  
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
@@ -57,11 +53,11 @@ def server(input, output, session):
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        b1.set(random.randrange(20, 50, 1))
-        b2.set(b1()*random.randrange(50, 70, 1)/10)
-        h1.set(random.randrange(5, 10, 1))
+        b1.set(random.randrange(20,50,1))
+        b2.set(round(b1(),1)*round(random.randrange(50,70,1)/10))
+        h1.set(random.randrange(5,10,1))
         h2.set(b2())
-        t.set(random.randrange(3, 10, 1))
+        t.set(random.randrange(3,10,1))
         
     @reactive.Effect
     @reactive.event(input.submit)
@@ -71,9 +67,10 @@ def server(input, output, session):
         y2 = y1
         y3 = h1()/2
         A1 = h2()*b2()
-        A2 = -(h2()-8)*(b2()-8)
-        A3 = h1()*(2*b1()+b2())        
-        instr= (y1*A1+y2*A2+y3*A3)/(A1+A2+A3)
+        A2 = -(b2()-2*t())*(h2()-2*t())
+        A3 = h1()*(2*b1()+b2())
+        instr = (y1*A1+y2*A2+y3*A3)/(A1+A2+A3)
+
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
@@ -118,5 +115,4 @@ def server(input, output, session):
 
 # App installation
 app = App(app_ui, server)
-
 ```

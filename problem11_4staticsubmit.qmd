@@ -1,0 +1,10 @@
+# Problem 11.4 {.unnumbered}
+
+## Problem Statement
+
+A cantilever beam of length L = 5.5 m is subjected to a distributed load w = 5.5 kN/m. Determine the magnitude of the deflection of the beam at point B. Assume EI = 25,000 kN-m<sup>2</sup>.
+
+
+![Figure 1: Two sylinders are stacked on top of each other.](images/394.png){fig-alt="A cantilever beam of length L has a distributed load w applied. The distributed load is applied over the first 2L/3 of the beam, from point A to point B."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

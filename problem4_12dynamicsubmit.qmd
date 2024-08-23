@@ -1,11 +1,8 @@
 # Problem 4.12 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A rectangular rod is pulled in tension in the x-direction.](images/216.png){fig-alt="A rectangular rod is pulled in tension in the x-direction by a load P. The bar deflects by d[1] in the x-direction and d[2] in the y-direction. The length in the x-direction is 5 in, and the length in the y direction is 1 in. "}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

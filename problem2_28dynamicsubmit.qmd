@@ -1,11 +1,9 @@
 # Problem 2.28 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: Two structual members are connected with a pin as shown.](images/177.png){fig-alt="Picture with two structural members connected by a pin of diameter d. Member AB has a height of 2a and member BC has a length of b. A force F is applied at height a from A."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

@@ -1,0 +1,9 @@
+# Problem 5.8 {.unnumbered}
+
+## Problem Statement
+
+A flat bar of thickness t = 0.25 in. narrows with fillets as shown. If a lod P = 3200 lb is applied, determine the maximum stress in the bar.
+
+![Figure 1: A bar narrows in width.](images/666.png){fig-alt="A flat bar of thickness t with fillets has a load of P applied. The bar has a maximum width of 2.25 in and narrows to 1.5 in. The filets have a radius of 0.25 in."}
+
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]

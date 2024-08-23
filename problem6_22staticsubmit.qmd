@@ -1,0 +1,8 @@
+# Problem 6.22 {.unnumbered}
+
+## Problem Statement
+
+The steel shaft is being turned by an electric motor providing 20 kW of power at 180 rpm. Power is extracted at B with a torque of 600 N⸱m. Determine the remaining torque available for the gear at C.
+
+![Figure 1: A steel shaft with two gears is turned by a motor.](images/669.png){fig-alt="A steel shaft is turned by a motor with a power of P. The shaft has two gears, B and C, with torques of TB and TC respectively."}
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]

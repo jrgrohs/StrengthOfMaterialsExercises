@@ -1,11 +1,9 @@
 # Problem 10.1 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: A beam is subjected to a distributed load and force applied. ](images/680.png){fig-alt="A T beam has an upper base of b2 and a lower base of b1. The T beam also has a stem height of h1 and a top height of h2."}
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -57,9 +55,9 @@ def server(input, output, session):
     def randomize_vars():
         random.seed(input.ID())
         b1.set(random.randrange(10, 50, 1)/10)
-        b2.set(b1()*random.randrange(40, 60, 1)/10)
+        b2.set(round(b1(),1)*(round(random.randrange(40, 60, 1)/10)))
         h2.set(b1())
-        h1.set(b2()+random.randrange(20, 60, 1)/10)
+        h1.set(round(b2(),1)+round(random.randrange(20, 60, 1)/10))
 
     @reactive.Effect
     @reactive.event(input.submit)
@@ -90,7 +88,7 @@ def server(input, output, session):
         session.encoded_attempt = reactive.Value(encoded_attempt)
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
 
-        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check} For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}.")
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}.")
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 

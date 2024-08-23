@@ -1,10 +1,7 @@
 # Problem 6.31 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
-
 ![Figure 1: Two steel circular rods are firmly welded together and attached between two walls.](images/293.png){fig-alt="Two steel circular rods are firmly welded together and attached between two walls. The rod on the left has a diameter d1 and the rod on the right has a diameter d2. Each rod has length L. The torque is applied where the rods intersect."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

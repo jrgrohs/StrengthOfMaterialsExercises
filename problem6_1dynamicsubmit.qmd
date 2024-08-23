@@ -1,10 +1,8 @@
 # Problem 6.1 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A bar is fixed to a wall at one end.](images/265.png){fig-alt=" A bar is fixed to a wall at one end. The bar has diameter d."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

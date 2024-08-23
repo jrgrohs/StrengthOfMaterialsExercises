@@ -1,11 +1,8 @@
 # Problem 2.7 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A tapered cylindrical rod has a force applied to it.](images/143.png){fig-alt="A tapered cylindrical rod of length L has a force F applied to it. The wide end of the cylinder has a diameter of d0 and the narrow end has a diameter of d1. The distance from the wall for the cut is x."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

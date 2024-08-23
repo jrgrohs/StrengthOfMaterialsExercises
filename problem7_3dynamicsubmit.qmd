@@ -1,11 +1,9 @@
 # Problem 7.3 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: Three loads are applied to the structure as shown.](images/309.png){fig-alt=" unsure how to describe."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

@@ -1,0 +1,8 @@
+# Problem 3.7 {.unnumbered}
+
+## Problem Statement
+
+A square plate is deformed due to shear with the new shape shown. If length L = 300 mm and x = 42 mm, determine the shear strain at corner A
+
+![Figure 1: A square plate is deformed from shear.](images/652.png){fig-alt="A square plate of length L is deformed a distance of x due to shear."}
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]

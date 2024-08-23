@@ -1,0 +1,10 @@
+# Problem 7.1 {.unnumbered}
+
+## Problem Statement
+
+A beam is subjected to the loading shown, where w = 60 lb/ft and F = 400 lb. Determine the internal shear force and bending moment at section a-a.
+
+
+![Figure 1: A beam is subjected to a distributed load and force applied. ](images/305.png){fig-alt="A beam is subjected to a distributed load, w between A and B. A force, F, is applied at C. The distance between A and B is 6ft and the distance between B and C is 2 ft. Section a-a is 3 ft from A."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

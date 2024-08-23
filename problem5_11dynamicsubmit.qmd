@@ -1,11 +1,8 @@
 # Problem 5.11 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A series of solid, steel, circular bars are loaded with forces.](images/183.png){fig-alt="Picture with a series of solid steel circular bars loaded with forces. The first force is applied to the far left ba trhat has a length 3 cm and diameter 1 cm. The second force is applied to the next bar that has a length 3 cm and diameter 2 cm. The third force is applied to the next bar that has a length 4 cm and diameter 0.5 cm. The fourth and final force is applied to the last bar that is attached to the wall at the other end. The fourth bar has a length 2 cm and diameter 1 cm. "}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

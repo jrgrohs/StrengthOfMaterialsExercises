@@ -4,6 +4,6 @@
 
 A force F = 150 lb is applied to a hand crank that is stuck and will not turn. If L = 10 in. and y = 5 in., determine the maximum shear stress due to torsion in the crank rod between A and B. Assume the crank has diameter d = 0.5 in.
 
-## Problem Image
-
 ![Figure 1: A hand crank is attached to a wall.](images/267.png){fig-alt="A hand crank is attached to the wall. Member AB is attached the wall and member CD is where the force is applied. AB and CD are length L and BC has length y."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

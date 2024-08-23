@@ -1,10 +1,7 @@
 # Problem 6.14 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
-
 ![Figure 1: A circualr rod is attached to a wall.](images/270.png){fig-alt="A circular rod is attached to a wall. The rod has length L and an inner radius r[i] and outer radius r[o]. The torque is apllied at the free end."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

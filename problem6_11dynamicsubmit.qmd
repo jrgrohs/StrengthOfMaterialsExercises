@@ -1,11 +1,9 @@
 # Problem 6.11 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A hollow copper rod is fixed to a wall at one end and a torque is applied ](images/266.png){fig-alt="A hollow copper rod is fixed to a wall at one end and a torque is applied. The rod has an outer diameter of d[o] and inner diameter of d[i] and length L."}
 
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 ```{shinylive-python}
 #| standalone: true
 #| viewerHeight: 600

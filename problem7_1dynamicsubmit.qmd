@@ -1,10 +1,8 @@
 # Problem 7.1 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A beam is subjected to a distributed load and force applied. ](images/305.png){fig-alt="A beam is subjected to a distributed load, w between A and B. A force, F, is applied at C. The distance between A and B is 6ft and the distance between B and C is 2 ft. Section a-a is 3 ft from A."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

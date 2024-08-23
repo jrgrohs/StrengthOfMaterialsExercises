@@ -4,6 +4,7 @@
 
 The W = 1,000 kg weight is placed on a L = 1 m tall brass bar with a cross section of d = 2.5 cm. If the bar undergoes a temperature change of 50°C, what is the total deformation of the bar? Assume the Young's Modulus and thermal coefficient of expansion is 100 GPa and 10 x 10<sup>-6</sup> /°C, respectively. Also, assume no buckling.
 
-## Problem Image
 
 ![Figure 1: A weight is placed on a tall brass bar.](images/223.png){fig-alt="A weight is placed on a tall brass bar. The brass bar has a circular cross section of diameter d."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

@@ -1,15 +1,9 @@
 # Problem 2.3 {.unnumbered}
 
-This is a static rendering of the problem. 
-
 ## Problem Statement
-A plastic cylindrical peg is constrained by a metal cap as shown. An axial load of F = 40 lb is applied to the peg. If d<sub>1</sub> = 0.5 in and d<sub>2</sub> = 0.9 in, determine the normal stress in the peg. Assume the axial load is evenly distributed across the peg and that the metal cap is fixed and does not move.
 
-## Problem Image
+A plastic cylindrical peg is constrained by a metal cap as shown. An axial load of F = 40 lb is applied to the peg. If d<sub>1</sub> = 0.5 in and d<sub>2</sub> = 0.9 in, determine the normal stress in the peg. Assume the axial load is evenly distributed across the peg and that the metal cap is fixed and does not move.
 
 ![Figure 1: A plastic cylindrical peg is constrained by a metal cap](images/144.png){fig-alt="Picture with a cylindrical peg constrained by a metal cap with a force applied to the plastic peg."}
 
-
-
-
-
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

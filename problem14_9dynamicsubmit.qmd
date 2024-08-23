@@ -1,11 +1,9 @@
 # Problem 14.9 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: Two sylinders are stacked on top of each other.](images/519.png){fig-alt="A solid circular rod with a radius of r is subjected to an axial load F and a torsional moment T. The rod is length L."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -107,7 +105,7 @@ def server(input, output, session):
 
         # Show feedback to the user.
         feedback = ui.markdown(
-            f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}"
+            f"Your answer of {input.answer()} is {check}."
         )
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)

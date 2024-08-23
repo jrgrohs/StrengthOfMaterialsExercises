@@ -1,10 +1,8 @@
 # Problem 6.30 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A shaft made of two different materials is fixed between two walls. ](images/292.png){fig-alt="A shaft made of two different materials is fixed between two walls. The portion of the shaft made of nickel has diameter d[1] and length L[1]. The portion of the shaft made of aluminum has diameter d[2] and length L[2]. The torque is applied where the two metals meet."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

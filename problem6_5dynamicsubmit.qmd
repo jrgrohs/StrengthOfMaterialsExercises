@@ -2,9 +2,9 @@
 
 This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-## Problem Image
 
 ![Figure 1: Two torques are applied to a hollow pipe attached to the wall. ](images/278.png){fig-alt="Two torques are applied to a hollow piped attached to the wall. The pipe has inner radius r[i] and outer radius r[o]. The torque T[B] is applied at a distance L from the wall. The torque T[C] is applied at a distance L from T[B] at the free end."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

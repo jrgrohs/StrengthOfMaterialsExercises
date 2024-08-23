@@ -1,11 +1,9 @@
 # Problem 10.7 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Two sylinders are stacked on top of each other.](images/372.png){fig-alt="A beam of length L is attached to the wall at the left end. A force F is applied at point B a distance of L from the wall. The beam has a T cross section with a top width of b and a height of 2h. The top of the T is a rectangle of width b and height h and the bottom of the T is a rectangle of height h and width h."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

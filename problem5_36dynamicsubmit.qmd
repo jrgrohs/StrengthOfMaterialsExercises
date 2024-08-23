@@ -1,10 +1,8 @@
 # Problem 5.36 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: Two square members are placed between two fixed walls.  ](images/246.png){fig-alt=" Two square members are placed between two fixed walls. The wood piece is on the left and the plastic piece is on the right. Point B is at the intersection of the wood and plastic members. The members are each length L.  "}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

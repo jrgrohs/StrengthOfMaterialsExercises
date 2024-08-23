@@ -1,0 +1,10 @@
+# Problem 9.3 {.unnumbered}
+
+## Problem Statement
+
+A person of mass m = 80 kg stands on the end of a diving board with cross-section b = 300 mm and h = 50 mm. If lengths L<sub>1</sub> = 1 m and L<sub>2</sub> = 2 m, determine the maximum bending stress in the board. Assume g = 9.81 m/s<sup>2</sup>.
+
+
+![Figure 1: A diving board with a person standing on it.](images/344.png){fig-alt="A diving board of length L1+L2 has a person of mass m standing on the right side. The distance from the first pin to the second pin is L1 and the distance from the second pin to the right end is L2. The beam has a rectangular cross section of height h and width b."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

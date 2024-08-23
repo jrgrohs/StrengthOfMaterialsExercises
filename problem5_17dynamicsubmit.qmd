@@ -1,11 +1,8 @@
 # Problem 5.17 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A solid square and round bar are pulled as shown.](images/195.png){fig-alt="Picture with a solid square and round bar pullled in series. The square bar has a 2 in by 2 in cross section, is made of steel, and is of length L1. The round bar has a 0.75 in diameter, is made of aluminum and is of length L2. Force F is applied at the end of the aluminum bar."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

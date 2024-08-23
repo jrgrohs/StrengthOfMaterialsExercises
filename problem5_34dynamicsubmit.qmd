@@ -1,10 +1,8 @@
 # Problem 5.34 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A copper circular rod is inserted into an aluminum tube as shown.](images/192.png){fig-alt="Picture with an circular copper rod inserted into an aluminum tube. A load is applied at the top of the tube. The radius of the copper rod is r. The inner radius of the aluminum tube is r[i] and the outer radius is r[o] "}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

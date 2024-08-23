@@ -1,11 +1,8 @@
 # Problem 5.12 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Two forces are applied to the system of cylinders.](images/184.png){fig-alt="Picture with two aluminum cylinders connected by a steel cylinder. The aluminum cylinder on the left is attached to the wall. The radius of the left cylinder is 0.5 m and has a length L[1]. The force F[1] is applied between the first and second cylinders. The middle cylinder has a radius of 0.3 m and a length L[2]. The force F[2] is applied between the second and third cylinder. The third cylinder has a radius 0.4 m and a length of L[3]."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

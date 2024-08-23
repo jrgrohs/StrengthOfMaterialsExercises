@@ -1,11 +1,7 @@
 # Problem 2.3 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
-
 ![Figure 1: A plastic cylindrical peg is constrained by a metal cap](images/144.png){fig-alt="Picture with a cylindrical peg constrained by a metal cap with a force applied to the plastic peg."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

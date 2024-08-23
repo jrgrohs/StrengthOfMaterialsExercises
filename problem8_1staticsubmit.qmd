@@ -1,0 +1,8 @@
+# Problem 8.1 {.unnumbered}
+
+## Problem Statement
+
+For the composite cross-section shown, determine the centroid location, measured from the base. Assume dimensions b<sub>1</sub> = 20 mm, b<sub>2</sub> = 130 mm, h<sub>1</sub> = 6 mm, h<sub>2</sub> = 130 mm, and t = 4 mm.
+
+![Figure 1: A composite cross section is made of a base and a square.](images/675.png){fig-alt="A composite cross section has a base of height h1 and a hollow square of height h2. The base is of length 2b1+b2 and the hollow square has a thickness of 4 mm."}
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]

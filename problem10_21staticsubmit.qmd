@@ -1,0 +1,10 @@
+# Problem 10.21 {.unnumbered}
+
+## Problem Statement
+
+A beam is constructed from two boards nailed together as shown, with dimensions b = 3 in., h<sub>1</sub> = 1 in., and h<sub>2</sub> = 2 in.  The nails can withstand a shear load of 850 lb and the beam is subjected to a maximum shear force V = 2 kips. Determine the minimum permissible spacing between the nails.
+
+
+![Figure 1: Two sylinders are stacked on top of each other.](images/385.png){fig-alt="A beam has a rectangular cross section consisting of two rectangles nailed together. The top rectangle has height h2 and base b. The bottom rectangle has height h1 and base b."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

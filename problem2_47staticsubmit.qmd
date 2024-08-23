@@ -1,10 +1,9 @@
 # Problem 2.47 {.unnumbered}
 
-This is a static rendering of the problem.
 
 ## Problem Statement
 Two slanted brackets are glued together as shown. If F = 500 lb, L = 4 in., and Θ = 20 °, determine the shear stress parallel to the inclined plane. Assume loads are inline and there is no rotation.
 
-## Problem Image
 
 ![Figure 1: Two slanted brackets are glued together](images/153.png){fig-alt="Picture with two slanted brackets glued together, and the slant is at the stated angle. A force is applied to each edge of the brackets."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

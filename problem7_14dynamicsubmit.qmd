@@ -1,10 +1,8 @@
 # Problem 7.14 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A distributed load is applied to a beam.](images/318.png){fig-alt="A distributed load, w, is applied to a beam. The beam is length 2L and the load is applied over length L."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

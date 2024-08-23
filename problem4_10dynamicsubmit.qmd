@@ -1,11 +1,9 @@
 # Problem 4.10 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A circular road is placed in tension with an axial load. ](images/206.png){fig-alt="A circular road is placed in tension with an axial load, P. The circular rod has a diameter d and length L. "}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

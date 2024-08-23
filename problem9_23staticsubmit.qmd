@@ -1,0 +1,10 @@
+# Problem 9.23 {.unnumbered}
+
+## Problem Statement
+
+A wide flange beam supports the distributed load shown, where w<sub>0</sub> = 5 kN/m. If length L = 3 m and the allowable stress is σ = 150 MPa, what is the lightest W-beam in Appendix A that could be used for the beam?
+
+
+![Figure 1: An I beam is subjected to a triangular load.](images/365.png){fig-alt="An I beam of length 2L is subjected to triangular loading wo. The triangular load increases from A to L to a peak of wo, and decreases from wo to 0 from L to C."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

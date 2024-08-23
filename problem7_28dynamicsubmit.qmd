@@ -1,10 +1,8 @@
 # Problem 7.28 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A beam is subjected to two distributed loads.](images/333.png){fig-alt="A beam is subjected to a distributed load, w1 between B and C. Another distributed load is applied between A and D. The distance between A and B is 40 cm, the distance between B and C is 20 cm, and the distance between C and D is 40 cm."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

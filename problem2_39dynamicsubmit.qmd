@@ -1,11 +1,9 @@
 # Problem 2.39 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A link mechanism is connected with pins.](images/180.png){fig-alt="Picture with a link mechanism connected with diameter pins. One end of the bar, A, is attached to the ground by a pin. The mechanism is at point B. Member BC is attached with the ground with a pin at point C. The force is being applied at the other end, D."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

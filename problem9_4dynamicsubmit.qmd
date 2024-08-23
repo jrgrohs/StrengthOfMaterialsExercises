@@ -1,10 +1,8 @@
 # Problem 9.4 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A beam with a circular cross section is subjected to a distributed load.](images/345.png){fig-alt="A beam of length 2L1+L2 with a circular ring cross section is subjected to a distributed load w. The left end of the beam has a pin a distance of L1 from the start of the distributed load. The distributed load occurs over a length of L2. The right end of the beam has a pin a distance of L1 from the end of the distributed load. The beam's cross section is a ring with outer diameter ro and inner diameter ri."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

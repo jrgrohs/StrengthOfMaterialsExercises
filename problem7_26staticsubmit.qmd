@@ -1,0 +1,9 @@
+# Problem 7.26 {.unnumbered}
+
+## Problem Statement
+
+Plot the shear force and bending moment diagrams for the loading shown. Assume w = 30 kN/m, L<sub>1</sub> = 3.6 m, and L<sub>2</sub> = 1.2 m. What is the maximum absolute shear force and maximum absolute bending moment?
+
+![Figure 1: A beam is subjected to a distributed load with supports at A and B. ](images/330.png){fig-alt="A beam is subjected to a distributed load, w between A and B. The distance between A and B is L1 and the distance between B and C is L2."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

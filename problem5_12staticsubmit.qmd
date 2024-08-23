@@ -3,6 +3,7 @@
 ## Problem Statement
 Two forces, F<sub>1</sub> = 15 kN and F<sub>2</sub> = 10 kN, are applied to the system of cylinders as shown. If L<sub>1</sub> = 5 m, L<sub>2</sub> = 3 m, and L<sub>3</sub> = 4 m, what is the total change in length of the system? Assume E<sub>steel</sub> = 210 GPa and E<sub>aluminum</sub> = 70 GPa.
 
-## Problem Image
 
 ![Figure 1: Two forces are applied to the system of cylinders.](images/184.png){fig-alt="Picture with two aluminum cylinders connected by a steel cylinder. The aluminum cylinder on the left is attached to the wall. The radius of the left cylinder is 0.5 m and has a length L[1]. The force F[1] is applied between the first and second cylinders. The middle cylinder has a radius of 0.3 m and a length L[2]. The force F[2] is applied between the second and third cylinder. The third cylinder has a radius 0.4 m and a length of L[3]."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

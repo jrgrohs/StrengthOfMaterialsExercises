@@ -1,0 +1,10 @@
+# Problem 6.30 {.unnumbered}
+
+## Problem Statement
+
+A shaft is fixed between two walls. One portion is made from nickel (G<sub>nickel</sub> = 11.4 x 10<sup>6</sup> psi) with a diameter of d<sub>1</sub> = 2 in. The other portion is aluminum (G<sub>aluminum</sub> = 4 x 10<sup>6</sup> psi) with a diameter of d<sub>2</sub> = 4 in. A torque T = 1,000 lb-ft is applied at the point where the two materials meet. If lengths L<sub>1</sub> = 8 ft and L<sub>2</sub> = 4 ft, what is the maximum shear stress in the shaft?
+
+
+![Figure 1: A shaft made of two different materials is fixed between two walls. ](images/292.png){fig-alt="A shaft made of two different materials is fixed between two walls. The portion of the shaft made of nickel has diameter d[1] and length L[1]. The portion of the shaft made of aluminum has diameter d[2] and length L[2]. The torque is applied where the two metals meet."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

@@ -1,10 +1,8 @@
 # Problem 5.27 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A bar is attached to two wires, one steel and one aluminum.](images/191.png){fig-alt="Picture with a bar attached to two wires. The distance between the wires in 12 in. The length of the aluminum wire is L[1] and the length of the steel wire is L[2]. The load F is applied at some distance along the bar, x, measured from the aluminum wire. "}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

@@ -1,0 +1,10 @@
+# Problem 9.25 {.unnumbered}
+
+## Problem Statement
+
+A wide flange I-beam is subjected to both a distributed load w = 4 kN/m and a point load F = 25 kN. If length L<sub>1</sub> = 10 m, L<sub>2</sub> = 5 m, and the failure stress is 375 MPa, what is the lightest W-beam from Appendix A that could be used for the beam?
+
+
+![Figure 1: A I beam is subjected to a distributed load and a tip load.](images/367.png){fig-alt="An I beam of length L1+L2 is subjected to a distributed load w and a point load F. The distributed load w occurs over L1 and the point load F occurs at the end of L2."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

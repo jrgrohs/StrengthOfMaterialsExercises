@@ -1,11 +1,8 @@
 # Problem 4.24 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A strain gauge is placed on a test sample and a vertical load is applied to the test sample.](images/205.png){fig-alt="A strain gauge is placed on a test sample and a vertical load is applied to the test sample. The sides of the length in the x direction of the sample is 4 in, in the y direction it is 3 in, and it is 1 in in the z direction."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

@@ -1,10 +1,10 @@
 # Problem 6.12 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-## Problem Image
 
 ![Figure 1: A bar is attached to a wall.](images/268.png){fig-alt=" A bar is attached to a wall. The bar has an inner diameter of 1 in and outer diameter of 2 in. Torque, T[1] is applied halfway down the bar. The bar length is 10 in total."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

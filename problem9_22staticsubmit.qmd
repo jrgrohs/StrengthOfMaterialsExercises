@@ -1,0 +1,10 @@
+# Problem 9.22 {.unnumbered}
+
+## Problem Statement
+
+A wide-flange beam supports two loads F = 12 kN as shown. If L = 2 m and the allowable stress is σ = 250 MPa, what is the lightest W-beam in Appendix A that could be used for the beam?
+
+
+![Figure 1: A wide flange beam is subjected to two loads.](images/364.png){fig-alt="A wide flange beam of length 3L supports two loads of F. The first load occurs at L and the second load occurs at 2L. The beam is pinned at A and B."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

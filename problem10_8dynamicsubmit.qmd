@@ -1,12 +1,9 @@
 # Problem 10.8 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: Two sylinders are stacked on top of each other.](images/373.png){fig-alt="A beam is mounted to a wall on the left end and undergoes a distributed load w, an applied force F1, and an applied force F2. The applied force is applied from 12in to 42in from the left end of the beam. Force F1 is applied 54in from the wall and force F2 is applied 60in from the wall. The beam has a rectangular cross section of 6in high and 5in wide."}
-
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 ```{shinylive-python}
 #| standalone: true
 #| viewerHeight: 600

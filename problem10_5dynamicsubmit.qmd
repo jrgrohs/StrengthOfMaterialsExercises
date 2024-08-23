@@ -1,11 +1,9 @@
 # Problem 10.5 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: Two sylinders are stacked on top of each other.](images/370.png){fig-alt="A beam of length L is supported by pins at A and B. The beam has a force F applied at L/2. The beam cross section is two stacked rectangles The top rectangle has a base of h and a height of h, and the bottom rectangle has a base of b  and a height of h."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

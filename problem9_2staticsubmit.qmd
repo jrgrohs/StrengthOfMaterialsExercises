@@ -1,0 +1,10 @@
+# Problem 9.2 {.unnumbered}
+
+## Problem Statement
+
+A beam has the cross-section shown, where b<sub>1</sub> = 10 mm, b<sub>2</sub> = 30 mm, h<sub>1</sub> = 20 mm, and h<sub>2</sub> = 10 mm. The beam is subjected to a concentrated load F = 2 kN at its midpoint. If length L = 2 m, determine the magnitude of the maximum bending stress in the beam.
+
+
+![Figure 1: A beam has a force applied to it.](images/344.png){fig-alt="A rectangular beam with a rectangular cutout of length 2L stretches from Point A to Point B. A force F is applied at L/2 from A. The beam cross section has a width of 2b1+b2 and a height of 2h1+h2. The cutout has a width of b2 and a height of h1."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

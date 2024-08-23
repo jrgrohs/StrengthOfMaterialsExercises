@@ -1,11 +1,8 @@
 # Problem 4.23 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A block is pulled in by two forces.](images/204.png){fig-alt="Picture of a steel block being pulled in uniformly pulled by two forces. The block has sides L and thickness t."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

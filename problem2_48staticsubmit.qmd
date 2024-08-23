@@ -1,10 +1,7 @@
 # Problem 2.48 {.unnumbered}
 
-This is a static rendering of the problem. 
-
 ## Problem Statement
+
 A 2 inch thick board is cut and then glued back together along a line that is Θ = 15° off the vertical as shown. If height h = 10 in. and F = 3500 lb, determine the normal stress along the cut line.
 
-## Problem Image
-
-![Figure 1: A 2 inch thick board is cut and then glued back together along a line](images/156.png){fig-alt="Picture with a board that is cut along a line at angel Θ with the vertical. The board is glued back together."}
+![Figure 1: A 2 inch thick board is cut and then glued back together along a line](images/156.png){fig-alt="Picture with a board that is cut along a line at angel Θ with the vertical. The board is glued back together."} \[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

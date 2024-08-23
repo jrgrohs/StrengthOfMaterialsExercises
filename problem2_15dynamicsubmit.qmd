@@ -1,11 +1,8 @@
 # Problem 2.15 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A box is suspended from a ceiling with two cables..](images/160.png){fig-alt="Picture with a box of weight w suspended from the ceiling with cables AC and CB. Cable AC has a diameer of dAC and cable CB has a diameter of dCB. The angle from CB from the horizion is alpha and the angle from AC and the horizon is theta."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

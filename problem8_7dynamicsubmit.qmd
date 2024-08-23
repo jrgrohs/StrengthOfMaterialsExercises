@@ -1,11 +1,9 @@
 # Problem 8.7 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: A cross section has two round holes.](images/347.png){fig-alt="Picture with a cross section with two holes drilled. The cross section has a height of d+c+b and a width of a+a. The bottom hole is centered at height d with a diameter of d2. The top hole is centered at height c+d with a diameter of d1."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

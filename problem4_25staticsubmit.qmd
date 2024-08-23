@@ -3,6 +3,7 @@
 ## Problem Statement 
 A block is pulled in all three directions (P<sub>x</sub> = 3 kN, P<sub>y</sub> = 3 kN, P<sub>z</sub> = 6 kN). What is the percent change in volume after all three loads are applied? Assume E = 1,500 MPa and v = 0.35.
 
-## Problem Image
 
 ![Figure 1: A block is pulled in all three directions.](images/208.png){fig-alt="Picture of a block being pulled in all three directions. The loads are evenly distributed on each face. The length 6 cm in the x direction, 5 cm in the y direction, and 2 cm in the z direction."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

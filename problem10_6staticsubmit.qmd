@@ -1,0 +1,10 @@
+# Problem 10.6 {.unnumbered}
+
+## Problem Statement
+
+A T-beam has dimensions b<sub>1</sub> = 1 in., b<sub>2</sub> = 9 in., h<sub>1</sub> = 6 in., and h<sub>2</sub> = 1 in. If the shear force at this section is V = 5 kips, determine the shear stress at section a-a. 
+
+
+![Figure 1: Two sylinders are stacked on top of each other.](images/371.png){fig-alt="A T beam has a height of h1+h2 and an upper width of b2. Top of the T has a base of b2 and a height of h2, and the stem of the T has a height of h1 and a base of b1."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

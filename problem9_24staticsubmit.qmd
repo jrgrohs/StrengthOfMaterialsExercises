@@ -1,0 +1,10 @@
+# Problem 9.24 {.unnumbered}
+
+## Problem Statement
+
+A wide flange I-beam is fixed at one end into a wall, and loaded with both a distributed load w = 0.5 kN/m and a point load F = 1 kN. If length L = 12 m and the failure stress is 250 MPa, what is the lightest W-beam from Appendix A that could be used for the beam? Use a factor of safety of {FS()}.
+
+
+![Figure 1: An I beam is subjected to a distribued load and a tip force.](images/366.png){fig-alt="An I beam of length L is fixed to a wall on one end. The beam is subjected to distributed load w over the entire length and point load F at the tip."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

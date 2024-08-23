@@ -1,11 +1,8 @@
 # Problem 12.5 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A beam is subjected to a distributed load and force applied. ](images/502.png){fig-alt="A material made from fibers is stressed by sigma_x, sigma_y, and tau_xy. The fibers run at an angle of theta."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -86,7 +83,7 @@ def server(input, output, session):
         session.encoded_attempt = reactive.Value(encoded_attempt)
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
 
-        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check} For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}.")
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}.")
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 

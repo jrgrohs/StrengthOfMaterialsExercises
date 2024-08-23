@@ -1,12 +1,8 @@
 # Problem 2.40 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A crate is supported by a structure as shown.](images/161.png){fig-alt="Picture with a crate of weight W being supported by a structure. The structure is triangular with a length of 18 in and a height of 10 in. Member DC is the hypotenuse of the triangle and has a height of h. The pin has a diameter of d and a thickness of t."}
-
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 ```{shinylive-python}
 #| standalone: true
 #| viewerHeight: 600

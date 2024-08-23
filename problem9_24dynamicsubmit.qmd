@@ -1,10 +1,7 @@
 # Problem 9.24 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
-
 ![Figure 1: An I beam is subjected to a distribued load and a tip force.](images/366.png){fig-alt="An I beam of length L is fixed to a wall on one end. The beam is subjected to distributed load w over the entire length and point load F at the tip."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -106,11 +103,11 @@ def server(input, output, session):
         mask = instr['Second Num'] == wmin
         instr = pd.DataFrame(instr[mask])
 
-        correct1 = input.answer1() == instr.iloc[0,0]
-        correct2 = input.answer2() == instr.iloc[0,1]
+        correct1 = int(input.answer1()) == instr.iloc[0,0]
+        correct2 = int(input.answer2()) == instr.iloc[0,1]
         
         if correct1 and correct2:
-            check = "Both answers are correct."
+            check = "both correct."
         else:
             check = f" {'correct' if correct1 else 'incorrect'} and {'correct' if correct2 else 'incorrect'}."
         
@@ -124,7 +121,7 @@ def server(input, output, session):
         session.encoded_attempt = reactive.Value(encoded_attempt)
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
 
-        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check} For reference in debugging this, the calculated instructor answers are {instr.iloc[0,0]} and {instr.iloc[0,1]}.")
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}.")
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 

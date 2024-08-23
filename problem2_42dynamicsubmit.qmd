@@ -1,11 +1,8 @@
 # Problem 2.42 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A hanger is mounted to a wall with a rectangular bar.](images/172.png){fig-alt="Picture of a hanger of width a+2b and height 2a+b is mounted to a wall with a rectangular bar of width a and height b. The hanger is subjected to a force F."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 # | standalone: true

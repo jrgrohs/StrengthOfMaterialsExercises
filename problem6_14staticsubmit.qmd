@@ -4,9 +4,9 @@
 
 A circular rod of length L = 350 mm, outer radius r<sub>o</sub> = 30 mm, and unknown inner radius r<sub>i</sub> has a shear modulus G = 80 GPa. The rod is subjected to torque T = 1.25 kN-m at the free end. If the angle of twist must not exceed 2° and the shear stress must not exceed 100 MPa, what is the minimum required inner radius?
 
-## Problem Image
 
 ![Figure 1: A circualr rod is attached to a wall.](images/270.png){fig-alt="A circular rod is attached to a wall. The rod has length L and an inner radius r[i] and outer radius r[o]. The torque is apllied at the free end."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

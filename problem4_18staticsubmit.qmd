@@ -1,0 +1,6 @@
+# Problem 4.18 {.unnumbered}
+
+## Problem Statement
+A copper pipe (α = 17x10<sup>-6</sup> /°C) of length L = 6.2 m is cooled from 31°C to to 4°C. Determine the longitudinal strain in the cooled pipe.
+
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]

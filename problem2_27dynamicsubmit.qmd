@@ -1,11 +1,8 @@
 # Problem 2.27 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A simply supported beam rests on a sloping wall and is bolted as shown.](images/175.png){fig-alt="Pictue of a simply supported beam of length L resting on a sloping wall of angle theta and bolted at the other wall with a bolt of diameter d. The beam is subjected to a triangular distributed load w."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 # | standalone: true

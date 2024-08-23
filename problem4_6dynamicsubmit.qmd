@@ -1,11 +1,8 @@
 # Problem 4.6 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A polymer test specimen is pulled from the top and bottom.](images/194.png){fig-alt="Picture of dog bone shaped polymer test specimen is pulled from the top and bottom. The length, L, represented the distance between two points in the center of the speciment. The width, w, is the distance across the middle of the dog bone."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

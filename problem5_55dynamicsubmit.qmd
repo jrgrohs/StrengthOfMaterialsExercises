@@ -1,10 +1,8 @@
 # Problem 5.55 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: Two bars are pinned at joint B between two walls.](images/249.png){fig-alt=" Two bars are pinned at joint B between two walls. Joint AB is on the left hand side and joint BC is on the right hand side. Both bars are length L and thickness t and height h. The diameter of the bolt holding them together is d. "}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

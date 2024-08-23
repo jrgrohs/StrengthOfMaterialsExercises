@@ -1,10 +1,8 @@
 # Problem 2.13 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A beam held in place with a rope over a pully is subjected to a force.](images/158.png){fig-alt="A beam of length 2m is held in place by a rope over a pully. The distance from the wall C and B is 1m, the distance from B to A is 1m, and a force is applied halfway between B and A. The rope is at an angle of theta from the horizontal at B."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

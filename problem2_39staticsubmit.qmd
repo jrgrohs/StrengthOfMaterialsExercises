@@ -4,6 +4,7 @@
 
 A link mechanism is connected with pins of diameter d = 1/2 in. A force F = 500 lb is applied to the mechanism as shown. The mechanism has width w = 1 in. and thickness t = 1/4 in. What is the bearing stress in member BC at joint B due to the pin at B?
 
-## Problem Image
 
 ![Figure 1: A link mechanism is connected with pins.](images/180.png){fig-alt="Picture with a link mechanism connected with diameter pins. One end of the bar, A, is attached to the ground by a pin. The mechanism is at point B. Member BC is attached with the ground with a pin at point C. The force is being applied at the other end, D."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

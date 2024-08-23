@@ -1,11 +1,8 @@
 # Problem 2.17 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A beam structure supported at each end is subjected to a distributed load.](images/162.png){fig-alt="Picture with a beam structure supported at each end being subjected to a distributed load w. The tube at point A has an area of AA, and the tube at point B has an area of AB. The distributed load is triangular and occurs over length L."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 # | standalone: true

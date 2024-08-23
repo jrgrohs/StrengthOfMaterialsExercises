@@ -1,11 +1,8 @@
 # Problem 4.25 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A block is pulled in all three directions.](images/208.png){fig-alt="Picture of a block being pulled in all three directions. The loads are evenly distributed on each face. The length 6 cm in the x direction, 5 cm in the y direction, and 2 cm in the z direction."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

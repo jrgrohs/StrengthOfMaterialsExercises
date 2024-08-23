@@ -1,10 +1,8 @@
 # Problem 2.12 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A series of solid circular bars are subjected to a set of loading.](images/155.png){fig-alt="A series of four circular bars are subjected to four forces. F1 is applied at the left tip, F2 is applied at the second circular bar, F3 is applied to the left of the third circular bar, and F4 is applied at the fourth circular bar. Section a has a diameter of 17 cm."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

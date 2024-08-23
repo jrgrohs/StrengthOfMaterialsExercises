@@ -1,0 +1,10 @@
+# Problem 10.4 {.unnumbered}
+
+## Problem Statement
+
+A simply supported beam is constructed from two wooden boards as shown. The beam supports a distributed load w = 3.5 kN/m. If lengths L<sub>1</sub> = 1.5 m and L<sub>2</sub> = 3 m, what is the maximum shear stress in the glue that holds the boards together?
+
+
+![Figure 1: Two sylinders are stacked on top of each other.](images/369.png){fig-alt="A beam from A to B is subjected to a distributed load w. The distance from A to the start of the distributed load is L1, the distributed load occurs over a distance of L2, and the distance from the end of the distributed load to B is L1. The beam has a T cross section with a top width of 200 mm, a height of 220 mm and a uniform thickness of 20 mm."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

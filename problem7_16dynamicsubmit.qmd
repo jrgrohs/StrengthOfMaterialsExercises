@@ -1,10 +1,8 @@
 # Problem 7.16 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A beam is subjected to a distributed load and a moment with supports at A and B. ](images/322.png){fig-alt="A beam is subjected to a distributed load, w between B and C. A moment is applied clockwise at the left end of the beam. The distance between A and B is L and the distance between B and C is L."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -98,7 +96,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check} For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}.")
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}.")
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 

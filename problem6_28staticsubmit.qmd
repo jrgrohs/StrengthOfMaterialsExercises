@@ -1,0 +1,10 @@
+# Problem 6.28 {.unnumbered}
+
+## Problem Statement
+
+A composite circular rod is made from two different plastics. A torque of T = 4 kN-m is applied at the midpoint. The right end is free. What is the maximum stress in either material? Assume length L = 10 cm and the shear modulus of the two materials are G<sub>1</sub> = 2 GPa and G<sub>2</sub> = 1 GPa.
+
+
+![Figure 1: A composite circular rod is made from two different plastics. A torque is applied at the midpoint.](images/288.png){fig-alt="A composite circular rod is made from two different plastics. A torque is applied at the midpoint. One end is fixed to the wall. The length of each half of rod is L. The inner material is material 1 and the outer material is material 2. The inner radius is 2 cm and the outer radius is 3 cm."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

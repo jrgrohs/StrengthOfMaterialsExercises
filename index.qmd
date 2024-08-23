@@ -1,7 +1,124 @@
-# Welcome to Demo Site {.unnumbered}
+# Welcome to the Problem Set for Strength of Materials {.unnumbered}
 
-Welcome to this demonstration site of the Strength of Materials Open Problem Exercises companion to the Strength of Materials Open Textbook.
+## How to Use This Resource
 
-At this time, we are simply using this site as a demonstration and shell for our ongoing work.  The intent is to demonstrate a more traditional static style problem exercise pack along with dynamic versions which allow students to quickly check answers and receive basic feedback, and/or to input their math in an interactive interface which will provide them with targeted feedback based on their atempted solution.
+Note: This version of the problem set is a review copy for in-class piloting. This is not the final, published version of the problem set.
 
-This work is still very much in progress and you may find bugs. We would welcome any input or feedback you have about this. Thanks!
+The navigation bar of this site will allow you to browse to the specific problems you want to view and solve. The Problem Submission App enables you to create your own unique problem used to solve homework problems. Once your problem is generated, you will be able to submit an answer to the problem and receive instantaneous right/wrong feedback before attempting another solution. At the end of your work, you can download a file log of your submissions to share with your instructor. The problem generation process is based on the ID number you use and so if you attempt the problem from a different computer or at a different time, the variables generated for you will be stable across these runs. However, the log downloader is specific to your current session and so attempting the problem across devices does not save attempt across devices
+
+Additionally, there are versions of the problems with fixed variables that do not use the Problem Submission App. These are available to you also in the sidebar should you want a more traditional textbook listing of problems.
+
+If you have any questions or issues while using this system, you are encouraged to contact your instructor and they will help work through the issues with the developers.
+
+## Copyright Information
+
+**©2024. James Lord and Jacob Grohs, eds.**, Problem Set for Strength of Materials is licensed under a Creative Commons Attribution NonCommercial ShareAlike 4.0 International License, except where otherwise noted. 
+
+**You are free to** copy, share, adapt, remix, transform, and build on the material for any purpose as long as you follow the terms of the license: [https://creativecommons.org/licenses/by-nc-sa/4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
+
+**You must**: 
+
+-   Attribute—You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
+-   ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the [same license](https://creativecommons.org/licenses/by-nc-sa/4.0/#ref-same-license)as the original.
+
+**You may not**: 
+
+-   NonCommercial — You may not use the material for [commercial purposes](https://creativecommons.org/licenses/by-nc-sa/4.0/#ref-commercial-purposes).
+
+-   Additional restrictions—You may not add any legal terms or technological measures that legally restrict others from doing anything the license permits. 
+
+## **ACKNOWLEDGMENTS**
+
+The team gratefully acknowledges the generosity of Kurt Gramoll. Many of the problems were adapted from Kurt Gramoll’s collection in the [Apple Store](https://apps.apple.com/us/app/eng-mechanics/id1526030024) and [Google Play](https://play.google.com/store/apps/details?id=air.com.gramago.engProbME&pli=1) and released with permission under a CC BY NC SA 4.0 license.
+
+**Problem Set Editor and Content Coordinator**
+
+James K. Lord, Associate Collegiate Professor, Virginia Tech
+
+**Authors of Problems**
+
+Kurt Gramoll, Emeritus Professor, University of Oklahoma
+
+James K. Lord, Mechanical Engineering, Virginia Tech
+
+Chris Galitz, Mechanical Engineering, Virginia Tech
+
+Frances Davis, Department of Engineering, Brightpoint Community College
+
+Sneha Davison. Mechanical Engineering, Virginia Tech
+
+Richard Kent, Department of Mechanical & Aerospace Engineering, University of Virginia
+
+Nina Lord, Department of Engineering, North Virginia Community College
+
+Amy Richardson, Dept of Engineering, North Virginia Community College / Engineering Education, Virginia Tech
+
+Joao Soares, Department of Mechanical and Nuclear Engineering, Virginia Commonwealth University
+
+Sevak Tahmasian, Mechanical Engineering, Virginia Tech
+
+**Figure Design of Problems**
+
+Kindred Grey, Graphic Design and Production Specialist, University Libraries, Virginia Tech
+
+**Software Editor**
+
+Jacob Grohs, Associate Professor, Engineering Education, Virginia Tech
+
+**Review, Problem Redevelopment, and Programming**
+
+James K. Lord, Associate Collegiate Professor, Mechanical Engineering, Virginia Tech
+
+Olivia Ryan, Doctoral Student, Engineering Education, Virginia Tech
+
+Benjamin E. Chaback, Doctoral Student, Engineering Education, Virginia Tech
+
+**Layout and Design**
+
+Kindred Grey, Graphic Design and Production Specialist, University Libraries, Virginia Tech
+
+**Project Coordination and Management**
+
+Anita Walz, Associate Professor, University Libraries, Virginia Tech
+
+**FUNDING**
+
+This project was made possible in part through funding from an Open Course Grant from VIVA (The Virtual Library of Virginia), the Open Education Initiative of the University Libraries at Virginia Tech, \[what else am I missing??\]
+
+**Suggested citation**:  James Lord and Jacob Grohs, eds. (2024). Problem Set for Strength of Materials. Blacksburg: Virginia Tech Publishing. <https://engineeringmechanicsoer.github.io/StrengthOfMaterialsExercises>. Licensed with CC BY NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0>.
+
+**Publisher**: This work is published by the Department of Mechanical Engineering and Department of Engineering Education at Virginia Tech in association with the Open Education Initiative and Virginia Tech Publishing.
+
+**Virginia Tech Department of Mechanical Engineering**
+
+445 Goodwin Hall, 635 Prices Fork Road
+
+Blacksburg,, VA 24061 USA
+
+<https://me.vt.edu> 
+
+**Department of Engineering Education at Virginia Tech**
+
+345 Goodwin Hall, 635 Prices Fork Rd,
+
+ Blacksburg,  VA 24061 USA
+
+<https://enge.vt.edu> 
+
+**Open Education Initiative**
+
+University Libraries at Virginia Tech 
+
+560 Drillfield Drive Blacksburg, VA 24061 USA 
+
+[openeducation\@vt.edu](mailto:openeducation@vt.edu) 
+
+**Virginia Tech Publishing**
+
+University Libraries at Virginia Tech 
+
+560 Drillfield Drive Blacksburg, VA 24061 USA 
+
+<https://publishing.vt.edu>   \|   [publishing\@vt.edu\
+](mailto:publishing@vt.edu)

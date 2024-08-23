@@ -3,6 +3,7 @@
 ## Problem Statment
 A hollow copper rod (E = 110 GPa, v = 0.33) is subjected to torque T as shown. If length L = 0.8 m, outer diameter d<sub>o</sub> = 80 mm, and inner diameter d<sub>i</sub> = 40 mm, determine torque T if the rod twists 2°.
 
-## Problem Image
 
 ![Figure 1: A hollow copper rod is fixed to a wall at one end and a torque is applied ](images/266.png){fig-alt="A hollow copper rod is fixed to a wall at one end and a torque is applied. The rod has an outer diameter of d[o] and inner diameter of d[i] and length L."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

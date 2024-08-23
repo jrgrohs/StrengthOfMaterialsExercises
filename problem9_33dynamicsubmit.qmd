@@ -1,11 +1,8 @@
 # Problem 9.33 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: An I beam is subjected to a load.](images/484.png){fig-alt="A S10x35 steel I-beam is subjected to a single load. The beam is of length 2L and the load F is applied a distance of L from the left end. The beam has a height of 10 in and a width of 4.944 in. The beam is at an angle of theta."}
-
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 ```{shinylive-python}
 #| standalone: true
 #| viewerHeight: 600
@@ -91,7 +88,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

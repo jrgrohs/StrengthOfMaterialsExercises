@@ -1,0 +1,10 @@
+# Problem 11.17 {.unnumbered}
+
+## Problem Statement
+
+A beam of length L = 10 m is subjected to a distributed load as shown where w<sub>0</sub> = 35 kN/m. Determine the magnitude of the deflection at x = 0.55L. Assume EI = 15,000 kN-m<sup>2</sup>.
+
+
+![Figure 1: Two sylinders are stacked on top of each other.](images/404.png){fig-alt="A beam of length L is subjected to the distributed load w as defined by the equation w = w0sin(x*pi/L)."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

@@ -1,0 +1,11 @@
+# Problem 10.7 {.unnumbered}
+
+## Problem Statement
+
+A beam of length L = 10 ft is constructed by gluing together two boards and is subjected to a concentrated load F = 500 lb. The cross-section has dimensions b = 3 in. and h = 1 in. Determine the shear stress at the seam between the two boards at section a-a.
+
+
+
+![Figure 1: Two sylinders are stacked on top of each other.](images/372.png){fig-alt="A beam of length L is attached to the wall at the left end. A force F is applied at point B a distance of L from the wall. The beam has a T cross section with a top width of b and a height of 2h. The top of the T is a rectangle of width b and height h and the bottom of the T is a rectangle of height h and width h."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

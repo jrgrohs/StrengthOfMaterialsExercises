@@ -1,11 +1,9 @@
 # Problem 2.30 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: Two bolts are attached to an assembly with a force applied as shown.](images/179.png){fig-alt="Picture with two bolts of diameter d in an assembly undergoing a load F."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

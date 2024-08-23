@@ -1,11 +1,8 @@
 # Problem 10.17 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Two sylinders are stacked on top of each other.](images/380.png){fig-alt="A beam of length L is secured to the wall on the left end. A force F is applied at the right end. The beam has a cross section of height h and width b, with a nail at b/2 going through the beam."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

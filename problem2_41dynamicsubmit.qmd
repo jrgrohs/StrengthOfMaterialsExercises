@@ -1,11 +1,9 @@
 # Problem 2.41 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: A steel connector plate is hung from a brass rod.](images/169.png){fig-alt="A steel connector plate with a semicircular top is hung from a brass rod of diameter d. The steel plate has a thickness of t and a width of 2t+d."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

@@ -1,11 +1,8 @@
 # Problem 2.6 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Truss ABCDEFGH supports three loads.](images/142.png){fig-alt="A truss supports three loads, F1, F2, and F3. The distance from A to C is 2ft, the distance from C to E is 3ft, the distance from E to G is 3ft, the distance from G to H is 2ft, and the vertical distance from H to F is 2 ft. F1 is applied at C, F2 is applied at D, and F3 is applied at G. The members have a hollow cylindrical cross section with an outer radius of 1.0in and an inner radius of 0.75in."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

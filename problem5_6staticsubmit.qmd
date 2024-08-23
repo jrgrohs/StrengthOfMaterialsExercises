@@ -1,0 +1,8 @@
+# Problem 5.6 {.unnumbered}
+
+## Problem Statement
+
+A flat bar of thickness t = 9 mm contains a hole as shown. The bar is subjected to a tensile load P = 4.7 kN. Determine the maximum tensile stress in the bar.
+
+![Figure 1: A flat bar with a hole has a tensile load applied to it.](images/664.png){fig-alt="A flat bar of thickness t and height 43 mm has a hole of radius 11 mm. The bar has a tensile load P applied to it."}
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]

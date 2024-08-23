@@ -1,11 +1,8 @@
 # Problem 2.48 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A two inch thick board is cut and then glued back together.](images/156.png){fig-alt="Picture with a board that is cut along a line at angel Θ with the vertical. The board is glued back together."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

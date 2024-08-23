@@ -4,6 +4,6 @@
 
 A steel connector plate is hung from a brass rod of diameter d = 1 in. The plate has dimensions t = 0.5 in. and w = 2 in. Considering only bearing stress, find the minimum load that will cause the connector or rod to fail. Assume the failure bearing stress for brass is 70 ksi and for steel is 75 ksi.
 
-## Problem Image
 
 ![Figure 1: A steel connector plate is hung from a brass rod.](images/169.png){fig-alt="A steel connector plate with a semicircular top is hung from a brass rod of diameter d. The steel plate has a thickness of t and a width of 2t+d."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

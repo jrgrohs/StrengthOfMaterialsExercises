@@ -1,0 +1,10 @@
+# Problem 6.29 {.unnumbered}
+
+## Problem Statement
+
+A composite circular rod is made from aluminum (G = 3,800 ksi) and steel (G = 11,000 ksi) as shown. A torque T = 800 lb-ft is applied to the free end. What is the maximum stress in either material? Assume length L = 12 in., outer radius r<sub>o</sub> = 1.5 in., and inner radius r<sub>i</sub> = 1 in.
+
+
+![Figure 1: A composite circular rod is made from aluminum and steel.](images/289.png){fig-alt="A composite circular rod of length L is made from aluminum and steel. The steel rod has a diameter of ri and the aluminum rod has a diameter of ro."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

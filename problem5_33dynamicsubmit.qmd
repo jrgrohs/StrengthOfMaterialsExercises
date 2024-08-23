@@ -1,11 +1,8 @@
 # Problem 5.33 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Two point loads are applied to a horizontal rod supported as shown.](images/189.png){fig-alt="Picture with a 24 in long horizontal rod supported by two wires. Wire A is 6 in long and occurs at the left end of the rod. Wire B is 12 in long and occurs 16 in from the left end. Two forces F1 and F2 are applied at 8 in and 24 in from the left end, respectively."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

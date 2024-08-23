@@ -1,10 +1,10 @@
 # Problem 5.50 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered.
 
 ## Problem Statement
 The axial stress in a solid circular bar between two fixed walls is 30 ksi. Find the temperature change necessary to relieve the stress. Assume L = 30 in., E = 29,000 ksi, and α = 6.5 x 10<sup>-6</sup> / °F.
 
-## Problem Image
 
 ![Figure 1: A solid circular bar is between two fixed walls.](images/222.png){fig-alt="A solid circular bar is between two fixed walls with length L."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

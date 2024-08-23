@@ -1,12 +1,9 @@
 # Problem 10.4 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
 
-
-## Problem Image
 
 ![Figure 1: Two sylinders are stacked on top of each other.](images/369.png){fig-alt="A beam from A to B is subjected to a distributed load w. The distance from A to the start of the distributed load is L1, the distributed load occurs over a distance of L2, and the distance from the end of the distributed load to B is L1. The beam has a T cross section with a top width of 200 mm, a height of 220 mm and a uniform thickness of 20 mm."}
-
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 ```{shinylive-python}
 #| standalone: true
 #| viewerHeight: 600

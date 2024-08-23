@@ -1,11 +1,8 @@
 # Problem 7.25 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A shelf is loaded with four boxes.](images/321.png){fig-alt="Picture of a shelf with four boxes. Box one was a weight of W1 over a distance L, box two has a weight of W2 over a distance L, box three has a weight of W3 over a distance L, and box four has a weight of W4 over a distance L. The shelf has two supports at L and 3L."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -93,7 +90,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

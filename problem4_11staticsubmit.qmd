@@ -3,6 +3,7 @@
 ## Problem Statement 
 An aluminum circular rod of radius r<sub>1</sub> = 2 in is inserted into space that is slightly wider than the rod, where r<sub>2</sub> = 2.003 in. What load P is needed so that the rod expands and fills the space in the radial direction? Assume E = 15,000 ksi and v = 0.33.
 
-## Problem Image
 
 ![Figure 1: A circular rod is inserted into a space slightly wider than the rod.](images/213.png){fig-alt="A circular rod is inserted into a space slightly wider than the rod. The radius of the rod is r[1] and the radius of the space is r[2]."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

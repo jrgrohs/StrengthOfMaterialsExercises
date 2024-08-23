@@ -1,10 +1,8 @@
 # Problem 3.1 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A rubber cylinder experiences a deflection after a force is applied.](images/196.png){fig-alt="Picture with a rubber cylinder experiencing a deflection. Under load F, the cylinder is height L."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

@@ -1,12 +1,8 @@
 # Problem 5.18 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Two square rods attached together are pulled as shown.](images/197.png){fig-alt="Picture with two square rods that are attached together subjected to force F at the right end. Rod a-a has a length of 0.5 m and a cross section of w1xw1. Rod b-b has a length of 0.6 m and a cross section of w2xw2."}
-
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 ```{shinylive-python}
 #| standalone: true
 #| viewerHeight: 600

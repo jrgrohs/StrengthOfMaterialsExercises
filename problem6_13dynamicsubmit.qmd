@@ -1,10 +1,8 @@
 # Problem 6.13 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
 
 ![Figure 1: A system of cylinders are attached to the wall at one end.  ](images/269.png){fig-alt="A system of cylinders are attached to the wall at one end. The first torque is applied at the connection of the cylidner attached to the wall made of steel with the cylinder made of aluminum. The second torque is applied at the connection between the cylinder made of aluminum and the second cylinder made of steel. The third torque is applied at the free end. The first cyliner has length 10 cm and diamter 5 cm. The second cyliner has length 15 cm and diamter  3 cm. The third cyliner has length 8 cm and diamter 4 cm."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

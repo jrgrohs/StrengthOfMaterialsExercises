@@ -1,11 +1,8 @@
 # Problem 7.27 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: A beam is loaded as shown.](images/332.png){fig-alt="Picture of a beam with a series of loads applied. F1 occurs at A, w occurs from A to B, and F2 occurs at C. The beam is attached to the wall at D. The distance from A to B is 3m, the distance from B to C is 2m, and the distance from C to D is 1m."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
@@ -86,7 +83,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

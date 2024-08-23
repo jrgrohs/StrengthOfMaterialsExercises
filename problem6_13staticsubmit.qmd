@@ -4,6 +4,7 @@
 
 Three moments are applied to the system of cylinders as shown. Assume T<sub>1</sub> = 3 kN-m, T<sub>2</sub> = 6 kN-m, and T<sub>3</sub> = -4 kN-m. If G<sub>steel</sub> = 77 GPa and G<sub>aluminum</sub> = 27 GPa, determine the total angle of twist at the free end.
 
-## Problem Image
 
 ![Figure 1: A system of cylinders are attached to the wall at one end.  ](images/269.png){fig-alt="A system of cylinders are attached to the wall at one end. The first torque is applied at the connection of the cylidner attached to the wall made of steel with the cylinder made of aluminum. The second torque is applied at the connection between the cylinder made of aluminum and the second cylinder made of steel. The third torque is applied at the free end. The first cyliner has length 10 cm and diamter 5 cm. The second cyliner has length 15 cm and diamter  3 cm. The third cyliner has length 8 cm and diamter 4 cm."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

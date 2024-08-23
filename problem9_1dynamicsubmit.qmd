@@ -1,10 +1,6 @@
 # Problem 9.1 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-## Problem Image
-
-![Figure 1: Beam undergoing a distributed load.](images/342.png){fig-alt="Beam undergoing a distributed load from A to the midpoint. The distributed load (w) is applied over length L,with point B located at 2L from A. The beam has a rectangular cross section of height h and width b."}
+![Figure 1: Beam undergoing a distributed load.](images/342.png){fig-alt="Beam undergoing a distributed load from A to the midpoint. The distributed load (w) is applied over length L,with point B located at 2L from A. The beam has a rectangular cross section of height h and width b."} \[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

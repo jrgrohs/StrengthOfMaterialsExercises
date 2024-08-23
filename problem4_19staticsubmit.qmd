@@ -1,0 +1,7 @@
+# Problem 4.19 {.unnumbered}
+
+## Problem Statement
+
+Upon plant startup, a steel steam pipe (α = 6.5 x 10<sup>-6</sup> /°F) of length L = 120 ft is raised in temperature from an ambient temperature of 65°F to 413°F. Determine the change in length of the pipe.
+
+\[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]

@@ -3,6 +3,6 @@
 ## Problem Statement
 A crate weight W = 120 lb is attached to a cable constructed from steel of length L<sub>1</sub> = 12 in. and Area A<sub>1</sub> = 0.02 in.<sup>2</sup> and aluminum of length L<sub>2</sub> = 24 in. and area A<sub>2</sub> = 0.03 in.<sup>2</sup>. What is the total deflection of the crate after it is attached to the wire? Assume E<sub>steel</sub> = 29,000 ksi and E<sub>aluminum</sub> = 10,000 ksi. Neglect the weight of the wires.
 
-## Problem Image
 
 ![Figure 1: A crate is attached to a cable made from steel and aluminum.](images/187.png){fig-alt="Picture with a create attached to cable. The steel part of the cable is L[1] in and the aluminum part of the cable is L[2]. "}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

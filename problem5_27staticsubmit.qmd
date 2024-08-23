@@ -3,6 +3,7 @@
 ## Problem Statement
 A bar is attached to two wires, one steel and one aluminum. If the lengths of the wires L<sub>1</sub> = 8 in. and L<sub>2</sub> = 10 in., find the distance x that load F = 5 kips must be placed at so that the bar remains horizontal after the load is applied. Both wires have the same cross-section area A = 0.02 in.<sup>2</sup>. Assume E<sub>steel</sub> = 29,000 ksi, E<sub>aluminum</sub> = 10,000 ksi and that the bar is of length L = 12 in.
 
-## Problem Image
 
 ![Figure 1: A bar is attached to two wires, one steel and one aluminum.](images/191.png){fig-alt="Picture with a bar attached to two wires. The distance between the wires in 12 in. The length of the aluminum wire is L[1] and the length of the steel wire is L[2]. The load F is applied at some distance along the bar, x, measured from the aluminum wire. "}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

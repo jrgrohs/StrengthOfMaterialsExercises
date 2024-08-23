@@ -3,6 +3,7 @@
 ## Problem Statement
 Two square members are attached to two fixed walls as shown. Force F is applied at point B and point B is displaced d =  0.002 in. to the right. If L = 5 in., E<sub>wood</sub> = 1,750 ksi, and E<sub>plastic</sub> = 400 ksi, determine the applied force F.
 
-## Problem Image
 
 ![Figure 1: Two square members are placed between two fixed walls.](images/246.png){fig-alt="Two square members are placed between two fixed walls. The wood piece is on the left and the plastic piece is on the right. Point B is at the intersection of the wood and plastic members. The members are each length L."}
+
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]

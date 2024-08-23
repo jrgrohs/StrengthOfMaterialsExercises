@@ -1,11 +1,8 @@
 # Problem 2.8 {.unnumbered}
 
-This is a dynamic rendering of the problem with dynamic variables based on the username entered. 
-
-
-## Problem Image
 
 ![Figure 1: Truss ABCDEF supports two loads.](images/149.png){fig-alt="A truss is made of members with an area of A. The distance from A to B is L and from B to C is 2L. The vertical distance from A to D is L and the vertical distance from D to F is 2L. A force of 2F is applied at B and a force of F is applied at C."}
+\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true
